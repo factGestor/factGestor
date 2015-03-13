@@ -11,3 +11,5 @@ Trabajando en cuentasARegistrar.
 
 Version 2.1. Creacion de cuentasARegistrar, falta envio de mail con codigo de confirmacion (codigo de registro = id de la tabla)
 Falta recepcion en el enlace del codigo generado.
+
+Version 2.2 Envio de mail colocado, falta parte de recepcion del enlace y comprobar envio de email.

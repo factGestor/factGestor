@@ -32,7 +32,7 @@ public class CuentasARegistrarDAOImpl implements CuentasARegistrarDAO {
 	}
 
 	@Override
-	public CuentaARegistrar getCuentaARegistrar(String userId) {
+	public CuentaARegistrar getCuentaARegistrar(Long userId) {
 		
 		EntityManager em = EMFService.get().createEntityManager();
 		System.out.println("Hemos entrado a getCuentaARegistrar(id)");
