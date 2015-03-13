@@ -1,11 +1,19 @@
 package es.upm.dit.isst.factGest;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServlet;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
+import java.util.Properties;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,10 +23,15 @@ import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
+import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAO;
+import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAOImpl;
 import es.upm.dit.isst.factGest.dao.DominioDAO;
 import es.upm.dit.isst.factGest.dao.DominioDAOImpl;
 import es.upm.dit.isst.factGest.dao.UsuarioDAO;
 import es.upm.dit.isst.factGest.dao.UsuarioDAOImpl;
+import es.upm.dit.isst.factGest.model.CuentaARegistrar;
+import es.upm.dit.isst.factGest.model.Usuario;
+
 
 
 public class RegistroServlet extends HttpServlet {
@@ -54,19 +67,36 @@ public class RegistroServlet extends HttpServlet {
 				dominiosLista.add("");
 			}
 			DominioDAO daoDominio = DominioDAOImpl.getInstance();
-			System.out.println("TRAZA 1"); //TRAZA
+			
 			//busqueda del Id del usuario
 			//da problemas pues se tarda en crear unos milisegundos, por eso ponemos el esperar
-			esperar(1000);
+			while(daoUser.getId(name)==1){
+			}
 			Long userID = daoUser.getId(name);
-			System.out.println("TRAZA 2"); //TRAZA
+			
 			Iterator<String> it = dominiosLista.iterator();
-			 
+			System.out.println("Lista dominios  "); //TRAZA 
 			while (it.hasNext()) {
-			 
+				
 				String auxDominio = it.next();
+				System.out.println(auxDominio);
 				daoDominio.add(auxDominio, userID);
 			}
+			
+			//construccion del objeto cuentaARegistrar
+			CuentasARegistrarDAO daoCuentaARegistrar = CuentasARegistrarDAOImpl.getInstance();
+			daoCuentaARegistrar.add(userID);
+			
+			//envio de correo con el id
+			CuentaARegistrar cuentaARegistrar = daoCuentaARegistrar.getCuentaARegistrar(userID);
+			Usuario usuario = daoUser.getUsuario(userID);
+			try {
+				envioCorreo(cuentaARegistrar, usuario);
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			
 		}
 		resp.sendRedirect("/");
@@ -89,6 +119,7 @@ public class RegistroServlet extends HttpServlet {
 		String dominioAnadir;
 		String dominiosRestantes = dominios;
 		int a;
+		int b = 0;
 		System.out.println("TRAZA DE sacarDominios "); //TRAZA
 		//si no hay un ; sera que solo hay uno
 		if (dominiosRestantes.indexOf(";")==-1){
@@ -96,12 +127,15 @@ public class RegistroServlet extends HttpServlet {
 		}
 		while(true){
 			a = dominiosRestantes.indexOf(";");
+			
 			if (a!=-1){
 				dominioAnadir = dominiosRestantes.substring(0, a);
 				dominiosRestantes = dominios.substring(a+1, dominiosRestantes.length());
 				listaDominios.add(dominioAnadir);
 			}
 			else{
+				if(dominiosRestantes.length()>0)
+					listaDominios.add(dominiosRestantes);
 				break;
 			}
 		}
@@ -109,12 +143,24 @@ public class RegistroServlet extends HttpServlet {
 		System.out.println(listaDominios);
 		return listaDominios;
 	}
-	private void esperar (int milisegundos) {
-		try {
-		Thread.sleep (milisegundos);
-		} catch (Exception e) {
-		// Mensaje en caso de que falle
-		}
-		}
 
+	
+	private void envioCorreo(CuentaARegistrar cuentaARegistrar, Usuario usuario) throws UnsupportedEncodingException, MessagingException{
+		Properties props = new Properties();
+		Session session = Session.getDefaultInstance(props,	null);
+		Message msg = new MimeMessage(session);
+		msg.setFrom(new InternetAddress("noreply@fact-gest.appspotmail.com", "Gestion de facturas"));
+				msg.addRecipient(Message.RecipientType.TO,
+						new InternetAddress(usuario.getEmail(),usuario.getName()));
+				msg.setSubject("Validación de registro en FACT GEST");
+				String msgBody = "Para verificar su cuenta acceda al siguiente enlace: "
+						+ "" + System.getProperty("line.separator") + 
+						"http://www.fact-ges.appspot.com/confirmacion/"+ cuentaARegistrar.getId();
+						//DIRECCION A LA QUE TIENE QUE ACCEDER
+				msgBody += System.getProperty("line.separator") +
+						"Atentamente un saludo," + System.getProperty("line.separator") + "Equipo de Gestión de facturas";
+				msg.setText(msgBody);
+				Transport.send(msg);
+	}
+	
 }

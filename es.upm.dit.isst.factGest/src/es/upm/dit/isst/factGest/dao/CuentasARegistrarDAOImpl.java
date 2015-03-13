@@ -8,20 +8,31 @@ import javax.persistence.Query;
 import es.upm.dit.isst.factGest.model.CuentaARegistrar;
 
 public class CuentasARegistrarDAOImpl implements CuentasARegistrarDAO {
+	
+	private static CuentasARegistrarDAOImpl instance;
+	private CuentasARegistrarDAOImpl() {
+	}
+	public static CuentasARegistrarDAOImpl getInstance(){
+		if (instance == null)
+			instance = new CuentasARegistrarDAOImpl();
+		
+		return instance;
+	}
 
 	@Override
 	public void add(Long userId) {
 		// TODO Auto-generated method stub
+		System.out.println("UserId = "+ userId);
 		EntityManager em = EMFService.get().createEntityManager();
-		//public CuentaARegistrar(Long userId)
 		CuentaARegistrar cuentaARegistrar = new CuentaARegistrar(userId);
+		System.out.println("TRAZA 2 id = " + cuentaARegistrar.getId()+ " codigoRegistro = "+cuentaARegistrar.getUserId()); //TRAZA
 		em.persist(cuentaARegistrar);
 		em.close();
 
 	}
 
 	@Override
-	public CuentaARegistrar getCuentaARegistrar(String userId) {
+	public CuentaARegistrar getCuentaARegistrarUser(Long userId) {
 		
 		EntityManager em = EMFService.get().createEntityManager();
 		System.out.println("Hemos entrado a getCuentaARegistrar(id)");
@@ -29,6 +40,22 @@ public class CuentasARegistrarDAOImpl implements CuentasARegistrarDAO {
                 "WHERE c.userId = :userId ", CuentaARegistrar.class);
 		
 				q.setParameter("userId", userId);
+		List<CuentaARegistrar> cuentasARegistrar = q.getResultList();
+		for(CuentaARegistrar cuentaARegistrar : cuentasARegistrar) {
+			return cuentaARegistrar;
+		}
+		return null;
+	}
+	
+	@Override
+	public CuentaARegistrar getCuentaARegistrar(Long id) {
+		
+		EntityManager em = EMFService.get().createEntityManager();
+		System.out.println("Hemos entrado a getCuentaARegistrar(id)");
+		Query q = em.createQuery("SELECT c FROM CuentaARegistrar c " + 
+                "WHERE c.id = :id ", CuentaARegistrar.class);
+		
+				q.setParameter("id", id);
 		List<CuentaARegistrar> cuentasARegistrar = q.getResultList();
 		for(CuentaARegistrar cuentaARegistrar : cuentasARegistrar) {
 			return cuentaARegistrar;

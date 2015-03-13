@@ -22,21 +22,16 @@ public class CuentaARegistrar implements Serializable{
 	
 	@Column(name = "userId", nullable = false)
 	private Long userId;	//FOREIGN KEY
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigoRegistro;
-	private Calendar fechaRegistro;
-	/*
-	 * public Usuario(String name, String password, String CIF, String email){
-		this.name = name;
-		this.password = password;
-		this.CIF = CIF;
-		this.email = email;
-		this.confirmado = false;
-	}
-	 * */
+	@Column(name = "diaRegistro", nullable = false)
+	private int diaRegistro;
+	@Column(name = "mesRegistro", nullable = false)
+	private int mesRegistro;
+	
 	public CuentaARegistrar(Long userId){
 		this.userId = userId;
-		this.fechaRegistro = Calendar.getInstance();
+		this.diaRegistro = Calendar.getInstance().DATE+1;
+		this.mesRegistro = Calendar.getInstance().MONTH+1;
+		System.out.println("diaRegistro = " + diaRegistro+ " mesRegistro = " + mesRegistro);
 	}
 	
 	public Long getId(){
@@ -45,20 +40,20 @@ public class CuentaARegistrar implements Serializable{
 	public Long getUserId(){
 		return userId;
 	}
-	public Long getCodigoRegistro(){
-		return codigoRegistro;
+	public int getDiaRegistro(){
+		return diaRegistro;
 	}
-	public Calendar getFechaRegistro(){
-		return fechaRegistro;
+	public int getMesRegistro(){
+		return mesRegistro;
 	}
 	
 	public void setUserId(Long userId){
 		this.userId = userId;
 	}
-	public void setCodigoRegistro(Long codigoRegistro){
-		this.codigoRegistro = codigoRegistro;
+	public void setDiaRegistro(int diaRegistro){
+		this.diaRegistro = diaRegistro;
 	}
-	public void setFechaRegistro(Calendar fechaRegistro){
-		this.fechaRegistro = fechaRegistro;
+	public void setMesRegistro(int mesRegistro){
+		this.mesRegistro = mesRegistro;
 	}
 }
