@@ -27,12 +27,14 @@ public class Usuario  implements Serializable {
 	private String CIF;
 	@Column(name = "email", nullable = false)
 	private String email;
+	private boolean confirmado;
 	
 	public Usuario(String name, String password, String CIF, String email){
 		this.name = name;
 		this.password = password;
 		this.CIF = CIF;
 		this.email = email;
+		this.confirmado = false;
 	}
 	
 	public Long getId(){
@@ -50,6 +52,9 @@ public class Usuario  implements Serializable {
 	public String getEmail(){
 		return email;
 	}
+	public boolean getConfirmado(){
+		return confirmado;
+	}
 	
 	public void setName(String name){
 		this.name = name;
@@ -62,6 +67,9 @@ public class Usuario  implements Serializable {
 	}
 	public void setEmail(String email){
 		this.email = email;
+	}
+	public void setConfirmado(boolean confirmado){
+		this.confirmado = confirmado;
 	}
 	
 	
