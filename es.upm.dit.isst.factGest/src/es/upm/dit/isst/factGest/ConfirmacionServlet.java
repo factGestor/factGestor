@@ -26,7 +26,7 @@ private static final long serialVersionUID = 1L;
 	
 public void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws IOException {
-		String codigo = checkNull(req.getParameter("codigo"));
+		Long codigo = Long.parseLong(checkNull(req.getParameter("codigo")));
 		CuentasARegistrarDAO daoSinConfirmar = CuentasARegistrarDAOImpl.getInstance();
 		Long userID = daoSinConfirmar.getCuentaARegistrar(codigo).getUserId();
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();

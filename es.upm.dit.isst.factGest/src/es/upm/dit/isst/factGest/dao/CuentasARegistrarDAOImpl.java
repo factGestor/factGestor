@@ -32,7 +32,7 @@ public class CuentasARegistrarDAOImpl implements CuentasARegistrarDAO {
 	}
 
 	@Override
-	public CuentaARegistrar getCuentaARegistrar(Long userId) {
+	public CuentaARegistrar getCuentaARegistrarUser(Long userId) {
 		
 		EntityManager em = EMFService.get().createEntityManager();
 		System.out.println("Hemos entrado a getCuentaARegistrar(id)");
@@ -40,6 +40,22 @@ public class CuentasARegistrarDAOImpl implements CuentasARegistrarDAO {
                 "WHERE c.userId = :userId ", CuentaARegistrar.class);
 		
 				q.setParameter("userId", userId);
+		List<CuentaARegistrar> cuentasARegistrar = q.getResultList();
+		for(CuentaARegistrar cuentaARegistrar : cuentasARegistrar) {
+			return cuentaARegistrar;
+		}
+		return null;
+	}
+	
+	@Override
+	public CuentaARegistrar getCuentaARegistrar(Long id) {
+		
+		EntityManager em = EMFService.get().createEntityManager();
+		System.out.println("Hemos entrado a getCuentaARegistrar(id)");
+		Query q = em.createQuery("SELECT c FROM CuentaARegistrar c " + 
+                "WHERE c.id = :id ", CuentaARegistrar.class);
+		
+				q.setParameter("id", id);
 		List<CuentaARegistrar> cuentasARegistrar = q.getResultList();
 		for(CuentaARegistrar cuentaARegistrar : cuentasARegistrar) {
 			return cuentaARegistrar;
