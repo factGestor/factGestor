@@ -9,7 +9,7 @@ public interface CuentasARegistrarDAO {
 	public void add (Long userId);
 	
 	//sacar dominios de un usuario
-	public CuentaARegistrar getCuentaARegistrar(String userId);
+	public CuentaARegistrar getCuentaARegistrar(Long userId);
 	
 	//eliminar del registro (cuenta registrada o pasado tiempo de registro)
 	public void remove (long id);
