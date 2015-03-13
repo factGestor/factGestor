@@ -15,10 +15,13 @@ import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
+import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAO;
+import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAOImpl;
 import es.upm.dit.isst.factGest.dao.DominioDAO;
 import es.upm.dit.isst.factGest.dao.DominioDAOImpl;
 import es.upm.dit.isst.factGest.dao.UsuarioDAO;
 import es.upm.dit.isst.factGest.dao.UsuarioDAOImpl;
+import es.upm.dit.isst.factGest.model.CuentaARegistrar;
 
 
 public class RegistroServlet extends HttpServlet {
@@ -59,7 +62,7 @@ public class RegistroServlet extends HttpServlet {
 			//da problemas pues se tarda en crear unos milisegundos, por eso ponemos el esperar
 			esperar(1000);
 			Long userID = daoUser.getId(name);
-			System.out.println("TRAZA 2"); //TRAZA
+			
 			Iterator<String> it = dominiosLista.iterator();
 			 
 			while (it.hasNext()) {
@@ -67,6 +70,11 @@ public class RegistroServlet extends HttpServlet {
 				String auxDominio = it.next();
 				daoDominio.add(auxDominio, userID);
 			}
+			
+			//construccion del objeto cuentaARegistrar
+			CuentasARegistrarDAO daoCuentaARegistrar = CuentasARegistrarDAOImpl.getInstance();
+			daoCuentaARegistrar.add(userID);
+			
 			
 		}
 		resp.sendRedirect("/");
