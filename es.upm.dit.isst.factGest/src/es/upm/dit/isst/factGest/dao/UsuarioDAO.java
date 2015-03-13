@@ -17,7 +17,11 @@ public interface UsuarioDAO {
 	//solo para el administrador (admin/admin)
 	public List<Usuario> getUsuarios();
 	
+	public Usuario getUsuario(Long id);
+	
 	public Long getId(String name);
+	
+	public boolean comprobarLogin(String name, String password);
 	
 	public void remove (long id);
 	

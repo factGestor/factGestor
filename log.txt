@@ -3,3 +3,8 @@ Se permite el registro de una empresa, teniendo que realizar el ingreso de los d
 En la version posterior se pondra el registrar dominios al crear cuenta.
 Falta poner un listar usuarios para el administrador de sistemas en UsuariosDAO.
 En la siguiente version se implementara tambien una pantalla de inicio distinta si se esta logueado.
+
+Version 1
+
+Version 2. Registro realizado con dominios, pagina web de logueo "cutre".
+Trabajando en cuentasARegistrar.

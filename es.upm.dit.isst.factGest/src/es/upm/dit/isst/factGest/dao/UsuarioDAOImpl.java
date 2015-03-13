@@ -7,6 +7,9 @@ import javax.persistence.Query;
 
 
 
+
+
+
 import es.upm.dit.isst.factGest.model.Usuario;
 import es.upm.dit.isst.factGest.dao.EMFService;
 import es.upm.dit.isst.factGest.dao.UsuarioDAOImpl;
@@ -33,6 +36,24 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		em.persist(usuario);
 		em.close();
 	}
+	@Override
+	public Usuario getUsuario(Long id){
+		EntityManager em = EMFService.get().createEntityManager();
+		System.out.println("Hemos entrado a getUsuario(id)");
+		Query q = em.createQuery("SELECT u FROM Usuario u " + 
+                "WHERE u.id = :id ", Usuario.class);
+		
+				q.setParameter("id", id);
+		
+		List<Usuario> usuarios = q.getResultList();
+		System.out.print("getId encuentra: ");
+		for(Usuario usuario : usuarios) {
+            System.out.println(usuario.getId());
+            System.out.println(usuario.getName());
+            return usuario;
+        }
+		return null;
+	}
 	
 	//REVISAR solo para admin/admin
 	@Override
@@ -48,7 +69,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public Long getId(String name){
 		EntityManager em = EMFService.get().createEntityManager();
 		//crear una consulta por el nombre
-		System.out.println("Hemos entrado a getId");
+		System.out.println("Hemos entrado a getId(NAME)");
 		
 		Query q = em.createQuery("SELECT u FROM Usuario u " + 
                 "WHERE u.name = :name ", Usuario.class);
@@ -61,8 +82,28 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             System.out.println(usuario.getId());
             return usuario.getId();
         }
+		//si no se encuentra el usuario
 		return 1L;
 
+	}
+	@Override
+	public boolean comprobarLogin(String name, String password){
+		EntityManager em = EMFService.get().createEntityManager();
+		Query q = em.createQuery("SELECT u FROM Usuario u " + 
+                "WHERE u.name = :name " +
+				"AND u.password = :password", Usuario.class);
+		
+				q.setParameter("name", name);
+				q.setParameter("password", password);
+		List<Usuario> usuarios = q.getResultList();
+		System.out.print("getId encuentra: ");
+		//sacamos el usuario de la lista
+		for(Usuario usuario : usuarios) {
+			System.out.println(usuario.getId());
+		    return true;
+		}
+				
+		return false;
 	}
 	
 	@Override

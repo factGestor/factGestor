@@ -33,7 +33,7 @@ public class DominioDAOImpl implements DominioDAO {
 	}
 
 	@Override
-	public List<Dominio> getTodos(String userId) {
+	public List<Dominio> getDominios(String userId) {
 		// TODO Auto-generated method stub
 		EntityManager em = EMFService.get().createEntityManager();
 		// read the existing entries
