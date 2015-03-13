@@ -3,43 +3,46 @@
 <head>
     <title>Registre su empresa</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
     
 </head>
  
 <body>
-    
-   
+    <div id="form">
+    <form id="formulario" action="/registrar" method="post">
+        <p><label for="nombre">Nombre de usuario (4-20 caracteres, sin espacios):  </label>
+            <input name="name" type="text" id="usuario" class="nombre" placeholder="Ej: logos_copinsa" style="text-align: center" pattern="^[a-zA-Z0-9ñáéíóú_.-]{4,20}" autofocus=""/ >           </p>
         
-            <div id="cuerpo">
- 
-                <form id="form-login" action="/registrar" method="post" >
-                    <p><label for="nombre">Nombre:</label>
-                        <input name="name" type="text" id="name" class="nombre" placeholder="Pon tu nombre" autofocus=""/ ></p>
- 					</p>
- 
-                    <p><label for="correo">Email: </label>
-                        <input name="correo" type="text" id="correo" class="correo" placeholder="mail" /></p>
- 					</p>
+        <p><label for="correo">Email de registro:  </label>
+            <input name="correo" type="text" id="email" class="correo" placeholder="Ej: pepe@copinsa.com" style="text-align: center" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" />
+        </p>
  					
- 					<p><label for="cif">CIF: </label>
-                        <input name="cif" type="text" id="cif" class="cif" placeholder="CIF" /></p>
- 					</p>
+        <p><label for="cif">CIF de la empresa:  </label>
+            <input name="cif" type="text" id="cif" class="cif" placeholder="Ej: A00000000" style="text-align: center" pattern="[A-Z]{1}[0-9]{8}"/>
+        </p>
  					
-                    <p><label for="password">Password:</label>
-                        <input name="password" type="password" id="password" class="password" placeholder="Contraseña"/ ></p>
- 					</p>
-                    <p><label for="repass">Repetir Password:</label>
-                        <input name="repassword" type="password" id="repassword" class="repassword" placeholder="Repita su contraseña" /></p>
-  					</p>
-  					<textarea rows="4" cols="50" name="dominio2" id="dominio2"></textarea>
+        <p><label for="password">Password:  </label>
+            <input name="password" type="password" id="password" class="password" placeholder="Ej: unicornio33" style="text-align: center"/ ></p>
+
+        <p><label for="repass">Repetir Password:  </label>
+            <input name="repassword" type="password" id="repassword" class="repassword" placeholder="Repita su contraseña" style="text-align: center"/></p>
+  		</p>
+
+        <p>Introduzca dominio/s a registrar: </p>
+        
+        <textarea rows="4" cols="50" name="dominio2" id="dominio2" placeholder="Ej: http://www.quelogostanguays.com" style="text-align: center"></textarea>
  
-  					
-                    <p id="bot"><input name="submit" type="submit" id="boton" value="Registrar" class="boton"/></p>
-                </form>
-            </div>
- 
+        <p id="bot"><input name="submit" type="submit" id="register" value="Registrar" class="boton"/></p>
+        
+        <p class="erase"><input type='button' id='clear' value="Vaciar Formulario" onclick="limpia()"></p>
+    </form>
+ </div>
             
- 
+ <script>
+        function limpia(){
+            document.getElementById("formulario").reset();
+        }
+    </script>
    
  
 </body>

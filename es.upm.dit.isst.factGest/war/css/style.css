@@ -1,0 +1,101 @@
+body {
+   background: #BFD7C1; /*Verde claro*/
+   color: #262626;
+   font-family: Arial, sans-serif;
+}
+ 
+.login{ 
+   background-color: #87C489;
+   width: 465px; 
+   padding: 20px; 
+   margin: 50px auto; 
+   border-radius: 15px;   
+   -moz-border-radius: 15px; 
+   -webkit-border-radius: 15px; 
+}
+
+#form { 
+   background-color: #87C489;
+   width: 900px; 
+   padding: 20px; 
+   margin: 50px auto; 
+   border-radius: 15px;   
+   -moz-border-radius: 15px; 
+   -webkit-border-radius: 15px; 
+}
+
+div {
+  margin: .4em 0;
+    text-align: center;
+}
+div label {
+  width: 25%;
+  float: left;
+}
+ 
+#formulario input,   
+#formulario textarea{ 
+   font-size: 15px; 
+   margin-bottom: 2px;
+   font-family: Arial, sans-serif;
+   width: 450px;
+   background: #fff;
+   border: 0;
+   -moz-border-radius: 5px; 
+   -webkit-border-radius: 5px; 
+   border-radius: 5px;
+   margin-bottom: 25px; 
+   padding: 5px; 
+} 
+
+#form #formulario input,   
+#form #formulario textarea{ 
+   width: 650px;
+}
+ 
+#formulario input[type="button"],
+#formulario input[type="submit"]{ 
+   font-size: 15px; 
+   margin-bottom: 2px;
+   font-family: Arial, sans-serif;
+   width: 450px;
+   background: #fff;
+   border: 0;
+   -moz-border-radius: 5px; 
+   -webkit-border-radius: 5px; 
+   border-radius: 5px;
+   padding: 5px; 
+} 
+
+#formulario input:focus,   
+#formulario textarea:focus { 
+   background-color: #E5E6E7;
+} 
+ 
+#formulario textarea { 
+   height: 150px;   
+} 
+ 
+#formulario #clear,
+#formulario #commit,
+#formulario #register { 
+   width: 450px;   
+   color: #BFD7C1; 
+   border: none; 
+   background-color: #6EA070;
+} 
+ 
+#formulario #clear:hover,
+#formulario #commit:hover,
+#formulario #register:hover { 
+   background-color: #BFD7C1; 
+   color: #6EA070;
+}
+
+#formulario input:invalid {
+  background-color: #ffdddd;
+}
+  
+#formulario input:valid {
+  background-color: #ddffdd;
+}

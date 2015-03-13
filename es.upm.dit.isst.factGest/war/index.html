@@ -12,13 +12,12 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-
+    
   <section class="container">
     <div class="login">
-      <h1 align="center">Logueo en la aplicacion de Gestion de facturas</h1>
-      <form method="post" action="/logueado" align="center">
-        <p><input type="text" name="login" value="" placeholder="Usuario o Email"></p>
-        <p><input type="password" name="password" value="" placeholder="Contraseña"></p>
+      <form id="formulario" method="post" action="/logueado" align="center">
+        <p><input type="text" id="usuario" name="login" value="" placeholder="Introduzca su nombre de usuario" style="text-align: center"></p>
+        <p><input type="password" name="password" value="" placeholder="Introduzca su contraseña" style="text-align: center"></p>
         <!--
         <p class="remember_me">
           <label>
@@ -27,17 +26,22 @@
           </label>
         </p>
         -->
-        <p class="submit"><input type="submit" name="commit" value="Entrar"></p>
-      </form>
+        <p class="submit"><input type="submit" id='commit' name="commit" value="Entrar"></p>
+        <p class="clear"><input type='button' id='clear' value="Vaciar Formulario" onclick="limpia()"></p>
+        </form>
+        <form id="formulario" method="get" action="registro.html" align="center">
+          <p class="submit"><input type="submit" id='register' name="commit" value="¿No tiene cuenta? Registre su empresa aquí" align="center"></p>
+        </form>
     </div>
-	
+      
+	<script>
+        function limpia(){
+            document.getElementById("formulario").reset();
+        }
+    </script>
+      
     <div class="login-help" align="center">
-      <p><a href="/recordarPass">¿Olvido su contraseña?</a> Le enviaremos un correo para restaurarla.</p>
+      <p><a href="/recordarPass">¿Olvidó su contraseña?</a> Le enviaremos un correo para restaurarla.</p>
     </div>
     <!-- SE PUEDE PONER EN ACTION UN .HTML O BIEN UN /ACCION -->
-    <div class="registro">
-     <form method="get" action="registro.html" align="center">
-     	<p class="submit"><input type="submit" name="commit" value="Registrar"></p>
-     </form>
-    </div>
   </section>
