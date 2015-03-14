@@ -99,3 +99,7 @@ div label {
 #formulario input:valid {
   background-color: #ddffdd;
 }
+
+#mensajeError{
+    text-decoration-color: crimson
+}
