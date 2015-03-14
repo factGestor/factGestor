@@ -1,11 +1,11 @@
-<%—index.jsp -->
-<%@ page language="java" info="IndexJSP" %>
+<%—registro.jsp -->
+<%@ page language="java" info="RegistroJSP" %>
 
 <html>
 
 <body>
     
-    <%@ include file='index.html'%>
+    <%@ include file='registro.html'%>
     <div id="mensajeError"><c:out value="${error}"/></div>
         
 </body>

@@ -5,28 +5,31 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
    
-    <script>
+    <script type="text/javascript">
     
     function limpia(){
       document.getElementById("formulario").reset();
     }
         
-    function comprobar(){
+    function comprobar(formulario){
         
-     var password=document.getElementByName("password").value;
-     var repass=document.getElementByName("repassword").value;
+     var password=formulario.password.value;
+     var repass=formulario.repassword.value;
         
         /*Comprobar que la contraseña coincide*/
         if(password!=repass){
             alert("¡Las contraseñas no coinciden!");
+            return false;
         }
+        
+        return true;
     }
     </script>
 </head>
  
 <body>
     <div id="form">
-    <form id="formulario" action="/registrar" method="post">
+    <form id="formulario" action="/registrar" method="post" onsubmit="return comprobar(this);">
         <p><label for="nombre">Nombre de usuario (4-20 caracteres, sin espacios):  </label>
             <input name="name" type="text" id="usuario" class="nombre" placeholder="Ej: logos_copinsa" style="text-align: center" pattern="^[a-zA-Z0-9ñáéíóú_.-]{4,20}" autofocus="" title="Caracteres permitidos: Alfanuméricos y ._-" required/ >           </p>
         
@@ -49,7 +52,7 @@
         
         <textarea rows="4" cols="50" name="dominio2" id="dominio2" placeholder="Ej: http://www.quelogostanguays.com" style="text-align: center" required></textarea>
  
-        <p class="boton"><input type="submit" id="register" name="submit" value="Registrar" onclick="comprobar()"></p>
+        <p class="boton"><input type="submit" id="register" name="submit" value="Registrar"></p>
         
         <p class="erase"><input type='button' id='clear' value="Vaciar Formulario" onclick="limpia()"></p>
     </form>
