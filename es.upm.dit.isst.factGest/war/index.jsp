@@ -6,7 +6,7 @@
 <head>
     
     <meta charset="utf-8">
-
+    <link href="<c:url value='favicon.ico'/>" rel="shortcut icon" type="image/x-icon" />
 </head>
     
 <body>

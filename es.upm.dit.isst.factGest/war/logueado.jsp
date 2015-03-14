@@ -8,6 +8,7 @@
 <title>Sistema de Gestión de Facturas</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <meta charset="utf-8">
+<link href="<c:url value='favicon.ico'/>" rel="shortcut icon" type="image/x-icon" />
 </head>
 
 <body>
