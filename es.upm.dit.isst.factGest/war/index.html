@@ -10,14 +10,20 @@
   <title>Login Form</title>
   <link rel="stylesheet" href="css/style.css">
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <script>
+    
+    function limpia(){
+      document.getElementById("formulario").reset();
+    }
+    </script>
 </head>
 <body>
     
   <section class="container">
     <div class="login">
       <form id="formulario" method="post" action="/logueado" align="center">
-        <p><input type="text" id="usuario" name="login" value="" placeholder="Introduzca su nombre de usuario" style="text-align: center"></p>
-        <p><input type="password" name="password" value="" placeholder="Introduzca su contraseña" style="text-align: center"></p>
+        <p><input type="text" id="usuario" name="login" value="" placeholder="Introduzca su nombre de usuario" style="text-align: center" required></p>
+        <p><input type="password" name="password" value="" placeholder="Introduzca su contraseña" style="text-align: center" required></p>
         <!--
         <p class="remember_me">
           <label>
@@ -34,14 +40,10 @@
         </form>
     </div>
       
-	<script>
-        function limpia(){
-            document.getElementById("formulario").reset();
-        }
-    </script>
-      
     <div class="login-help" align="center">
       <p><a href="/recordarPass">¿Olvidó su contraseña?</a> Le enviaremos un correo para restaurarla.</p>
     </div>
+      <div id="mensajeError"></div>
     <!-- SE PUEDE PONER EN ACTION UN .HTML O BIEN UN /ACCION -->
   </section>
+</body>
