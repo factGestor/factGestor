@@ -5,13 +5,14 @@ import java.util.List;
 import es.upm.dit.isst.factGest.model.CuentaARegistrar;
 
 public interface CuentasARegistrarDAO {
-	//meter cuenta
-	public void add (Long userId);
-	
-	//sacar dominios de un usuario
+	// meter cuenta
+	public Long add(Long userId);
+
+	// sacar dominios de un usuario
 	public CuentaARegistrar getCuentaARegistrar(Long id);
-	public CuentaARegistrar getCuentaARegistrarUser(Long userId) ;
-	
-	//eliminar del registro (cuenta registrada o pasado tiempo de registro)
-	public void remove (long id);
+
+	public CuentaARegistrar getCuentaARegistrarUser(Long userId);
+
+	// eliminar del registro (cuenta registrada o pasado tiempo de registro)
+	public void remove(long id);
 }

@@ -7,28 +7,28 @@ import javax.persistence.Query;
 
 import es.upm.dit.isst.factGest.model.Dominio;
 
-
 public class DominioDAOImpl implements DominioDAO {
-	
+
 	private static DominioDAOImpl instance;
+
 	private DominioDAOImpl() {
 	}
-	public static DominioDAOImpl getInstance(){
+
+	public static DominioDAOImpl getInstance() {
 		if (instance == null)
 			instance = new DominioDAOImpl();
 		return instance;
 	}
-	
+
 	@Override
-	public void add(String nombre, Long userId){
+	public void add(String nombre, Long userId) {
 		// TODO Auto-generated method stub
 		EntityManager em = EMFService.get().createEntityManager();
-		
-		//public Dominio(String domain, Long userId)
+
+		// public Dominio(String domain, Long userId)
 		Dominio dominio = new Dominio(nombre, userId);
 		em.persist(dominio);
 		em.close();
-		
 
 	}
 

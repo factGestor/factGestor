@@ -1,19 +1,20 @@
-<%—registro.jsp -->
-<%@ page language="java" info="RegistroJSP" %>
-
+<%@ page language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link href="<c:url value='favicon.ico'/>" rel="shortcut icon" type="image/x-icon" />
-    
+<meta charset="utf-8">
+<link href="<c:url value='favicon.ico'/>" rel="shortcut icon"
+	type="image/x-icon" />
 </head>
-
 <body>
-    
-    <%@ include file='registro.html'%>
-    <div id="mensajeError"><c:out value="${error}"/></div>
-        
+
+	<div id="mensajeError">
+		<h3><c:out value="${error}" /></h3>
+	</div>
+	<%@ include file='registro.html'%>
+
 </body>
-        
+
 </html>

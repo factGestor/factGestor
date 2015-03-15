@@ -11,30 +11,33 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pais")
-public class Pais implements Serializable{
-	
+public class Pais implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "name", nullable = false)
 	private String name;
-	//AÑADIMOS ACRONIMO?
-	//private String acronimo; 
-	
-	public Pais(String name){
+
+	// Aï¿½ADIMOS ACRONIMO?
+	// private String acronimo;
+
+	public Pais(String name) {
 		this.name = name;
 	}
-	public Long getId(){
+
+	public Long getId() {
 		return id;
 	}
-	public String getName(){
+
+	public String getName() {
 		return name;
-	} 
-	
-	public void setName(String name){
+	}
+
+	public void setName(String name) {
 		this.name = name;
-	} 
+	}
 }

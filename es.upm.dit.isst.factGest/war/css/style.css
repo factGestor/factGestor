@@ -101,5 +101,13 @@ div label {
 }
 
 #mensajeError{
-    text-decoration-color: crimson
+   width: 465px; 
+   padding: 10px; 
+   margin: 15px auto; 
+   text-align: center;
+    color:red;
+}
+
+ul{
+	 list-style-type:none;	
 }

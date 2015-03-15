@@ -6,51 +6,60 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class ConsultaPagada implements Serializable{
-	
+public class ConsultaPagada implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long userId;	//FOREIGN KEY
-	private String domain;	//FOREIGN KEY
+	private Long userId; // FOREIGN KEY
+	private String domain; // FOREIGN KEY
 	private Long IVApagado;
-	private Long paisId;	//FOREIGN KEY
-	
-	public ConsultaPagada(Long userId, String domain, Long IVApagado, Long paisId){
+	private Long paisId; // FOREIGN KEY
+
+	public ConsultaPagada(Long userId, String domain, Long IVApagado,
+			Long paisId) {
 		this.userId = userId;
 		this.domain = domain;
 		this.IVApagado = IVApagado;
 		this.paisId = paisId;
 	}
-	public Long getId(){
+
+	public Long getId() {
 		return id;
 	}
-	public Long getUserId(){
+
+	public Long getUserId() {
 		return userId;
 	}
-	public String getDomain(){
+
+	public String getDomain() {
 		return domain;
 	}
-	public Long getIVApagado(){
+
+	public Long getIVApagado() {
 		return IVApagado;
 	}
-	public Long getPaisId(){
+
+	public Long getPaisId() {
 		return paisId;
 	}
-	
-	public void setUserId(Long userId){
+
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public void setDomain(String domain){
+
+	public void setDomain(String domain) {
 		this.domain = domain;
 	}
-	public void setIVApagado(Long IVApagado){
+
+	public void setIVApagado(Long IVApagado) {
 		this.IVApagado = IVApagado;
 	}
-	public void setPaisId(Long paisId){
+
+	public void setPaisId(Long paisId) {
 		this.paisId = paisId;
 	}
-	
+
 }
