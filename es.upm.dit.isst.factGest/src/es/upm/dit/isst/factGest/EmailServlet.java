@@ -29,7 +29,7 @@ public class EmailServlet extends HttpServlet {
 			msg.addRecipient(Message.RecipientType.TO,
 					new InternetAddress(req.getAttribute("email").toString(),
 							req.getAttribute("nombre").toString()));
-			msg.setSubject("Validaci�n de registro en FACT GEST");
+			msg.setSubject("Validacion de registro en FACT GEST");
 			String msgBody = "Para verificar su cuenta acceda al siguiente enlace: "
 					+ ""
 					+ System.getProperty("line.separator")
@@ -39,7 +39,7 @@ public class EmailServlet extends HttpServlet {
 			msgBody += System.getProperty("line.separator")
 					+ "Atentamente un saludo,"
 					+ System.getProperty("line.separator")
-					+ "Equipo de Gesti�n de facturas";
+					+ "Equipo de Gestion de facturas";
 			msg.setText(msgBody);
 			Transport.send(msg);
 		} catch (Exception e) {
