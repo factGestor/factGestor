@@ -13,7 +13,7 @@
 		var repass = formulario.repassword.value;
 		/*Comprobar que la contraseña coincide*/
 		if (password != repass) {
-			alert("¡Las contraseñas no coinciden!");
+			alert("¡Los passwords no coinciden!");
 			return false;
 		}
 		return true;
@@ -29,20 +29,20 @@
 					espacios): </label> <input name="name" type="text" id="usuario"
 					class="nombre" placeholder="Ej: logos_copinsa"
 					style="text-align: center" pattern="^[a-zA-Z0-9ñáéíóú_.-]{4,20}"
-					autofocus="" title="Caracteres permitidos: Alfanuméricos y ._-"required/ >
+					autofocus="" title="Caracteres permitidos: Alfanum&#233;ricos y ._-"required/ >
 			</p>
 			<p>
 				<label for="correo">Email de registro: </label> <input name="correo"
 					type="text" id="email" class="correo"
 					placeholder="Ej: pepe@copinsa.com" style="text-align: center"
 					pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
-					title="Por favor, introduzca un e-mail válido" required />
+					title="Por favor, introduzca un e-mail v&#225;lido" required />
 			</p>
 			<p>
 				<label for="cif">CIF de la empresa: </label> <input name="cif"
 					type="text" id="cif" class="cif" placeholder="Ej: A00000000"
 					style="text-align: center" pattern="[A-Z]{1}[0-9]{8}"
-					title="Formato: Una letra mayúscula y 8 dígitos" required />
+					title="Formato: Una letra may&#250;scula y 8 d&#237gitos" required />
 			</p>
 			<p>
 				<label for="password">Password: </label> <input name="password"
