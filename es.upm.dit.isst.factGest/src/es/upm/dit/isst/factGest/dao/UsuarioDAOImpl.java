@@ -131,5 +131,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		List<Usuario> usuarios = q.getResultList();
 		return usuarios;
 	}
+	
+	@Override
+	public void cambiarPassword(String password, Long userId) {
+
+		EntityManager em = EMFService.get().createEntityManager();
+		
+		Usuario usuario = em.find(Usuario.class, userId);
+		
+		em.getTransaction().begin();
+		usuario.setPassword(password);
+		em.getTransaction().commit();
+		
+	}
 
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Recuperacion de pass</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<section class="container">
+		<div class="login">
+			<form id="formulario" method="post" action="/recordarpass" align="center">
+				<p>
+					<p>Introduzca su nombre de usuario para recuperar su password: </p>
+                <input type="text" name="nombre" id="nombre" value="" class="nombre" placeholder="Username" style="text-align: center" required>
+				</p>
+				<p class="submit">
+					<input type="submit" id='commit' name="commit" value="Enviar correo">
+				</p>
+			</form>
+		</div>
+
+		<div class="login-help" align="center">
+			<p>
+				Le enviaremos un correo con las instrucciones al mail asociado al usuario introducido.
+			</p>
+		</div>
+	</section>
+</body>

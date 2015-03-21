@@ -22,7 +22,30 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Logueado</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+		<servlet>
+		<servlet-name>Olvido</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.OlvidoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Olvido</servlet-name>
+		<url-pattern>/recordarpass</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Recuperacion</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.RecuperacionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Recuperacion</servlet-name>
+		<url-pattern>/recuperacion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Nuevo Pass</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.NuevoPasswordOlvidadoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Nuevo Pass</servlet-name>
+		<url-pattern>/nuevopassword</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>Confirmacion</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.ConfirmacionServlet</servlet-class>
@@ -30,8 +53,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>Confirmacion</servlet-name>
 		<url-pattern>/confirmacion</url-pattern>
-	</servlet-mapping>
-	
+	</servlet-mapping>	
 	<servlet>
 		<servlet-name>Email</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.EmailServlet</servlet-class>

@@ -23,5 +23,7 @@ public interface UsuarioDAO {
 	public void verificar(long id);
 
 	public List<Usuario> getUsuariosBy(String campo, String dato);
+	
+	public void cambiarPassword(String password, Long userId);
 
 }
