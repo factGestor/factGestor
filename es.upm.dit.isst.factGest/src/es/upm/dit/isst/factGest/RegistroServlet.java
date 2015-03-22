@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,21 +18,25 @@ import es.upm.dit.isst.factGest.dao.DominioDAO;
 import es.upm.dit.isst.factGest.dao.DominioDAOImpl;
 import es.upm.dit.isst.factGest.dao.UsuarioDAO;
 import es.upm.dit.isst.factGest.dao.UsuarioDAOImpl;
-
 import es.upm.dit.isst.factGest.model.Usuario;
+import es.upm.dit.isst.factGest.model.Usuario.Tarifas;
 
 public class RegistroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
-
+		
+		
 		String errores = "";
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
 
 		String nombre = req.getParameter("name");
 		String correo = req.getParameter("correo");
 		String cif = req.getParameter("cif");
+		String tarifaString = req.getParameter("tarifa");
+		String cuentaBancaria = "";
+		Tarifas tarifa = Tarifas.Free;
 
 		List<Usuario> usersForName = daoUser.getUsuariosBy("name", nombre);
 		if (!usersForName.isEmpty()) {
@@ -45,6 +50,18 @@ public class RegistroServlet extends HttpServlet {
 		if (!usersForEmail.isEmpty()) {
 			errores = errores + " Email ya registrado.";
 		}
+		if(!tarifaString.equals("Free")){
+			cuentaBancaria = req.getParameter("cuentaBancaria");
+			if(cuentaBancaria.isEmpty()){
+				errores = errores + " Para clientes de pago debe de introducir una cuenta bancaria.";
+			}
+		}
+		if(tarifaString.equals("Pago")){
+			tarifa = Tarifas.Pago;
+		}
+		if(tarifaString.equals("Suscripcion")){
+			tarifa = Tarifas.Suscripcion;
+		}
 
 		if (errores == "") {
 			String password = req.getParameter("password");
@@ -53,7 +70,8 @@ public class RegistroServlet extends HttpServlet {
 			List<String> dominiosLista = new ArrayList<String>();
 
 			if (password.equals(repassword)) {
-				Long userId = daoUser.add(nombre, password, cif, correo, false);
+				//poner el primer true a false, es para que no requiera confirmacion por email
+				Long userId = daoUser.add(nombre, password, cif, correo, cuentaBancaria, tarifa, true, true);
 				// sacar dominios
 				if (dominios != "") {
 					dominiosLista = sacarDominios(dominios);

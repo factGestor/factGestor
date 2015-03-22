@@ -56,6 +56,21 @@
 					style="text-align: center" required />
 			</p>
 			</p>
+			<p> Seleccione el tipo de tarifa que desea
+      			<input type="radio" name="tarifa" value="Free" checked>Cliente gratuito (30 consultas)<BR>
+      			<input type="radio" name="tarifa" value="Pago">Pago por consulta<BR>
+      			<input type="radio" name="tarifa" value="Suscripcion">Suscripcion (coste independiente del numero de consultas)<BR>
+      		</p>
+      		<!-- SOLO SI EL VALOR DE LA TARIFA ES PAGO O SUSCRIPCION -->
+      		<p>
+			<p>
+				<label for="cuentaBancaria">Cuenta bancaria (solo si no se registra como cliente gratuito): </label> <input name="cuentaBancaria"
+					type="text" id="cuentaBancaria" class="cuentaBancaria"
+					placeholder="Ej: ES12345678901234567890" style="text-align: center" />
+					<!-- dos letras que identifican el pais y 20 digitos -->
+			</p>
+			</p>
+			
 			<p>Introduzca dominio/s a registrar:</p>
 			<textarea rows="4" cols="50" name="dominio2" id="dominio2"
 				placeholder="Ej: http://www.quelogostanguays.com"

@@ -22,7 +22,71 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Logueado</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-		<servlet>
+	
+	<servlet>
+		<servlet-name>Confirmacion</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.ConfirmacionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Confirmacion</servlet-name>
+		<url-pattern>/confirmacion</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Email</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.EmailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Email</servlet-name>
+		<url-pattern>/emailconfirm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Borrado</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.BorradoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Borrado</servlet-name>
+		<url-pattern>/borrado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CambiarPassword</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.CambiarPasswordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambiarPassword</servlet-name>
+		<url-pattern>/cambiarPassword</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CambiarEmail</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.CambiarEmailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambiarEmail</servlet-name>
+		<url-pattern>/cambiarEmail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CambiarCondicionesContratacion</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.CambiarCondicionesContratacionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambiarCondicionesContratacion</servlet-name>
+		<url-pattern>/cambiarCondicionesContratacion</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CambiarCuentaBancaria</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.CambiarCuentaBancariaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CambiarCuentaBancaria</servlet-name>
+		<url-pattern>/cambiarCuentaBancaria</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>Olvido</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.OlvidoServlet</servlet-class>
 	</servlet>
@@ -30,6 +94,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Olvido</servlet-name>
 		<url-pattern>/recordarpass</url-pattern>
 	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>Recuperacion</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.RecuperacionServlet</servlet-class>
@@ -38,6 +103,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Recuperacion</servlet-name>
 		<url-pattern>/recuperacion</url-pattern>
 	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>Nuevo Pass</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.NuevoPasswordOlvidadoServlet</servlet-class>
@@ -45,22 +111,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>Nuevo Pass</servlet-name>
 		<url-pattern>/nuevopassword</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>Confirmacion</servlet-name>
-		<servlet-class>es.upm.dit.isst.factGest.ConfirmacionServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Confirmacion</servlet-name>
-		<url-pattern>/confirmacion</url-pattern>
-	</servlet-mapping>	
-	<servlet>
-		<servlet-name>Email</servlet-name>
-		<servlet-class>es.upm.dit.isst.factGest.EmailServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Email</servlet-name>
-		<url-pattern>/emailconfirm</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

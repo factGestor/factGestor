@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cambiar email</title>
+</head>
+<body>
+		Cambiar email:
+		
+		<form id="formulario" action="/cambiarEmail" method="post">
+			<p>
+				<label for="correo">Email de registro: </label> <input name="correo"
+					type="text" id="email" class="correo"
+					placeholder="Ej: pepe@copinsa.com" style="text-align: center"
+					pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+					title="Por favor, introduzca un e-mail v&#225;lido" required />
+			</p>
+			<p class="boton">
+				<input type="submit" id="cambiarEmail" name="submit" value="Cambiar email">
+			</p>
+	</form>
+		
+</body>
+</html>

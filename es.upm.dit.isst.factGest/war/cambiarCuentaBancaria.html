@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cambiar cuenta bancaria</title>
+</head>
+<body>
+		Cambiar cuenta bancaria:
+		
+		<form id="formulario" action="/cambiarCuentaBancaria" method="post">
+			<p>
+				<label for="cuentaBancaria">Cuenta bancaria (solo si no se registra como cliente gratuito): </label> <input name="cuentaBancaria"
+					type="text" id="cuentaBancaria" class="cuentaBancaria"
+					placeholder="Ej: ES12345678901234567890" style="text-align: center" />
+					<!-- dos letras que identifican el pais y 20 digitos -->
+			</p>
+			<p class="boton">
+				<input type="submit" id="cambiarCuentaBancaria" name="submit" value="Cambiar cuenta Bancaria">
+			</p>
+	</form>
+		
+</body>
+</html>

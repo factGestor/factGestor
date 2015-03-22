@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import es.upm.dit.isst.factGest.model.Usuario;
+import es.upm.dit.isst.factGest.model.Usuario.Tarifas;
 import es.upm.dit.isst.factGest.dao.EMFService;
 import es.upm.dit.isst.factGest.dao.UsuarioDAOImpl;
 
@@ -23,11 +24,10 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	@Override
-	public Long add(String name, String password, String CIF, String email,
-			boolean confirmado) {
+	public Long add(String name, String password, String CIF, String email,String cuentaBancaria, Tarifas tarifa, boolean confirmado, boolean corrienteDePago ){
 		// TODO Auto-generated method stub
 		EntityManager em = EMFService.get().createEntityManager();
-		Usuario usuario = new Usuario(name, password, CIF, email);
+		Usuario usuario = new Usuario(name, password, CIF, email, tarifa, cuentaBancaria);
 		em.persist(usuario);
 		em.close();
 		return usuario.getId();
@@ -131,16 +131,36 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		List<Usuario> usuarios = q.getResultList();
 		return usuarios;
 	}
-	
+
+
 	@Override
-	public void cambiarPassword(String password, Long userId) {
+	public void cambiar(String nombre, String dato, Long userId) {
 
 		EntityManager em = EMFService.get().createEntityManager();
 		
 		Usuario usuario = em.find(Usuario.class, userId);
 		
 		em.getTransaction().begin();
-		usuario.setPassword(password);
+		if(nombre.equals("password")){
+			usuario.setPassword(dato);
+		}
+		if(nombre.equals("email")){
+			usuario.setEmail(dato);
+		}
+		if (nombre.equals("cuentaBancaria")){
+			usuario.setCuentaBancaria(dato);
+		}
+		if (nombre.equals("condicionesContratacion")){
+			Tarifas tarifa = Tarifas.Free;
+			if(dato.equals("Pago")){
+				tarifa = Tarifas.Pago;
+			}
+			if(dato.equals("Suscripcion")){
+				tarifa = Tarifas.Suscripcion;
+			}
+			usuario.setTarifa(tarifa);
+		} 
+		
 		em.getTransaction().commit();
 		
 	}

@@ -22,7 +22,7 @@ public class Pais implements Serializable {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	// AÑADIMOS ACRONIMO?
+	// Aï¿½ADIMOS ACRONIMO?
 	// private String acronimo;
 
 	public Pais(String name) {
