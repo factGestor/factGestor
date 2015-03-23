@@ -24,8 +24,6 @@ public interface UsuarioDAO {
 
 	public List<Usuario> getUsuariosBy(String campo, String dato);
 	
-
-
-	void cambiar(String nombre, String dato, Long userId);
+	public void cambiar(String nombre, String dato, Long userId);
 
 }

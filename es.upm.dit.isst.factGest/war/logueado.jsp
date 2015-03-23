@@ -51,6 +51,11 @@
 						<input type="submit" id="cambiarCondicionesContratacion" name="submit" value="Cambiar condiciones de contratacion">
 					</p>
 				</form>
+				<form id="listarDominios" action="/listarDominios" method="get">
+					<p class="boton">
+						<input type="submit" id="listarDominios" name="submit" value="Añadir/eliminar dominios a su cuenta">
+					</p>
+				</form>
 			</c:when>
 		<c:otherwise>
 Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.

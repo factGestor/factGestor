@@ -32,7 +32,7 @@ public class BorradoServlet extends HttpServlet {
 			//los borrados se realizan siempre por la primary key
 			cuentasARegistrarDao.remove(cuentaBorradoEnCurso.getId());
 			//List<Dominio> getDominios(String userId
-			List<Dominio> dominios = dominioDao.getDominios(userId.toString());
+			List<Dominio> dominios = dominioDao.getDominios(userId);
 			for(Dominio dominio : dominios){
 				dominioDao.remove(dominio.getId());
 			}

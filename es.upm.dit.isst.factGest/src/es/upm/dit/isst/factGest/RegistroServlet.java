@@ -70,8 +70,7 @@ public class RegistroServlet extends HttpServlet {
 			List<String> dominiosLista = new ArrayList<String>();
 
 			if (password.equals(repassword)) {
-				//poner el primer true a false, es para que no requiera confirmacion por email
-				Long userId = daoUser.add(nombre, password, cif, correo, cuentaBancaria, tarifa, true, true);
+				Long userId = daoUser.add(nombre, password, cif, correo, cuentaBancaria, tarifa, false, true);
 				// sacar dominios
 				if (dominios != "") {
 					dominiosLista = sacarDominios(dominios);

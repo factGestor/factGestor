@@ -17,7 +17,8 @@ public class NuevoPasswordOlvidadoServlet extends HttpServlet {
 
 		Long userId = Long.parseLong(checkNull(req.getParameter("userId").toString()));
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
-		daoUser.cambiarPassword(req.getParameter("password"), userId);
+		//public void cambiar(String nombre, String dato, Long userId);
+		daoUser.cambiar("password", req.getParameter("password"), userId);
 		resp.sendRedirect("exito.html");
 
 	}
