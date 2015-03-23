@@ -9,6 +9,7 @@
 		document.getElementById("formulario").reset();
 	}
 	function comprobar(formulario) {
+        /*Comprobación de que los pass coinciden*/
 		var password = formulario.password.value;
 		var repass = formulario.repassword.value;
 		/*Comprobar que la contraseña coincide*/
@@ -16,7 +17,19 @@
 			alert("¡Los passwords no coinciden!");
 			return false;
 		}
-		return true;
+        /*Comprobación de la cuenta bancaria*/
+        /*Si es free, no hace falta cuenta bancaria*/
+		if (document.getElementById("free").checked) {
+            return true;
+		}
+        /*Si no es free pero hay cuenta bancaria, valida*/
+        if(document.getElementById("cuentaBancaria").value!=""){
+			 return true;
+        }
+        
+        /*En caso contrario, no valida y avisa*/
+        alert("¡Rellene su cuenta bancaria o seleccione la tarifa gratuita!");
+		return false;
 	}
 </script>
 </head>
@@ -57,19 +70,16 @@
 					style="text-align: center" required />
 			</p>
 			</p>
-			<p> Seleccione el tipo de tarifa que desea
-      			<input type="radio" name="tarifa" value="Free" checked>Cliente gratuito (30 consultas)<BR>
-      			<input type="radio" name="tarifa" value="Pago">Pago por consulta<BR>
-      			<input type="radio" name="tarifa" value="Suscripcion">Suscripcion (coste independiente del numero de consultas)<BR>
-      		</p>
-      		<!-- SOLO SI EL VALOR DE LA TARIFA ES PAGO O SUSCRIPCION -->
-      		<p>
+        <p> Seleccione el tipo de tarifa que desea:</p><br>
+        <p class="radios">
+      			<input type="radio" name="tarifa" id="free" value="Free" checked><label for="free">Cliente gratuito (30 consultas)</label>
+      			<input type="radio" name="tarifa" id="pago" value="Pago"><label for="pago">Pago por consulta</label>
+      			<input type="radio" name="tarifa" id="suscripcion" value="Suscripcion"><label for="suscripcion">Suscripcion (coste independiente del numero de consultas)</label>
+      		</p><br><br><br>
 			<p>
-				<label for="cuentaBancaria">Cuenta bancaria (solo si no se registra como cliente gratuito): </label> <input name="cuentaBancaria"
+				<label for="cuentaBancaria">Cuenta bancaria (sólo si no se registra como cliente gratuito): </label> <input name="cuentaBancaria"
 					type="text" id="cuentaBancaria" class="cuentaBancaria"
-					placeholder="Ej: ES12345678901234567890" style="text-align: center" />
-					<!-- dos letras que identifican el pais y 20 digitos -->
-			</p>
+					placeholder="Ej: ES12345678901234567890" style="text-align: center"	pattern="[A-Z]{2}[0-9]{22}" title="Por favor, introduzca un numero de cuenta v&#225;lido" />
 			</p>
 			
 			<p>Introduzca dominio/s a registrar:</p>
