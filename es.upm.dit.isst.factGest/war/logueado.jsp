@@ -13,6 +13,10 @@
 </head>
 
 <body>
+    <header><img src="images/taxy.png" alt="Taxy"></header>
+	<div id="mensajeInfo">
+		<h2><c:out value="${info}" /></h2>
+	</div>
 	<div class="login">
 		<c:choose>
 			<c:when test="${u.confirmado == true}">
@@ -27,10 +31,34 @@
 					<li>Nombre: <c:out value="${u.name}" /></li>
 					<li>CIF: <c:out value="${u.CIF}" /></li>
 					<li>Email: <c:out value="${u.email}" /></li>
-					<li>Confirmado: <c:out value="${u.confirmado}" /></li>
 				</ul>
+				<form id="cambiarPassword" action="cambiarPassword.html" method="get">
+					<p class="boton">
+						<input type="submit" id="cambiarPassword" name="submit" value="Cambiar password">
+					</p>
+				</form>
+				<form id="cambiarEmail" action="cambiarEmail.html" method="get">
+					<p class="boton">
+						<input type="submit" id="cambiarEmail" name="submit" value="Cambiar email">
+					</p>
+				</form>
+				<form id="cambiarCuentaBancaria" action="cambiarCuentaBancaria.html" method="get">
+					<p class="boton">
+						<input type="submit" id="cambiarCuentaBancaria" name="submit" value="Cambiar cuenta bancaria">
+					</p>
+				</form>
+				<form id="cambiarCondicionesContratacion" action="cambiarCondicionesContratacion.html" method="get">
+					<p class="boton">
+						<input type="submit" id="cambiarCondicionesContratacion" name="submit" value="Cambiar condiciones de contratacion">
+					</p>
+				</form>
+				<form id="listarDominios" action="/listarDominios" method="get">
+					<p class="boton">
+						<input type="submit" id="listarDominios" name="submit" value="Añadir/eliminar dominios a su cuenta">
+					</p>
+				</form>
 			</c:when>
-			<c:otherwise>
+		<c:otherwise>
 Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.
 </c:otherwise>
 		</c:choose>

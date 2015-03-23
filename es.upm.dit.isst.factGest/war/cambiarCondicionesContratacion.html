@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cambiar condiciones de contratacion</title>
+</head>
+<body>
+    <header><img src="images/taxy.png" alt="Taxy"></header>
+		Cambiar condiciones de contratacion:
+		
+		<form id="formulario" action="/cambiarCondicionesContratacion" method="post">
+			<p> Seleccione el tipo de tarifa que desea
+			</p>
+			<p>
+      			<input type="radio" name="tarifa" value="Free" checked>Cliente gratuito (30 consultas)<BR>
+      			<input type="radio" name="tarifa" value="Pago">Pago por consulta<BR>
+      			<input type="radio" name="tarifa" value="Suscripcion">Suscripcion (coste independiente del numero de consultas)<BR>
+      		</p>
+			<p class="boton">
+				<input type="submit" id="cambiarCondicionesContratacion" name="submit" value="Cambiar condiciones de contratación">
+			</p>
+		</form>
+		
+</body>
+</html>
