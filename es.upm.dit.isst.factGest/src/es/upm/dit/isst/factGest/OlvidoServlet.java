@@ -37,21 +37,23 @@ public class OlvidoServlet extends HttpServlet {
 		Properties props = new Properties();
 		Session session = Session.getDefaultInstance(props, null);
 		Message msg = new MimeMessage(session);
-		try {
-			msg.setFrom(new InternetAddress(
-					"noreply@fact-gest.appspotmail.com", "Gestion de facturas"));
-			System.out.println(emailUser);
-			System.out.println(nombreUser);
-			msg.addRecipient(Message.RecipientType.TO,
-					new InternetAddress(emailUser,nombreUser));
-			msg.setSubject("Recuperacion de password en FACT GEST");
-			String msgBody = "Para cambiar su contraseña acceda al siguiente enlace: "
-					+ ""
-					+ System.getProperty("line.separator")
-					+ "http://fact-gest.appspot.com/recuperacion?codigo="
-					+ user.getId();
-			// DIRECCION A LA QUE TIENE QUE ACCEDER
-			msgBody += System.getProperty("line.separator")
+			try {
+				msg.setFrom(new InternetAddress(
+						"noreply@taxy-gest.appspotmail.com",
+						"TAXY Gestion de facturas"));
+				System.out.println(emailUser);
+				System.out.println(nombreUser);
+				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+						emailUser, nombreUser));
+				msg.setSubject("Recuperacion de password en TAXY GEST");
+				String msgBody = "Estimado "
+						+ nombreUser
+						+ ", para cambiar su contraseña acceda al siguiente enlace: "
+						+ "" + System.getProperty("line.separator")
+						+ "http://taxy-gest.appspot.com/recuperacion?codigo="
+						+ user.getId();
+				// DIRECCION A LA QUE TIENE QUE ACCEDER
+				msgBody += System.getProperty("line.separator")
 					+ "Atentamente un saludo,"
 					+ System.getProperty("line.separator")
 					+ "Equipo de Gestion de facturas";
