@@ -11,7 +11,7 @@
 <body>
 
 	<div id="mensajeError">
-		<h3><c:out value="${error}" /></h3>
+		<h2><c:out value="${error}" /></h2>
 	</div>
 	<%@ include file='restaurar.html'%>
 

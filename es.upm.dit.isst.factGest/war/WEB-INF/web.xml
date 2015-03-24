@@ -113,6 +113,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/nuevopassword</url-pattern>
 	</servlet-mapping>
 	
+
 	<servlet>
 		<servlet-name>ListarDominios</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.ListarDominiosServlet</servlet-class>
@@ -139,6 +140,18 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>AgregarDominio</servlet-name>
 		<url-pattern>/agregarDominio</url-pattern>
 	</servlet-mapping>
+
+
+	<!--  Security constraints --> 
+  <security-constraint> 
+        <web-resource-collection> 
+                <web-resource-name>Area Protegida</web-resource-name> 
+                <url-pattern>/*</url-pattern> 
+        </web-resource-collection> 
+          <user-data-constraint> 
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee> 
+          </user-data-constraint> 
+  </security-constraint> 
 
 	
 </web-app>

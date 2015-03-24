@@ -46,7 +46,7 @@ public class Usuario implements Serializable {
 		this.tarifa = tarifa;
 		this.cuentaBancaria = cuentaBancaria;
 		this.corrienteDePago = true;
-		this.confirmado = true;//cambiar a false
+		this.confirmado = true;
 	}
 
 	public Long getId() {
@@ -74,6 +74,10 @@ public class Usuario implements Serializable {
 		return cuentaBancaria;
 	}
 	public boolean getConfirmado() {
+		return confirmado;
+	}
+	
+	public boolean getPuedePeticiones() {
 		return confirmado;
 	}
 

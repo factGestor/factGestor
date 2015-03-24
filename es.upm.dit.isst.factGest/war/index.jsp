@@ -12,11 +12,10 @@
 </head>
 
 <body>
-
+    <header><img src="images/taxy.png" alt="Taxy"></header>
 	<div id="mensajeError">
 		<h2><c:out value="${error}" /></h2>
 	</div>
-
 	<%@ include file='PIndex.html'%>
 
 </body>

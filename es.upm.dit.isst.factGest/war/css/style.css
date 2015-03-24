@@ -68,7 +68,7 @@ div label {
 } 
 
 #formulario input:focus,   
-#formulario textarea:focus { 
+#formulario textarea:focus{ 
    background-color: #E5E6E7;
 } 
  
@@ -78,16 +78,39 @@ div label {
  
 #formulario #clear,
 #formulario #commit,
-#formulario #register { 
+#formulario #register{ 
    width: 450px;   
    color: #BFD7C1; 
    border: none; 
    background-color: #6EA070;
 } 
+
+button{
+    font-size: 15px; 
+    color: #BFD7C1;
+   margin-bottom: 2px;
+   font-family: Arial, sans-serif;
+   width: 450px;
+    background-color: #6EA070;
+   border: none;
+   -moz-border-radius: 5px; 
+   -webkit-border-radius: 5px; 
+   border-radius: 5px;
+   padding: 5px;
+}
+
+button:hover{
+    background-color: #BFD7C1; 
+   color: #6EA070;
+}
+
+button:focus{
+    background-color: #E5E6E7;
+}
  
 #formulario #clear:hover,
 #formulario #commit:hover,
-#formulario #register:hover { 
+#formulario #register:hover{ 
    background-color: #BFD7C1; 
    color: #6EA070;
 }
@@ -110,4 +133,61 @@ div label {
 
 ul{
 	 list-style-type:none;	
+}
+
+header{
+    text-align: right;
+    padding-right: 25px;
+    padding-top: 7px;
+}
+
+/*Estilo CSS de botones radio sacado en parte de http://www.hongkiat.com */
+
+label[for="free"],
+label[for="pago"],
+label[for="suscripcion"]{  
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    font-size: 13px;  
+}  
+
+input[type=radio] {  
+    display: none; 
+}  
+
+label[for="free"]:before,
+label[for="pago"]:before,
+label[for="suscripcion"]:before{  
+    content: "";  
+    display: inline-block;  
+    width: 16px;  
+    height: 16px;  
+    border-radius: 15px;   
+   -moz-border-radius: 15px; 
+   -webkit-border-radius: 15px; 
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;  
+    bottombottom: 1px;  
+    background-color: #aaa;  
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8); 
+}  
+
+.radio label:before {  
+    border-radius: 8px; 
+}  
+
+input[type=radio]:checked + label:before {  
+    content: "\2022";  
+    color: #f3f3f3;  
+    font-size: 30px;  
+    text-align: center;  
+    line-height: 18px;  
+} 
+
+.radios{
+    padding-left: 100px;
 }

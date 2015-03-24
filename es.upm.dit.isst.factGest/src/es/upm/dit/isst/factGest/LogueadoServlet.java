@@ -18,15 +18,21 @@ public class LogueadoServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
-		System.out.println("Llamada tipo POST  ");
+		
 		Usuario u = null;
 		String name = req.getParameter("login");
 		String password = req.getParameter("password");
+
 		HttpSession misession = req.getSession(true);
 		
 		
+
+		
+		String pass = Seguridad.hashPass(password);
+
+
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
-		if (daoUser.comprobarLogin(name, password)) {
+		if (daoUser.comprobarLogin(name, pass)) {
 			// logueo correcto
 			// sacamos los atributos del usuario (id, name, CIF y mail)
 			Long id = daoUser.getId(name);

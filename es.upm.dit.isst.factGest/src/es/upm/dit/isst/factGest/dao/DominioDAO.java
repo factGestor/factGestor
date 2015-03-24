@@ -9,7 +9,13 @@ public interface DominioDAO {
 	public Long add(String nombre, Long userId);
 
 	// sacar dominios de un usuario
+
 	public List<Dominio> getDominios(Long userId);
+
+	
+	// dominio por nombre
+	public Dominio getDominioByName(String userId);
+
 
 	// sacar dominios de un usuario
 	public Dominio getDominio(long id);

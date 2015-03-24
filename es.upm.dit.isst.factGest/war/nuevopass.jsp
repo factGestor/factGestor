@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <header><img src="images/taxy.png" alt="Taxy"></header>
 	<section class="container">
 		<div class="login">
 			<form id="formulario" method="post" action="/nuevopassword" align="center">

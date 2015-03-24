@@ -36,8 +36,9 @@ public class CambiarPasswordServlet extends HttpServlet {
 		if (password.equals(repassword)){
 		
 			UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
+			String passCifrada = Seguridad.hashPass(password);
 			
-			daoUser.cambiar("password", password, usuario.getId());
+			daoUser.cambiar("password", passCifrada, usuario.getId());
 			info = info + "Contraseña cambiada.";
 		}
 		req.getSession().setAttribute("info", info);

@@ -23,23 +23,23 @@ public class EmailServlet extends HttpServlet {
 		Message msg = new MimeMessage(session);
 		try {
 			msg.setFrom(new InternetAddress(
-					"noreply@fact-gest.appspotmail.com", "Gestion de facturas"));
+					"noreply@taxy-gest.appspotmail.com", "TAXY Gestion de facturas"));
 			System.out.println(req.getAttribute("email").toString());
 			System.out.println(req.getAttribute("nombre").toString());
 			msg.addRecipient(Message.RecipientType.TO,
 					new InternetAddress(req.getAttribute("email").toString(),
 							req.getAttribute("nombre").toString()));
-			msg.setSubject("Validacion de registro en FACT GEST");
-			String msgBody = "Para verificar su cuenta acceda al siguiente enlace: "
-					+ ""
-					+ System.getProperty("line.separator")
-					+ "http://fact-gest.appspot.com/confirmacion?codigo="
+			msg.setSubject("Validacion de registro en TAXY GEST");
+			String msgBody = "Estimado " + req.getAttribute("nombre").toString()
+					+ ", para verificar su cuenta acceda al siguiente enlace: "
+					+ "" + System.getProperty("line.separator")
+					+ "http://taxy-gest.appspot.com/confirmacion?codigo="
 					+ req.getAttribute("codigo").toString();
 			// DIRECCION A LA QUE TIENE QUE ACCEDER
 			msgBody += System.getProperty("line.separator")
 					+ "Atentamente un saludo,"
 					+ System.getProperty("line.separator")
-					+ "Equipo de Gestion de facturas";
+					+ "Equipo de Gestion de facturas TAXY";
 			msg.setText(msgBody);
 			Transport.send(msg);
 		} catch (Exception e) {

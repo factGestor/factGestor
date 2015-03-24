@@ -9,6 +9,9 @@
 	<title>Gestion de dominios</title>
 </head>
 <body>
+
+<header><img src="images/taxy.png" alt="Taxy"></header>
+
 	<div id="mensajeInfo">
 		<h2><c:out value="${info}" /></h2>
 	</div>

@@ -48,6 +48,19 @@ public class DominioDAOImpl implements DominioDAO {
 		System.out.println(dominios.get(0).getUserId());
 		*/
 		return dominios;
+
+	}
+	
+	@Override
+	public Dominio getDominioByName(String domain ) {
+		// TODO Auto-generated method stub
+		EntityManager em = EMFService.get().createEntityManager();
+		// read the existing entries
+		Query q = em.createQuery("select d from Dominio d" +
+				"WHERE d.domain = :domain ");
+		q.setParameter("domain", domain);
+		List<Dominio> todos = q.getResultList();
+		return todos.get(0);
 	}
 
 	@Override
