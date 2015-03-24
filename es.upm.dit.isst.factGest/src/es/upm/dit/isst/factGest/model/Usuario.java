@@ -61,6 +61,10 @@ public class Usuario implements Serializable {
 	public boolean getConfirmado() {
 		return confirmado;
 	}
+	
+	public boolean getPuedePeticiones() {
+		return confirmado;
+	}
 
 	public void setName(String name) {
 		this.name = name;

@@ -33,13 +33,27 @@ public class DominioDAOImpl implements DominioDAO {
 	}
 
 	@Override
-	public List<Dominio> getDominios(String userId) {
+	public List<Dominio> getDominiosByUser(String userId) {
 		// TODO Auto-generated method stub
 		EntityManager em = EMFService.get().createEntityManager();
 		// read the existing entries
-		Query q = em.createQuery("select d from Dominio d");
+		Query q = em.createQuery("select d from Dominio d" +
+				"WHERE d.userId = :userId ");
+		q.setParameter("userId", userId);
 		List<Dominio> todos = q.getResultList();
 		return todos;
+	}
+	
+	@Override
+	public Dominio getDominioByName(String domain ) {
+		// TODO Auto-generated method stub
+		EntityManager em = EMFService.get().createEntityManager();
+		// read the existing entries
+		Query q = em.createQuery("select d from Dominio d" +
+				"WHERE d.domain = :domain ");
+		q.setParameter("domain", domain);
+		List<Dominio> todos = q.getResultList();
+		return todos.get(0);
 	}
 
 	@Override

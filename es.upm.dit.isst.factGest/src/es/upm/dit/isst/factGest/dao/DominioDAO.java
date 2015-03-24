@@ -9,7 +9,10 @@ public interface DominioDAO {
 	public void add(String nombre, Long userId);
 
 	// sacar dominios de un usuario
-	public List<Dominio> getDominios(String userId);
+	public List<Dominio> getDominiosByUser(String userId);
+	
+	// dominio por nombre
+	public Dominio getDominioByName(String userId);
 
 	// eliminar dominio
 	public void remove(long id);
