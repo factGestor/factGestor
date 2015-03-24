@@ -84,7 +84,7 @@ public class RegistroServlet extends HttpServlet {
 
 			String passCifrada = Seguridad.hashPass(password);
 
-			Long userId = daoUser.add(nombre, passCifrada, cif, correo, cuentaBancaria, tarifa, true, true);
+			Long userId = daoUser.add(nombre, passCifrada, cif, correo, cuentaBancaria, tarifa, false, true);
 			// sacar dominios
 			DominioDAO daoDominio = DominioDAOImpl.getInstance();
 
