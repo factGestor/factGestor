@@ -39,7 +39,7 @@ public class OlvidoServlet extends HttpServlet {
 		Message msg = new MimeMessage(session);
 			try {
 				msg.setFrom(new InternetAddress(
-						"noreply@taxy-gest.appspotmail.com",
+						"noreply@fact-gest.appspotmail.com",
 						"TAXY Gestion de facturas"));
 				System.out.println(emailUser);
 				System.out.println(nombreUser);
@@ -50,7 +50,7 @@ public class OlvidoServlet extends HttpServlet {
 						+ nombreUser
 						+ ", para cambiar su contraseña acceda al siguiente enlace: "
 						+ "" + System.getProperty("line.separator")
-						+ "http://taxy-gest.appspot.com/recuperacion?codigo="
+						+ "http://fact-gest.appspot.com/recuperacion?codigo="
 						+ user.getId();
 				// DIRECCION A LA QUE TIENE QUE ACCEDER
 				msgBody += System.getProperty("line.separator")

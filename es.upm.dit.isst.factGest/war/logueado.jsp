@@ -16,13 +16,13 @@
 <body>
     <header><img src="images/taxy.png" alt="Taxy"></header>
 	<div id="mensajeInfo">
-		<h2><c:out value="${info}" /></h2>
+		<h2><c:out value="${info}"/></h2>
 	</div>
 	<div class="login">
         <div class="datos">
 		<c:choose>
 			<c:when test="${u.confirmado == true}">
-				<h2 style="font-weight: bold;">
+				<h2 id="bienvenida" style="font-weight: bold;">
 					¡Bienvenido,
 					<c:out value="${u.name}" />
 					!

@@ -33,7 +33,7 @@ public class EmailServlet extends HttpServlet {
 			String msgBody = "Estimado " + req.getAttribute("nombre").toString()
 					+ ", para verificar su cuenta acceda al siguiente enlace: "
 					+ "" + System.getProperty("line.separator")
-					+ "http://taxy-gest.appspot.com/confirmacion?codigo="
+					+ "http://fact-gest.appspot.com/confirmacion?codigo="
 					+ req.getAttribute("codigo").toString();
 			// DIRECCION A LA QUE TIENE QUE ACCEDER
 			msgBody += System.getProperty("line.separator")
