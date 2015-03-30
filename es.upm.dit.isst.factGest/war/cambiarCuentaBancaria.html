@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <title>Cambiar cuenta bancaria</title>
 </head>
 <body>
     <header><img src="images/taxy.png" alt="Taxy"></header>
+    <div id="form">
+
 		Cambiar cuenta bancaria:
 		
 		<form id="formulario" action="/cambiarCuentaBancaria" method="post">
 			<p>
-				<label for="cuentaBancaria">Cuenta bancaria (solo si no se registra como cliente gratuito): </label> <input name="cuentaBancaria"
+				<label for="cuentaBancaria">Nueva cuenta bancaria: </label> <input name="cuentaBancaria"
 					type="text" id="cuentaBancaria" class="cuentaBancaria"
-					placeholder="Ej: ES12345678901234567890" style="text-align: center" />
-					<!-- dos letras que identifican el pais y 20 digitos -->
+					placeholder="Ej: ES12345678901234567890" style="text-align: center" required	pattern="[A-Z]{2}[0-9]{22}" title="Por favor, introduzca un numero de cuenta v&#225;lido" />
+
 			</p>
 			<p class="boton">
 				<input type="submit" id="cambiarCuentaBancaria" name="submit" value="Cambiar cuenta Bancaria">
 			</p>
 	</form>
-		
+    </div>
 </body>
 </html>

@@ -17,6 +17,11 @@
 			alert("¡Los passwords no coinciden!");
 			return false;
 		}
+        /*Comprobamos que han aceptado nuestras condiciones*/
+        if (!document.getElementById("aceptoCondiciones").checked) {
+            alert("¡Acepte nuestras condiciones!");
+            return false;
+		}
         /*Comprobación de la cuenta bancaria*/
         /*Si es free, no hace falta cuenta bancaria*/
 		if (document.getElementById("free").checked) {
@@ -31,11 +36,14 @@
         alert("¡Rellene su cuenta bancaria o seleccione la tarifa gratuita!");
 		return false;
 	}
+function abrirCondiciones() { 
+open('condiciones.html','','top=200,left=350,width=800,height=500') ; 
+} 
 </script>
 </head>
 <body>
     <header><img src="images/taxy.png" alt="Taxy"></header>
-	<div id="form">
+	<div id="formReg">
 		<form id="formulario" action="/registrar" method="post"
 			onsubmit="return comprobar(this);">
 			<p>
@@ -70,6 +78,7 @@
 					style="text-align: center" required />
 			</p>
 			</p>
+
         <p> Seleccione el tipo de tarifa que desea:</p><br>
         <p class="radios">
       			<input type="radio" name="tarifa" id="free" value="Free" checked><label for="free">Cliente gratuito (30 consultas)</label>
@@ -80,12 +89,19 @@
 				<label for="cuentaBancaria">Cuenta bancaria (sólo si no se registra como cliente gratuito): </label> <input name="cuentaBancaria"
 					type="text" id="cuentaBancaria" class="cuentaBancaria"
 					placeholder="Ej: ES12345678901234567890" style="text-align: center"	pattern="[A-Z]{2}[0-9]{22}" title="Por favor, introduzca un numero de cuenta v&#225;lido" />
+
 			</p>
 			
 			<p>Introduzca dominio/s a registrar:</p>
 			<textarea rows="4" cols="50" name="dominio2" id="dominio2"
 				placeholder="Ej: http://www.quelogostanguays.com"
 				style="text-align: center" required></textarea>
+        
+        <div class="checkbox"> 
+        <input id="aceptoCondiciones" type="checkbox" name="condiciones" value="check1">  
+    <label for="aceptoCondiciones">Acepto <a id="condiciones" onclick="abrirCondiciones()">las condiciones de uso del servicio</a></label> 
+        </div><br><br><br>
+        
 			<p class="boton">
 				<input type="submit" id="register" name="submit" value="Registrar">
 			</p>

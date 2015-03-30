@@ -1,5 +1,7 @@
 package es.upm.dit.isst.factGest.dao;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -39,8 +41,7 @@ public class CuentasARegistrarDAOImpl implements CuentasARegistrarDAO {
 
 		EntityManager em = EMFService.get().createEntityManager();
 		System.out.println("Hemos entrado a getCuentaARegistrar(id)");
-		Query q = em.createQuery("SELECT c FROM CuentaARegistrar c "
-				+ "WHERE c.userId = :userId ", CuentaARegistrar.class);
+		Query q = em.createQuery("SELECT c FROM CuentaARegistrar c "+ "WHERE c.userId = :userId ", CuentaARegistrar.class);
 
 		q.setParameter("userId", userId);
 		List<CuentaARegistrar> cuentasARegistrar = q.getResultList();
@@ -77,6 +78,28 @@ public class CuentasARegistrarDAOImpl implements CuentasARegistrarDAO {
 		} finally {
 			em.close();
 		}
+	}
+
+
+	@Override
+	public List<CuentaARegistrar> getToDelete() {
+		// TODO Auto-generated method stub
+		List<CuentaARegistrar> cuentas = new ArrayList<CuentaARegistrar>();
+		Date fecha=new Date();
+		Long time = fecha.getTime();
+		//si han pasado 2 dias = 172.800.000 milisegundos
+		Long dosDiasmilisegundos = (long) 172800000;
+		EntityManager em = EMFService.get().createEntityManager();
+		System.out.println("Hemos entrado a getCuentaARegistrar(id)");
+		Query q = em.createQuery("SELECT c FROM CuentaARegistrar c ", CuentaARegistrar.class);
+		List<CuentaARegistrar> cuentasARegistrar = q.getResultList();
+		for (CuentaARegistrar cuentaARegistrar : cuentasARegistrar) {
+			if(cuentaARegistrar.getFechaRegistro().getTime()-time>=dosDiasmilisegundos){
+				cuentas.add(cuentaARegistrar);
+			}
+		}
+		return cuentas;
+
 	}
 
 }

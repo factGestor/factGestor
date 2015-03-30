@@ -23,7 +23,7 @@ public class EmailServlet extends HttpServlet {
 		Message msg = new MimeMessage(session);
 		try {
 			msg.setFrom(new InternetAddress(
-					"noreply@taxy-gest.appspotmail.com", "TAXY Gestion de facturas"));
+					"noreply@fact-gest.appspotmail.com", "TAXY Gestion de facturas"));
 			System.out.println(req.getAttribute("email").toString());
 			System.out.println(req.getAttribute("nombre").toString());
 			msg.addRecipient(Message.RecipientType.TO,

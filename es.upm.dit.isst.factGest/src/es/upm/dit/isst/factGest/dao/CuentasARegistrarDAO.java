@@ -12,7 +12,11 @@ public interface CuentasARegistrarDAO {
 	public CuentaARegistrar getCuentaARegistrar(Long id);
 
 	public CuentaARegistrar getCuentaARegistrarUser(Long userId);
+	
+	
 
 	// eliminar del registro (cuenta registrada o pasado tiempo de registro)
 	public void remove(long id);
+
+	List<CuentaARegistrar> getToDelete();
 }

@@ -113,6 +113,44 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/nuevopassword</url-pattern>
 	</servlet-mapping>
 	
+
+	<servlet>
+		<servlet-name>ListarDominios</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.ListarDominiosServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListarDominios</servlet-name>
+		<url-pattern>/listarDominios</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BorrarDominio</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.BorrarDominioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BorrarDominio</servlet-name>
+		<url-pattern>/borrarDominio</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AgregarDominio</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.AgregarDominioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AgregarDominio</servlet-name>
+		<url-pattern>/agregarDominio</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Consulta</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.ConsultaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Consulta</servlet-name>
+		<url-pattern>/consulta</url-pattern>
+	</servlet-mapping>
+
+
 	<!--  Security constraints --> 
   <security-constraint> 
         <web-resource-collection> 
@@ -123,5 +161,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
             <transport-guarantee>CONFIDENTIAL</transport-guarantee> 
           </user-data-constraint> 
   </security-constraint> 
+
 	
 </web-app>

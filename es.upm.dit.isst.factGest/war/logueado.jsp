@@ -8,6 +8,7 @@
 <head>
 <title>Sistema de Gestión de Facturas</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/logueado.css" />
 <meta charset="utf-8">
 <link href="<c:url value='favicon.ico'/>" rel="shortcut icon" type="image/x-icon" />
 </head>
@@ -18,6 +19,7 @@
 		<h2><c:out value="${info}" /></h2>
 	</div>
 	<div class="login">
+        <div class="datos">
 		<c:choose>
 			<c:when test="${u.confirmado == true}">
 				<h2 style="font-weight: bold;">
@@ -32,31 +34,28 @@
 					<li>CIF: <c:out value="${u.CIF}" /></li>
 					<li>Email: <c:out value="${u.email}" /></li>
 				</ul>
-				<form id="cambiarPassword" action="cambiarPassword.html" method="get">
-					<p class="boton">
-						<input type="submit" id="cambiarPassword" name="submit" value="Cambiar password">
-					</p>
-				</form>
-				<form id="cambiarEmail" action="cambiarEmail.html" method="get">
-					<p class="boton">
-						<input type="submit" id="cambiarEmail" name="submit" value="Cambiar email">
-					</p>
-				</form>
-				<form id="cambiarCuentaBancaria" action="cambiarCuentaBancaria.html" method="get">
-					<p class="boton">
-						<input type="submit" id="cambiarCuentaBancaria" name="submit" value="Cambiar cuenta bancaria">
-					</p>
-				</form>
-				<form id="cambiarCondicionesContratacion" action="cambiarCondicionesContratacion.html" method="get">
-					<p class="boton">
-						<input type="submit" id="cambiarCondicionesContratacion" name="submit" value="Cambiar condiciones de contratacion">
-					</p>
-				</form>
-				<form id="listarDominios" action="/listarDominios" method="get">
-					<p class="boton">
-						<input type="submit" id="listarDominios" name="submit" value="Añadir/eliminar dominios a su cuenta">
-					</p>
-				</form>
+				</div>
+        <aside class="sidebar">
+				<h3 class="select">Seleccione una opción</h3>
+				<nav role="navigation">
+					<ul>
+					<li>
+						<a href="cambiarPassword.html" class="design-name">Cambiar password</a> 
+					</li>
+                        <li>
+						<a href="cambiarEmail.html" class="design-name">Cambiar email</a>		</li>
+                        <li>
+						<a href="cambiarCuentaBancaria.html" class="design-name">Cambiar cuenta bancaria</a>
+					</li>
+                        <li>
+						<a href="cambiarCondicionesContratacion.html" class="design-name">Cambiar condiciones de contratación
+					</li>					<li>
+						<a href="/listarDominios" class="design-name">Añadir/ Eliminar dominios a su cuenta</a>
+					</li>					</ul>
+				</nav>
+		<br/>
+        </aside>
+        <div id="hidden"></div>
 			</c:when>
 		<c:otherwise>
 Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.

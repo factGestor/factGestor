@@ -5,15 +5,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 	<title>Gestion de dominios</title>
 </head>
 <body>
+
 <header><img src="images/taxy.png" alt="Taxy"></header>
+
 	<div id="mensajeInfo">
 		<h2><c:out value="${info}" /></h2>
 	</div>
-
+<div class="campos">
 	<h1>Los dominios del usuario <c:out value="${u.name}" /> son los siguientes:</h1>
 
 	<p>
@@ -51,6 +54,6 @@
 			<input type="submit" id="agregarDominio" name="submit" value="agregar dominio">
 		</p>
 	</form>
-
+    </div>
 </body>
 </html>
