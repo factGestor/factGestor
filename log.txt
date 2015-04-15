@@ -13,3 +13,10 @@ Version 2.1. Creacion de cuentasARegistrar, falta envio de mail con codigo de co
 Falta recepcion en el enlace del codigo generado.
 
 Version 2.2 Envio de mail colocado, falta parte de recepcion del enlace y comprobar envio de email.
+.
+.
+.
+
+Version 4.0 Cambio en la base de datos y modificacion de servlets ya realizados.
+
+Version 4.0.1 Correcion en la modificacion de email y peticion de cuenta bancaria al intentar cambiar a tarifa de pago.
