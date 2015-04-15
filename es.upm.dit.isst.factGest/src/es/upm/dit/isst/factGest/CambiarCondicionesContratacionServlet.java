@@ -27,10 +27,17 @@ public class CambiarCondicionesContratacionServlet extends HttpServlet {
 		String tarifaString = req.getParameter("tarifa");
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
 		String info = "";
+		if (usuario.getCuentaBancaria()!=null){
+			
+			daoUser.cambiar("condicionesContratacion", tarifaString, usuario.getId());
+			info = info + " Condiciones de contratacion cambiadas.";	
+		}
+		else
+			info = info + "Debe introducir su cuenta bancaria para poder poner unas condiciones de pago";
 		
-		daoUser.cambiar("condicionesContratacion", tarifaString, usuario.getId());
 		
-		info = info + " Condiciones de contratacion cambiadas.";		
+		
+			
 		req.getSession().setAttribute("info", info);
 		
 		RequestDispatcher view = req.getRequestDispatcher("logueado.jsp");

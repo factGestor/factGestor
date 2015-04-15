@@ -4,19 +4,16 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Iterator;
 import java.io.IOException;
-
 import java.net.URL;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAO;
-import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAOImpl;
 import es.upm.dit.isst.factGest.dao.DominioDAO;
 import es.upm.dit.isst.factGest.dao.DominioDAOImpl;
 import es.upm.dit.isst.factGest.dao.UsuarioDAO;
@@ -29,7 +26,8 @@ public class RegistroServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
-		
+		Date fecha = new Date();
+		int consultasFree = 30;
 		
 		String errores = "";
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
@@ -80,11 +78,10 @@ public class RegistroServlet extends HttpServlet {
 
 		if (errores == "") {
 			String password = req.getParameter("password");
-
-
 			String passCifrada = Seguridad.hashPass(password);
 
-			Long userId = daoUser.add(nombre, passCifrada, cif, correo, cuentaBancaria, tarifa, false, true);
+			Long userId = daoUser.add(nombre, passCifrada, cif, correo, cuentaBancaria, tarifa, false,
+					0, consultasFree, fecha, fecha);
 			// sacar dominios
 			DominioDAO daoDominio = DominioDAOImpl.getInstance();
 
@@ -99,12 +96,15 @@ public class RegistroServlet extends HttpServlet {
 				daoDominio.add(auxDominio[auxDominio.length - 1], userId);
 
 			}
-
-			CuentasARegistrarDAO daoCuentaARegistrar = CuentasARegistrarDAOImpl
+			/*	A ELIMINAR
+			 * 
+			 * CuentasARegistrarDAO daoCuentaARegistrar = CuentasARegistrarDAOImpl
 					.getInstance();
-			Long id = daoCuentaARegistrar.add(userId);
+				Long id = daoCuentaARegistrar.add(userId);
+			 */
+			
 
-			req.setAttribute("codigo", id);
+			req.setAttribute("codigo", userId);
 			req.setAttribute("email", correo);
 			req.setAttribute("nombre", nombre);
 			RequestDispatcher rd = req.getRequestDispatcher("/emailconfirm");
@@ -117,11 +117,7 @@ public class RegistroServlet extends HttpServlet {
 		}
 	}
 
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException, ServletException {
-		RequestDispatcher view = req.getRequestDispatcher("registro.jsp");
-		view.forward(req, resp);
-	}
+
 
 	private List<String> sacarDominios(String dominios) {
 		List<String> listaDominios = new ArrayList<String>();
@@ -129,7 +125,10 @@ public class RegistroServlet extends HttpServlet {
 		String dominiosRestantes = dominios;
 		int a;
 		if (dominiosRestantes.indexOf(";") == -1) {
+			if (!checkURI(dominios))
+				return null;
 			listaDominios.add(dominios);
+			return listaDominios;
 		}
 		while (true) {
 			a = dominiosRestantes.indexOf(";");
@@ -158,7 +157,7 @@ public class RegistroServlet extends HttpServlet {
 			url.toURI();
 			if ((uri.indexOf("http://www.") == -1)
 					&& (uri.indexOf("https://www.") == -1)) {
-				return null;
+				return false;
 			}
 		} catch (Exception e) {
 			return false;

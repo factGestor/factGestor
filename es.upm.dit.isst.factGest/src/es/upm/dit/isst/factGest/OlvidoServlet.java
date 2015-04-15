@@ -29,7 +29,7 @@ public class OlvidoServlet extends HttpServlet {
 		String nombreUser = req.getParameter("nombre");
 		
 		if(userDao.getId(nombreUser)!=1L){
-		//Primero recuperamos los datos del usuario según el nombre introducido
+		//Primero recuperamos los datos del usuario segÃºn el nombre introducido
 		Usuario user = userDao.getUsuario(userDao.getId(nombreUser));
 		String emailUser = user.getEmail();
 		
@@ -48,7 +48,7 @@ public class OlvidoServlet extends HttpServlet {
 				msg.setSubject("Recuperacion de password en TAXY GEST");
 				String msgBody = "Estimado "
 						+ nombreUser
-						+ ", para cambiar su contraseña acceda al siguiente enlace: "
+						+ ", para cambiar su contraseÃ±a acceda al siguiente enlace: "
 						+ "" + System.getProperty("line.separator")
 						+ "http://taxy-gest.appspot.com/recuperacion?codigo="
 						+ user.getId();

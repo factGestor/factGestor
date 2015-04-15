@@ -1,0 +1,115 @@
+/* Partes del estilo básico del panel de administración sacado de CSS Zen Garden, basado en el diseño "Moss" de Mani Sheriar */
+
+body {
+	background:#BFD7C1 url(../images/patronfondo.gif) repeat;
+	padding-bottom:600px;
+    margin-bottom: 300px;
+	}
+p {
+    text-align: justify;
+    color: #fff;
+    font-size: 1.10em;
+    line-height: 1.25em;
+    padding-left: 100px;
+    margin-bottom: 150px;
+}
+#bienvenida{
+    margin-top: -75px;
+    margin-bottom: 100px;
+    text-align: justify;
+    color: #fff;
+    font-size: 1.60em;
+    line-height: 1.25em;
+}
+ul {
+    margin-left: -300px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.10em;
+    line-height: 1.25em;
+}
+li{
+    margin-bottom: 50px;
+}
+a {
+	color:#A7D277;
+	text-decoration:underline;
+	}
+a:hover {
+	color:#28411C;
+	background-color:#8DBB5A;
+	text-decoration:none;
+	}
+
+.login {
+    border: 4px solid;
+	width:1530px;
+	padding:125px 0 0 18px;
+	background:url(../images/patronfondo2.png) no-repeat;
+    background-size:100%;
+    background-repeat: repeat-y;
+	margin:0 0 -700px 0;
+	}
+h1, .preamble h3, .supporting .explanation h3, .supporting .participation h3, .supporting .benefits h3, .supporting .requirements h3, h3.select, h3.archives, h3.resources {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+.sidebar {
+    position:relative;
+    float:right;
+	width:174px;
+	top: -300px;
+	left: -75px;
+	font:normal 10px/12px Verdana, Arial, Helvetica, sans-serif;
+	color:#B2D48A;
+	z-index:4;
+	}
+#hidden{
+    clear:both;
+}
+
+.sidebar .design-selection li {
+	margin-bottom:8px;
+	}
+.sidebar a {
+	font:bold 13px/13px Georgia, "Times New Roman", Times, serif;
+	color:#E7F9D3;
+	display:block;
+	text-decoration:none;
+	margin:0 0 1px 0;
+	}
+.sidebar a:hover {
+	color:#436023;
+	}
+.sidebar .design-selection a.designer-name, .sidebar .design-archives a, .sidebar .zen-resources a {
+	font:normal 10px/12px Verdana, Arial, Helvetica, sans-serif;
+	color:#69913E;
+	display:inline;
+	text-decoration:underline;
+	}
+.sidebar .design-selection a.designer-name:hover, .sidebar .design-archives a:hover, .sidebar .zen-resources a:hover {
+	color:#C9E1AA;
+	background-color:#66992D;
+	text-decoration:none;
+	}
+.sidebar h3 {
+	margin:25px 0 0 0;
+	height:54px;
+	}
+.sidebar ul {
+	margin:-25px 0 0 20px;
+	list-style-type:none;
+	list-style-image:url(../images/punto.gif);
+	}
+.sidebar ul li {
+	margin:0 0 4px 0;
+	}
+h3.select {
+	background-repeat:no-repeat;
+	}
+h3.select {
+	background-image:url(../images/titulo.png);
+	width:160px;
+    margin-bottom: 50px;
+	}

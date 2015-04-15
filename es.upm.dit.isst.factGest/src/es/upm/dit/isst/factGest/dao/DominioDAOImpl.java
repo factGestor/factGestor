@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import es.upm.dit.isst.factGest.model.Dominio;
+import es.upm.dit.isst.factGest.model.Usuario;
 
 public class DominioDAOImpl implements DominioDAO {
 
@@ -56,11 +57,14 @@ public class DominioDAOImpl implements DominioDAO {
 		// TODO Auto-generated method stub
 		EntityManager em = EMFService.get().createEntityManager();
 		// read the existing entries
-		Query q = em.createQuery("select d from Dominio d" +
-				"WHERE d.domain = :domain ");
+		Query q = em.createQuery("SELECT d FROM Dominio d "
+				+ "WHERE d.domain = :domain ", Dominio.class);
 		q.setParameter("domain", domain);
-		List<Dominio> todos = q.getResultList();
-		return todos.get(0);
+		List<Dominio> dominios = q.getResultList();
+		if(dominios.isEmpty()){
+			return null;
+		}
+		return dominios.get(0);
 	}
 
 	@Override

@@ -9,7 +9,7 @@
 		document.getElementById("formulario").reset();
 	}
 	function comprobar(formulario) {
-        /*Comprobación de que los pass coinciden*/
+		/*Comprobación de que los pass coinciden*/
 		var password = formulario.password.value;
 		var repass = formulario.repassword.value;
 		/*Comprobar que la contraseña coincide*/
@@ -17,25 +17,35 @@
 			alert("¡Los passwords no coinciden!");
 			return false;
 		}
-        /*Comprobación de la cuenta bancaria*/
-        /*Si es free, no hace falta cuenta bancaria*/
-		if (document.getElementById("free").checked) {
-            return true;
+		/*Comprobamos que han aceptado nuestras condiciones*/
+		if (!document.getElementById("aceptoCondiciones").checked) {
+			alert("¡Acepte nuestras condiciones!");
+			return false;
 		}
-        /*Si no es free pero hay cuenta bancaria, valida*/
-        if(document.getElementById("cuentaBancaria").value!=""){
-			 return true;
-        }
-        
-        /*En caso contrario, no valida y avisa*/
-        alert("¡Rellene su cuenta bancaria o seleccione la tarifa gratuita!");
+		/*Comprobación de la cuenta bancaria*/
+		/*Si es free, no hace falta cuenta bancaria*/
+		if (document.getElementById("free").checked) {
+			return true;
+		}
+		/*Si no es free pero hay cuenta bancaria, valida*/
+		if (document.getElementById("cuentaBancaria").value != "") {
+			return true;
+		}
+
+		/*En caso contrario, no valida y avisa*/
+		alert("¡Rellene su cuenta bancaria o seleccione la tarifa gratuita!");
 		return false;
+	}
+	function abrirCondiciones() {
+		open('condiciones.html', '', 'top=200,left=350,width=800,height=500');
 	}
 </script>
 </head>
 <body>
-    <header><img src="images/taxy.png" alt="Taxy"></header>
-	<div id="form">
+	<header>
+		<img src="images/taxy.png" alt="Taxy">
+	</header>
+	<div id="formReg">
 		<form id="formulario" action="/registrar" method="post"
 			onsubmit="return comprobar(this);">
 			<p>
@@ -43,7 +53,8 @@
 					espacios): </label> <input name="name" type="text" id="usuario"
 					class="nombre" placeholder="Ej: logos_copinsa"
 					style="text-align: center" pattern="^[a-zA-Z0-9ñáéíóú_.-]{4,20}"
-					autofocus="" title="Caracteres permitidos: Alfanum&#233;ricos y ._-"required/ >
+					autofocus=""
+					title="Caracteres permitidos: Alfanum&#233;ricos y ._-"required/ >
 			</p>
 			<p>
 				<label for="correo">Email de registro: </label> <input name="correo"
@@ -71,23 +82,46 @@
 			</p>
 			</p>
 
-        <p> Seleccione el tipo de tarifa que desea:</p><br>
-        <p class="radios">
-      			<input type="radio" name="tarifa" id="free" value="Free" checked><label for="free">Cliente gratuito (30 consultas)</label>
-      			<input type="radio" name="tarifa" id="pago" value="Pago"><label for="pago">Pago por consulta</label>
-      			<input type="radio" name="tarifa" id="suscripcion" value="Suscripcion"><label for="suscripcion">Suscripcion (coste independiente del numero de consultas)</label>
-      		</p><br><br><br>
+			<p>Seleccione el tipo de tarifa que desea:</p>
+			<br>
+			<p class="radios">
+				<input type="radio" name="tarifa" id="free" value="Free" checked><label
+					for="free">Cliente gratuito (30 consultas)</label> <input
+					type="radio" name="tarifa" id="pago" value="Pago"><label
+					for="pago">Pago por consulta</label> <input type="radio"
+					name="tarifa" id="suscripcion" value="Suscripcion"><label
+					for="suscripcion">Suscripcion (coste independiente del
+					numero de consultas)</label>
+			</p>
+			<br>
+			<br>
+			<br>
 			<p>
-				<label for="cuentaBancaria">Cuenta bancaria (sólo si no se registra como cliente gratuito): </label> <input name="cuentaBancaria"
+				<label for="cuentaBancaria">Cuenta bancaria (sólo si no se
+					registra como cliente gratuito): </label> <input name="cuentaBancaria"
 					type="text" id="cuentaBancaria" class="cuentaBancaria"
-					placeholder="Ej: ES12345678901234567890" style="text-align: center"	pattern="[A-Z]{2}[0-9]{22}" title="Por favor, introduzca un numero de cuenta v&#225;lido" />
+					placeholder="Ej: ES12345678901234567890" style="text-align: center"
+					pattern="[A-Z]{2}[0-9]{22}"
+					title="Por favor, introduzca un numero de cuenta v&#225;lido" />
 
 			</p>
-			
+
 			<p>Introduzca dominio/s a registrar:</p>
 			<textarea rows="4" cols="50" name="dominio2" id="dominio2"
 				placeholder="Ej: http://www.quelogostanguays.com"
 				style="text-align: center" required></textarea>
+
+			<div class="checkbox">
+				<input id="aceptoCondiciones" type="checkbox" name="condiciones"
+					value="check1"> <label for="aceptoCondiciones">Acepto
+					<a id="condiciones" onclick="abrirCondiciones()">las
+						condiciones de uso del servicio</a>
+				</label>
+			</div>
+			<br>
+			<br>
+			<br>
+
 			<p class="boton">
 				<input type="submit" id="register" name="submit" value="Registrar">
 			</p>

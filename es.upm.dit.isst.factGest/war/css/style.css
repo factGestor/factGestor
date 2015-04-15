@@ -1,10 +1,12 @@
 body {
-   background: #BFD7C1; /*Verde claro*/
+   background:#BFD7C1 url(../images/patronfondo.gif) repeat;
+	padding-bottom:600px;
    color: #262626;
    font-family: Arial, sans-serif;
 }
  
-.login{ 
+.login,
+.campos{ 
    background-color: #87C489;
    width: 465px; 
    padding: 20px; 
@@ -14,11 +16,34 @@ body {
    -webkit-border-radius: 15px; 
 }
 
+.condiciones{
+    background-color: #87C489;
+   width: 1000px; 
+   padding: 20px; 
+   margin: 50px auto; 
+   border-radius: 15px; 
+    margin-top: 100px;
+     margin-bottom: -300px;
+   -moz-border-radius: 15px; 
+   -webkit-border-radius: 15px; 
+}
+
 #form { 
    background-color: #87C489;
    width: 900px; 
    padding: 20px; 
    margin: 50px auto; 
+   border-radius: 15px;   
+   -moz-border-radius: 15px; 
+   -webkit-border-radius: 15px; 
+}
+
+#formReg { 
+   background-color: #87C489;
+   width: 900px; 
+   padding: 20px; 
+   margin: 50px auto; 
+    margin-bottom: -300px;
    border-radius: 15px;   
    -moz-border-radius: 15px; 
    -webkit-border-radius: 15px; 
@@ -123,7 +148,8 @@ button:focus{
   background-color: #ddffdd;
 }
 
-#mensajeError{
+#mensajeError,
+#mensajeInfo{
    width: 465px; 
    padding: 10px; 
    margin: 15px auto; 
@@ -135,17 +161,32 @@ ul{
 	 list-style-type:none;	
 }
 
+#condiciones{
+    color:blue;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+#condiciones:hover{
+    color: darkmagenta;
+}
+
 header{
+    position:relative;
     text-align: right;
     padding-right: 25px;
     padding-top: 7px;
 }
+header img{
+    margin-left: 1000px;
+}
 
-/*Estilo CSS de botones radio sacado en parte de http://www.hongkiat.com */
+/*Estilo CSS de botones radio y checkbox sacado en parte de http://www.hongkiat.com */
 
 label[for="free"],
 label[for="pago"],
-label[for="suscripcion"]{  
+label[for="suscripcion"],
+label[for="aceptoCondiciones"]{  
     display: inline-block;  
     cursor: pointer;  
     position: relative;  
@@ -160,7 +201,8 @@ input[type=radio] {
 
 label[for="free"]:before,
 label[for="pago"]:before,
-label[for="suscripcion"]:before{  
+label[for="suscripcion"]:before,
+label[for="aceptoCondiciones"]:before{  
     content: "";  
     display: inline-block;  
     width: 16px;  
@@ -191,3 +233,57 @@ input[type=radio]:checked + label:before {
 .radios{
     padding-left: 100px;
 }
+
+.checkbox{
+    padding-left: 400px;
+}
+
+input[type=checkbox] {  
+    display: none;  
+}
+
+.checkbox label:before {
+	border-radius: 3px;
+}
+
+input[type=checkbox]:checked+label:before {
+	content: "\2713";
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+	font-size: 15px;
+	color: #f3f3f3;
+	text-align: center;
+	line-height: 15px;
+}
+
+table {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 45px;
+	width: 375px;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+th {
+	font-size: 13px;
+	font-weight: normal;
+	padding: 8px;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #039;
+}
+
+td {
+	padding: 8px;
+	background: #e8edff;
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+}
+
+tr:hover td {
+	background: #d0dafd;
+	color: #339;
+}
+

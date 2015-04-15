@@ -3,16 +3,18 @@
 <head>
 
 <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 <title>Cambiar email</title>
 </head>
 <body>
     <header><img src="images/taxy.png" alt="Taxy"></header>
+    <div class="campos" id="form">
 
 		Cambiar email:
 		
 		<form id="formulario" action="/cambiarEmail" method="post">
 			<p>
-				<label for="correo">Email de registro: </label> <input name="correo"
+				<label for="correo">Nuevo e-mail: </label> <input name="correo"
 					type="text" id="email" class="correo"
 					placeholder="Ej: pepe@copinsa.com" style="text-align: center"
 					pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
@@ -22,6 +24,6 @@
 				<input type="submit" id="cambiarEmail" name="submit" value="Cambiar email">
 			</p>
 	</form>
-		
+    </div>
 </body>
 </html>
