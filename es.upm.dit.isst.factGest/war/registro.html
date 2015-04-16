@@ -22,19 +22,7 @@
 			alert("¡Acepte nuestras condiciones!");
 			return false;
 		}
-		/*Comprobación de la cuenta bancaria*/
-		/*Si es free, no hace falta cuenta bancaria*/
-		if (document.getElementById("free").checked) {
-			return true;
-		}
-		/*Si no es free pero hay cuenta bancaria, valida*/
-		if (document.getElementById("cuentaBancaria").value != "") {
-			return true;
-		}
-
-		/*En caso contrario, no valida y avisa*/
-		alert("¡Rellene su cuenta bancaria o seleccione la tarifa gratuita!");
-		return false;
+		return true;
 	}
 	function abrirCondiciones() {
 		open('condiciones.html', '', 'top=200,left=350,width=800,height=500');
@@ -82,30 +70,15 @@
 			</p>
 			</p>
 
-			<p>Seleccione el tipo de tarifa que desea:</p>
+			<p>Su tarifa es (Puede cambiar su tarifa una vez logueado):</p>
 			<br>
-			<p class="radios">
+			<p class="radioReg">
 				<input type="radio" name="tarifa" id="free" value="Free" checked><label
-					for="free">Cliente gratuito (30 consultas)</label> <input
-					type="radio" name="tarifa" id="pago" value="Pago"><label
-					for="pago">Pago por consulta</label> <input type="radio"
-					name="tarifa" id="suscripcion" value="Suscripcion"><label
-					for="suscripcion">Suscripcion (coste independiente del
-					numero de consultas)</label>
+					for="free">Cliente gratuito: 30 consultas</label> 
 			</p>
 			<br>
 			<br>
 			<br>
-			<p>
-				<label for="cuentaBancaria">Cuenta bancaria (sólo si no se
-					registra como cliente gratuito): </label> <input name="cuentaBancaria"
-					type="text" id="cuentaBancaria" class="cuentaBancaria"
-					placeholder="Ej: ES12345678901234567890" style="text-align: center"
-					pattern="[A-Z]{2}[0-9]{22}"
-					title="Por favor, introduzca un numero de cuenta v&#225;lido" />
-
-			</p>
-
 			<p>Introduzca dominio/s a registrar:</p>
 			<textarea rows="4" cols="50" name="dominio2" id="dominio2"
 				placeholder="Ej: http://www.quelogostanguays.com"
