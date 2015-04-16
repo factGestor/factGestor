@@ -3,15 +3,17 @@
 <head>
 
 <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <title>Cambiar email</title>
 </head>
 <body>
-    <header><img src="images/taxy.png" alt="Taxy"></header>
-    <div class="campos" id="form">
+	<header>
+		<img src="images/taxy.png" alt="Taxy">
+	</header>
+	<div class="campos" id="form">
 
 		Cambiar email:
-		
+
 		<form id="formulario" action="/cambiarEmail" method="post">
 			<p>
 				<label for="correo">Nuevo e-mail: </label> <input name="correo"
@@ -21,9 +23,13 @@
 					title="Por favor, introduzca un e-mail v&#225;lido" required />
 			</p>
 			<p class="boton">
-				<input type="submit" id="cambiarEmail" name="submit" value="Cambiar email">
+				<input type="submit" id="cambiarEmail" name="submit"
+					value="Cambiar email">
 			</p>
-	</form>
-    </div>
+			<a href="https://www.fact-gest.appspot.com/">
+				<button class="boton">Volver</button>
+			</a>
+		</form>
+	</div>
 </body>
 </html>

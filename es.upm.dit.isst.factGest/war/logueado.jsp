@@ -35,27 +35,23 @@
 					<li>Email: <c:out value="${u.email}" /></li>
 				</ul>
 				</div>
-        <aside class="sidebar">
-				<h3 class="select">Seleccione una opción</h3>
-				<nav role="navigation">
-					<ul>
-					<li>
-						<a href="cambiarPassword.html" class="design-name">Cambiar password</a> 
-					</li>
-                        <li>
-						<a href="cambiarEmail.html" class="design-name">Cambiar email</a>		</li>
-                        <li>
-						<a href="cambiarCuentaBancaria.html" class="design-name">Cambiar cuenta bancaria</a>
-					</li>
-                        <li>
-						<a href="cambiarCondicionesContratacion.html" class="design-name">Cambiar condiciones de contratación
-					</li>					<li>
-						<a href="/listarDominios" class="design-name">Añadir/ Eliminar dominios a su cuenta</a>
-					</li>					</ul>
-				</nav>
-		<br/>
-        </aside>
-        <div id="hidden"></div>
+		<aside class="sidebar">
+			<h3 class="select">Seleccione una opción</h3>
+			<nav role="navigation">
+				<ul>
+					<li><a href="cambiarPassword.html" class="design-name">Cambiar
+							password</a></li>
+					<li><a href="cambiarEmail.html" class="design-name">Cambiar
+							email</a></li>
+					<li><a href="cambiarCondicionesContratacion.html"
+						class="design-name">Cambiar condiciones de contratación </li>
+					<li><a href="/listarDominios" class="design-name">Añadir/
+							Eliminar dominios a su cuenta</a></li>
+				</ul>
+			</nav>
+			<br />
+		</aside>
+		<div id="hidden"></div>
 			</c:when>
 		<c:otherwise>
 Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.
