@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAO;
-import es.upm.dit.isst.factGest.dao.CuentasARegistrarDAOImpl;
 import es.upm.dit.isst.factGest.dao.DominioDAO;
 import es.upm.dit.isst.factGest.dao.DominioDAOImpl;
 import es.upm.dit.isst.factGest.dao.UsuarioDAO;
 import es.upm.dit.isst.factGest.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.factGest.model.CuentaARegistrar;
+
 import es.upm.dit.isst.factGest.model.Dominio;
+import es.upm.dit.isst.factGest.model.Usuario;
 
 
 public class BorradoServlet extends HttpServlet {
@@ -24,13 +23,12 @@ public class BorradoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		UsuarioDAO usuarioDao = UsuarioDAOImpl.getInstance();
-		CuentasARegistrarDAO cuentasARegistrarDao = CuentasARegistrarDAOImpl.getInstance();
 		DominioDAO dominioDao = DominioDAOImpl.getInstance();
-		List<CuentaARegistrar> cuentasBorrar = cuentasARegistrarDao.getToDelete();
-		for (CuentaARegistrar cuentaBorradoEnCurso : cuentasBorrar) {
-			Long userId = cuentaBorradoEnCurso.getUserId();
+		List<Usuario> cuentasBorrar = usuarioDao.getToDelete();
+		for (Usuario cuentaBorradoEnCurso : cuentasBorrar) {
+			Long userId = cuentaBorradoEnCurso.getId();
 			//los borrados se realizan siempre por la primary key
-			cuentasARegistrarDao.remove(cuentaBorradoEnCurso.getId());
+			usuarioDao.remove(cuentaBorradoEnCurso.getId());
 			//List<Dominio> getDominios(String userId
 			List<Dominio> dominios = dominioDao.getDominios(userId);
 			for(Dominio dominio : dominios){

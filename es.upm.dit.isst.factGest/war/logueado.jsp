@@ -31,8 +31,9 @@
 				<ul>
 					<li>ID: <c:out value="${u.id}" /></li>
 					<li>Nombre: <c:out value="${u.name}" /></li>
-					<li>CIF: <c:out value="${u.CIF}" /></li>
 					<li>Email: <c:out value="${u.email}" /></li>
+					<li>CIF: <c:out value="${u.CIF}" /></li>
+					<li>Tarifa: <c:out value="${u.tarifa}" /></li>
 				</ul>
 				</div>
 		<aside class="sidebar">
@@ -45,8 +46,7 @@
 							email</a></li>
 					<li><a href="cambiarCondicionesContratacion.html"
 						class="design-name">Cambiar condiciones de contratación </li>
-					<li><a href="/listarDominios" class="design-name">Añadir/
-							Eliminar dominios a su cuenta</a></li>
+					<li><a href="/listarDominios" class="design-name">Dominios asociados su cuenta</a></li>
 				</ul>
 			</nav>
 			<br />

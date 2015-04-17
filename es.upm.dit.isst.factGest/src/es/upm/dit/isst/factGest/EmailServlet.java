@@ -23,7 +23,7 @@ public class EmailServlet extends HttpServlet {
 		Message msg = new MimeMessage(session);
 		try {
 			msg.setFrom(new InternetAddress(
-					"noreply@fact-gest.appspotmail.com", "TAXY Gestion de facturas"));
+					"noreply@taxy-gest.appspotmail.com", "TAXY Gestion de facturas"));
 			System.out.println(req.getAttribute("email").toString());
 			System.out.println(req.getAttribute("nombre").toString());
 			msg.addRecipient(Message.RecipientType.TO,
@@ -33,7 +33,7 @@ public class EmailServlet extends HttpServlet {
 			String msgBody = "Estimado " + req.getAttribute("nombre").toString()
 					+ ", para verificar su cuenta acceda al siguiente enlace: "
 					+ "" + System.getProperty("line.separator")
-					+ "http://fact-gest.appspot.com/confirmacion?codigo="
+					+ "http://taxy-gest.appspot.com/confirmacion?codigo="
 					+ req.getAttribute("codigo").toString();
 			// DIRECCION A LA QUE TIENE QUE ACCEDER
 			msgBody += System.getProperty("line.separator")

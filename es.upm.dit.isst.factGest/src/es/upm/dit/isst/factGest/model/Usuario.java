@@ -1,6 +1,7 @@
 package es.upm.dit.isst.factGest.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,20 +34,31 @@ public class Usuario implements Serializable {
 	private String email;
 	@Column(name = "tarifa", nullable = false)
 	private Tarifas tarifa;
-	@Column(name = "cuentaBancaria", nullable = true)
-	private String cuentaBancaria;
-	private boolean corrienteDePago;
+	
+	//indica si se ha confirmado la cuenta
 	private boolean confirmado;
+	
+	private int consultasActuales;
+	private int consultasDisponibles;
 
-	public Usuario(String name, String password, String CIF, String email, Tarifas tarifa, String cuentaBancaria, Boolean confirmado, Boolean corrientePago) {
+	//dia en el que se ha registrado
+	private Date fechaRegistro;
+	//dia hasta el que dura la suscripcion
+	private Date fechaSuscripcion;
+	
+	public Usuario(String name, String password, String CIF, String email, Tarifas tarifa, Boolean confirmado, int consultasActuales, int consultasDisponibles,
+			Date fechaRegistro, Date fechaSuscripcion) {
 		this.name = name;
 		this.password = password;
 		this.CIF = CIF;
 		this.email = email;
 		this.tarifa = tarifa;
-		this.cuentaBancaria = cuentaBancaria;
-		this.corrienteDePago = corrientePago;
 		this.confirmado = confirmado;
+		
+		this.consultasActuales = consultasActuales;
+		this.consultasDisponibles = consultasDisponibles;
+		this.fechaRegistro = fechaRegistro;
+		this.fechaSuscripcion = fechaSuscripcion;
 	}
 
 	public Long getId() {
@@ -67,19 +79,26 @@ public class Usuario implements Serializable {
 	public Tarifas getTarifa() {
 		return tarifa;
 	}
-	public boolean getCorrienteDePago() {
-		return corrienteDePago;
-	}
-	public String getCuentaBancaria() {
-		return cuentaBancaria;
-	}
+
 	public boolean getConfirmado() {
 		return confirmado;
 	}
-	
 	public boolean getPuedePeticiones() {
-		return confirmado;
+			return confirmado;
 	}
+	public int getConsultasActuales(){
+		return consultasActuales;
+	}
+	public int getConsultasDisponibles(){
+		return consultasDisponibles;
+	}
+	public Date getFechaRegistro(){
+		return fechaRegistro;
+	}
+	public Date getFechaSuscripcion(){
+		return fechaSuscripcion;
+	}
+	
 
 	public void setName(String name) {
 		this.name = name;
@@ -96,14 +115,20 @@ public class Usuario implements Serializable {
 	public void setTarifa(Tarifas tarifa) {
 		this.tarifa = tarifa;
 	}
-	public void setCuentaBancaria(String cuentaBancaria) {
-		this.cuentaBancaria = cuentaBancaria;
-	}
-	public void setCorrienteDePago(boolean corrienteDePago) {
-		this.corrienteDePago = corrienteDePago;
-	}
 	public void setConfirmado(boolean confirmado) {
 		this.confirmado = confirmado;
+	}
+	public void setConsultasActuales(int consultasActuales){
+		this.consultasActuales = consultasActuales;
+	}
+	public void setConsultasDisponibles(int consultasDisponibles){
+		this.consultasDisponibles = consultasDisponibles;
+	}
+	public void setFechaRegistro(Date fechaRegistro){
+		this.fechaRegistro = fechaRegistro;
+	}
+	public void setFechaSuscripcion(Date fechaSuscripcion){
+		this.fechaSuscripcion = fechaSuscripcion;
 	}
 
 }

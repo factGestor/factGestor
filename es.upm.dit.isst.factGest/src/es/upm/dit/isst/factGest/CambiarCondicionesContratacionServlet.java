@@ -23,14 +23,18 @@ public class CambiarCondicionesContratacionServlet extends HttpServlet {
 		System.out.println("ESTAMOS EN EL METODO DOPOST DE CambiarCondicionesContratacionServlet");
 		HttpSession misession= (HttpSession) req.getSession();
 		Usuario usuario = (Usuario) misession.getAttribute("u");
-		String cuentaBancaria = req.getParameter("cuentaBancaria");
-		String tarifaString = req.getParameter("tarifa");
+		
+		String tarifaString = "Free";
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
 		String info = "";
+			
+			daoUser.cambiar("condicionesContratacion", tarifaString, usuario.getId());
+			info = info + " Condiciones de contratacion cambiadas.";	
+
 		
-		daoUser.cambiar("condicionesContratacion", tarifaString, usuario.getId());
 		
-		info = info + " Condiciones de contratacion cambiadas.";		
+		
+			
 		req.getSession().setAttribute("info", info);
 		
 		RequestDispatcher view = req.getRequestDispatcher("logueado.jsp");

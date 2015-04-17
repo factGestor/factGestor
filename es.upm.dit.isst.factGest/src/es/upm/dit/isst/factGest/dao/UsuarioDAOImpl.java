@@ -1,5 +1,7 @@
 package es.upm.dit.isst.factGest.dao;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -22,12 +24,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			instance = new UsuarioDAOImpl();
 		return instance;
 	}
-
+	
+	
 	@Override
-	public Long add(String name, String password, String CIF, String email,String cuentaBancaria, Tarifas tarifa, boolean confirmado, boolean corrienteDePago ){
+	public Long add(String name, String password, String CIF, String email,String cuentaBancaria, 
+			Tarifas tarifa, boolean confirmado, int consultasActuales, int consultasDisponibles,
+			Date fechaRegistro, Date fechaSuscripcion){
 		// TODO Auto-generated method stub
+		
+		
 		EntityManager em = EMFService.get().createEntityManager();
-		Usuario usuario = new Usuario(name, password, CIF, email, tarifa, cuentaBancaria, confirmado,corrienteDePago);
+		Usuario usuario = new Usuario(name, password, CIF, email, tarifa, confirmado,
+				consultasActuales, consultasDisponibles, fechaRegistro, fechaSuscripcion);
 		em.persist(usuario);
 		em.close();
 		return usuario.getId();
@@ -147,9 +155,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		if(nombre.equals("email")){
 			usuario.setEmail(dato);
 		}
-		if (nombre.equals("cuentaBancaria")){
-			usuario.setCuentaBancaria(dato);
-		}
 		if (nombre.equals("condicionesContratacion")){
 			Tarifas tarifa = Tarifas.Free;
 			if(dato.equals("Pago")){
@@ -162,6 +167,44 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		} 
 		
 		em.getTransaction().commit();
+		
+	}
+
+	@Override
+	public List<Usuario> getToDelete() {
+		// TODO Auto-generated method stub
+		List<Usuario> cuentas = new ArrayList<Usuario>();
+		Date fecha=new Date();
+		Long time = fecha.getTime();
+		//si han pasado 2 dias = 172.800.000 milisegundos
+		Long dosDiasmilisegundos = (long) 172800000;
+		EntityManager em = EMFService.get().createEntityManager();
+		
+		Query q = em.createQuery("SELECT u FROM Usuario c ", Usuario.class);
+		List<Usuario> usuarios = q.getResultList();
+		for (Usuario usuario : usuarios) {
+			if(usuario.getFechaRegistro().getTime()-time>=dosDiasmilisegundos){
+				cuentas.add(usuario);
+			}
+		}
+		return cuentas;
+
+	}
+
+	@Override
+	public void descontarConsulta(long id) {
+		// TODO Auto-generated method stub
+		EntityManager em = EMFService.get().createEntityManager();
+		try {
+			Usuario usuario = em.find(Usuario.class, id);
+
+			em.getTransaction().begin();
+			usuario.setConsultasActuales(usuario.getConsultasActuales() + 1);
+			usuario.setConsultasDisponibles(usuario.getConsultasDisponibles()-1);
+			em.getTransaction().commit();
+		} finally {
+			em.close();
+		}
 		
 	}
 
