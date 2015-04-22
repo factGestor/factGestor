@@ -1,6 +1,7 @@
 package es.upm.dit.isst.factGest;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +47,7 @@ public class FacturaPagadaServlet extends HttpServlet {
 			}
 			guardado = false;
 		}
-		String nFactura = req.getParameter("nfactura");
+		String nFactura = req.getParameter("nFactura");
 		if (nFactura == null) {
 			errores = errores + "Numero de factura nulo";
 			guardado = false;
@@ -75,17 +76,17 @@ public class FacturaPagadaServlet extends HttpServlet {
 				if (dom != null) {
 					FacturacionDAO daoFacturacion = FacturacionDAOImpl
 							.getInstance();
-					daoFacturacion.add(dom.getUserId(), dominio, iva, paisID,
-							nFactura, tipo);
+					daoFacturacion.add(dom.getUserId(), dom.getId(), iva, paisID,
+							nFactura, tipo, new Date());
 				} else {
 					errores = errores
 							+ "No existe dominio en la base de datos. ";
 					guardado = false;
 				}
+			} else {
+				errores = errores + "Dominio nulo. ";
+				guardado = false;
 			}
-		} else {
-			errores = errores + "Dominio nulo. ";
-			guardado = false;
 		}
 
 		JSONObject json = new JSONObject();
