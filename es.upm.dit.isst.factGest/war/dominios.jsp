@@ -57,16 +57,19 @@
 
 		<form id="cambiarPassword" action="/agregarDominio" method="post">
 			<p>
-				<label for="agregarDominio">Nuevo Dominio: </label> <br>
-				<input name="agregarDominio" type="text" id="agregarDominio"
-					class="text" placeholder="Ej: www.dominio.es"
-					style="text-align: center" />
+				<label for="agregarDominio">Nuevo Dominio: </label> <br> <input
+					name="agregarDominio" type="text" id="agregarDominio" class="text"
+					placeholder="Ej: www.dominio.es" style="text-align: center" />
 			</p>
 			<p class="boton">
 				<input type="submit" id="agregarDominio" name="submit"
-					value="agregar dominio">
+					value="Agregar Dominio">
 			</p>
+			
 		</form>
+		<a href="https://www.fact-gest.appspot.com/">
+				<button class="boton">Volver</button>
+			</a>
 	</div>
 </body>
 </html>

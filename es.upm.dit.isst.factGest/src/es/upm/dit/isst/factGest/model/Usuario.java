@@ -34,8 +34,7 @@ public class Usuario implements Serializable {
 	private String email;
 	@Column(name = "tarifa", nullable = false)
 	private Tarifas tarifa;
-	@Column(name = "cuentaBancaria", nullable = true)
-	private String cuentaBancaria;
+	
 	//indica si se ha confirmado la cuenta
 	private boolean confirmado;
 	
@@ -47,15 +46,13 @@ public class Usuario implements Serializable {
 	//dia hasta el que dura la suscripcion
 	private Date fechaSuscripcion;
 	
-	public Usuario(String name, String password, String CIF, String email, Tarifas tarifa, 
-			String cuentaBancaria, Boolean confirmado, int consultasActuales, int consultasDisponibles,
+	public Usuario(String name, String password, String CIF, String email, Tarifas tarifa, Boolean confirmado, int consultasActuales, int consultasDisponibles,
 			Date fechaRegistro, Date fechaSuscripcion) {
 		this.name = name;
 		this.password = password;
 		this.CIF = CIF;
 		this.email = email;
 		this.tarifa = tarifa;
-		this.cuentaBancaria = cuentaBancaria;
 		this.confirmado = confirmado;
 		
 		this.consultasActuales = consultasActuales;
@@ -82,9 +79,7 @@ public class Usuario implements Serializable {
 	public Tarifas getTarifa() {
 		return tarifa;
 	}
-	public String getCuentaBancaria() {
-		return cuentaBancaria;
-	}
+
 	public boolean getConfirmado() {
 		return confirmado;
 	}
@@ -120,10 +115,6 @@ public class Usuario implements Serializable {
 	public void setTarifa(Tarifas tarifa) {
 		this.tarifa = tarifa;
 	}
-	public void setCuentaBancaria(String cuentaBancaria) {
-		this.cuentaBancaria = cuentaBancaria;
-	}
-
 	public void setConfirmado(boolean confirmado) {
 		this.confirmado = confirmado;
 	}

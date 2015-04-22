@@ -58,8 +58,8 @@ div label {
   float: left;
 }
  
-#formulario input,   
-#formulario textarea{ 
+#formulario input:not([type="image"]),   
+#formulario textarea:not(paypalimg){ 
    font-size: 15px; 
    margin-bottom: 2px;
    font-family: Arial, sans-serif;
@@ -73,7 +73,7 @@ div label {
    padding: 5px; 
 } 
 
-#form #formulario input,   
+#form #formulario input:not([type="image"]),   
 #form #formulario textarea{ 
    width: 650px;
 }
@@ -234,6 +234,10 @@ input[type=radio]:checked + label:before {
     padding-left: 100px;
 }
 
+.radioReg{
+    padding-left: 400px;
+}
+
 .checkbox{
     padding-left: 400px;
 }
@@ -287,3 +291,6 @@ tr:hover td {
 	color: #339;
 }
 
+.hidden{
+    display:none;
+}

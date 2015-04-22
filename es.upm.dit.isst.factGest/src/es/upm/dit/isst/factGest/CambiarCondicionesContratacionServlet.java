@@ -21,19 +21,17 @@ public class CambiarCondicionesContratacionServlet extends HttpServlet {
 			throws IOException, ServletException {
 		
 		System.out.println("ESTAMOS EN EL METODO DOPOST DE CambiarCondicionesContratacionServlet");
+		System.out.println("DE LA VERSION CAMBIADA");
 		HttpSession misession= (HttpSession) req.getSession();
 		Usuario usuario = (Usuario) misession.getAttribute("u");
 		
-		String tarifaString = req.getParameter("tarifa");
+		String tarifaString = "Free";
 		UsuarioDAO daoUser = UsuarioDAOImpl.getInstance();
 		String info = "";
-		if (usuario.getCuentaBancaria()!=""){
 			
 			daoUser.cambiar("condicionesContratacion", tarifaString, usuario.getId());
 			info = info + " Condiciones de contratacion cambiadas.";	
-		}
-		else
-			info = info + "Debe introducir su cuenta bancaria para poder poner unas condiciones de pago";
+
 		
 		
 		

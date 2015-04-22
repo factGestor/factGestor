@@ -14,7 +14,7 @@ public interface DominioDAO {
 
 	
 	// dominio por nombre
-	public Dominio getDominioByName(String userId);
+	public Dominio getDominioByName(String dominio);
 
 
 	// sacar dominios de un usuario

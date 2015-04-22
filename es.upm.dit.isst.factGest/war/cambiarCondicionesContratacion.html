@@ -5,24 +5,128 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <title>Cambiar condiciones de contratacion</title>
+<script type="text/javascript">
+     function freeSeleccionada(formulario){
+        /*Ocultamos todos los que puedan quedar visibles de las otras selecciones*/ document.getElementById("mostrarConsultas").style.display = 'none';
+         
+document.getElementById("mostrarSuscripcion").style.display = 'none';
+        document.getElementById("pagarPaypal").style.display = 'none';
+         document.getElementById("mostrarFree").style.display = 'block';
+         
+     }
+    
+    function consultasSeleccionada(formulario){
+        /*Ocultamos todos los que puedan quedar visibles de las otras selecciones*/ 
+        document.getElementById("mostrarFree").style.display = 'none';
+        document.getElementById("mostrarSuscripcion").style.display = 'none';
+        document.getElementById("pagarPaypal").style.display = 'inline';
+        document.getElementById("mostrarConsultas").style.display = 'block';
+     }
+    function suscripcionSeleccionada(formulario){
+        /*Ocultamos todos los que puedan quedar visibles de las otras selecciones*/ 
+        document.getElementById("mostrarFree").style.display = 'none';
+        document.getElementById("mostrarConsultas").style.display = 'none';
+        document.getElementById("pagarPaypal").style.display = 'inline';
+         document.getElementById("mostrarSuscripcion").style.display = 'block';
+     }
+    
+    function comprobar(formulario){
+        if(document.getElementById("pago").checked) {
+             var numSus=document.getElementById("numConsultas").value;
+            /*Si selecciona esta opción, no puede dejarlo en blanco*/
+            if(numSus=="") {
+                alert("¡Ponga cuantas consultas quiere pagar!");
+                return false;
+            }
+             formulario.amount.value=numSus;
+            formulario.item_name.value="Pago por " +numSus+ " consultas";
+        }
+        if(document.getElementById("suscripcion").checked) {
+            var tipoSus=formulario.suscripciones.value;
+            if(tipoSus=="month"){
+                formulario.amount.value="9.99";
+                formulario.item_name.value="Suscripcion mensual";
+            }
+            if(tipoSus=="halfyear"){
+                formulario.amount.value="49.99";
+                formulario.item_name.value="Suscripcion de 6 meses";
+            }
+            if(tipoSus=="year"){
+                formulario.amount.value="79.99";
+                formulario.item_name.value="Suscripcion anual";
+            }     
+        }
+    }
+</script>
 </head>
 <body>
-    <header><img src="images/taxy.png" alt="Taxy"></header>
-    <div class="campos" id="form">
-		
-		<form id="formulario" action="/cambiarCondicionesContratacion" method="post">
-			 <p> Seleccione el tipo de tarifa que desea:</p><br>
-        <p class="radios">
-      			<input type="radio" name="tarifa" id="free" value="Free" checked><label for="free">Cliente gratuito (30 consultas)</label>
-      			<input type="radio" name="tarifa" id="pago" value="Pago"><label for="pago">Pago por consulta</label>
-      			<input type="radio" name="tarifa" id="suscripcion" value="Suscripcion"><label for="suscripcion">Suscripcion (coste independiente del numero de consultas)</label>
-      		</p><br><br><br>
+	<header>
+		<img src="images/taxy.png" alt="Taxy">
+	</header>
+	<div class="campos" id="form">
+
+		<form id="formulario"
+			action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post"
+			onsubmit="return comprobar(this);">
+			<p>Seleccione el tipo de tarifa que desea:</p>
+			<br>
+			<p class="radios">
+				<input type="radio" name="tarifa" id="free" value="Free" checked
+					onclick="freeSeleccionada(this);"><label for="free">Cliente
+					gratuito (30 consultas)</label> <input type="radio" name="tarifa" id="pago"
+					value="Pago" onclick="consultasSeleccionada(this);"><label
+					for="pago">Pago por consulta</label> <input type="radio"
+					name="tarifa" id="suscripcion" value="Suscripcion"><label
+					for="suscripcion" onclick="suscripcionSeleccionada(this);">Suscripcion
+					(coste independiente del numero de consultas)</label>
+			</p>
+			<br> <br> <br>
+			<div class="hidden" id="mostrarConsultas">
+				<label for="consultas">Introduzca el nº de consultas deseado
+					(1 € cada una): </label> <input name="consultas" type="text"
+					id="numConsultas" class="consultas" style="text-align: center"
+					pattern="[0-9]*" autofocus=""/ >
+			</div>
+			<div class="hidden" id="mostrarSuscripcion">
+				<label for="suscripciones">Elija suscripcion: </label><select
+					name="suscripciones">
+					<option value="month">1 mes(9,99 €)</option>
+					<option value="halfyear">6 meses (49,99 €)</option>
+					<option value="year">1 año (79,99 €)</option>
+				</select>
+			</div>
+			<input type="hidden" name="cmd" value="_xclick"> <input
+				type="hidden" name="business"
+				value="dasaga14-facilitator@hotmail.com"> <input type="hidden"
+				name="item_name" value="Suscripcion mensual"> <input type="hidden"
+				name="currency_code" value="EUR"> <input type="hidden"
+				name="amount" value="9.99"> <input type="hidden" name="no_shipping"
+				value="1"> <input
+				type="hidden" name="cancel_return"
+				value="https://www.fact-gest.appspot.com/">
+			</p>
 			<p class="boton">
 
-				<input type="submit" id="cambiarCondicionesContratacion" name="submit" value="Cambiar condiciones de contratación">
+				<input type="submit" id="pagarPaypal" name="submit"
+					value="Pagar con Paypal (sólo si no se registra como cliente gratuito)"
+					class="hidden">
 
 			</p>
 		</form>
-                </div>
+		<div class="hidden" id="mostrarFree">
+			<form id="formulario" action="/cambiarCondicionesContratacion"
+				method="post">
+				<p class="boton">
+
+					<input type="submit" id="cambiarCondicionesContratacion"
+						name="submit" value="Cambiar condiciones de contratación">
+
+				</p>
+			</form>
+		</div>
+		<a href="https://www.fact-gest.appspot.com/">
+				<button class="boton">Volver</button>
+			</a>
+	</div>
 </body>
 </html>

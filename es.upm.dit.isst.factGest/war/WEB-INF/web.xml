@@ -6,21 +6,21 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 
 	<servlet>
+		<servlet-name>Logueado</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.LogueadoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logueado</servlet-name>
+		<url-pattern>/foo</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>Registro</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.RegistroServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Registro</servlet-name>
 		<url-pattern>/registrar</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>Logueado</servlet-name>
-		<servlet-class>es.upm.dit.isst.factGest.LogueadoServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Logueado</servlet-name>
-		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -75,15 +75,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>CambiarCondicionesContratacion</servlet-name>
 		<url-pattern>/cambiarCondicionesContratacion</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>CambiarCuentaBancaria</servlet-name>
-		<servlet-class>es.upm.dit.isst.factGest.CambiarCuentaBancariaServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CambiarCuentaBancaria</servlet-name>
-		<url-pattern>/cambiarCuentaBancaria</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -149,7 +140,55 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Consulta</servlet-name>
 		<url-pattern>/consulta</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>Factura</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.FacturaPagadaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Factura</servlet-name>
+		<url-pattern>/factura</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Paises</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.CargarPaisesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Paises</servlet-name>
+		<url-pattern>/paises</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Pago</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.PagoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Pago</servlet-name>
+		<url-pattern>/pagado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AUX</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.AuxServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AUX</servlet-name>
+		<url-pattern>/aux</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+        <welcome-file>foo</welcome-file>
+    </welcome-file-list>
 
 	<!--  Security constraints --> 
   <security-constraint> 

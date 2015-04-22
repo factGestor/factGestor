@@ -39,8 +39,6 @@ public class ConsultaServlet extends HttpServlet {
 				Usuario user = userDominio.getUsuario(dom.getUserId());
 				if(puedePeticiones(user))
 					permitido = true;
-				//if (user.getPuedePeticiones())
-					//permitido = true;
 			}
 		}
 		JSONObject json = new JSONObject();
@@ -57,17 +55,23 @@ public class ConsultaServlet extends HttpServlet {
 	public boolean puedePeticiones(Usuario usuario){
 		if(usuario.getConfirmado()){
 			if(usuario.getTarifa()==Tarifas.Suscripcion){
-				Date fechaSuscrito = new Date();
-				fechaSuscrito = usuario.getFechaSuscripcion();
+				Date fechaSuscrito = usuario.getFechaSuscripcion();
 				Date fechaActual = new Date();
 				if(fechaSuscrito.getTime()-fechaActual.getTime()>=0)
 					return true;
-				else 
+				else{
+					if(usuario.getConsultasDisponibles()>50){
+						usuario.setTarifa(Tarifas.Pago);
+					}
+					else{
+						usuario.setTarifa(Tarifas.Free);
+					}
 					return false;
+				}
 			}
 			//casos de Pago y de Free
 			else
-				if(usuario.getConsultasActuales()>0){
+				if(usuario.getConsultasDisponibles()>0){
 					//descontar 1
 					UsuarioDAO userDominio = UsuarioDAOImpl.getInstance();
 					userDominio.descontarConsulta(usuario.getId());

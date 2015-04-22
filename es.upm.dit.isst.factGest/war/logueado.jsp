@@ -31,31 +31,30 @@
 				<ul>
 					<li>ID: <c:out value="${u.id}" /></li>
 					<li>Nombre: <c:out value="${u.name}" /></li>
-					<li>CIF: <c:out value="${u.CIF}" /></li>
 					<li>Email: <c:out value="${u.email}" /></li>
+					<li>CIF: <c:out value="${u.CIF}" /></li>
+					<li>Tarifa: <c:out value="${u.tarifa}" /></li>
 				</ul>
+				
 				</div>
-        <aside class="sidebar">
-				<h3 class="select">Seleccione una opción</h3>
-				<nav role="navigation">
-					<ul>
-					<li>
-						<a href="cambiarPassword.html" class="design-name">Cambiar password</a> 
-					</li>
-                        <li>
-						<a href="cambiarEmail.html" class="design-name">Cambiar email</a>		</li>
-                        <li>
-						<a href="cambiarCuentaBancaria.html" class="design-name">Cambiar cuenta bancaria</a>
-					</li>
-                        <li>
-						<a href="cambiarCondicionesContratacion.html" class="design-name">Cambiar condiciones de contratación
-					</li>					<li>
-						<a href="/listarDominios" class="design-name">Añadir/ Eliminar dominios a su cuenta</a>
-					</li>					</ul>
-				</nav>
-		<br/>
-        </aside>
-        <div id="hidden"></div>
+		<aside class="sidebar">
+			<h3 class="select">Seleccione una opción</h3>
+			<nav role="navigation">
+				<ul>
+					<li><a href="cambiarPassword.html" class="design-name">Cambiar
+							password</a></li>
+					<li><a href="cambiarEmail.html" class="design-name">Cambiar
+							email</a></li>
+					<li><a href="cambiarCondicionesContratacion.html"
+						class="design-name">Cambiar condiciones de contratación </li>
+					<li><a href="/listarDominios" class="design-name">Dominios asociados su cuenta</a></li>
+					<li><a href="/logout">LOGOUT</a></li>
+					<li><a href="/aux">PRUEBAS DE AÑADIR CONSULTAS</a></li>
+				</ul>
+			</nav>
+			<br />
+		</aside>
+		<div id="hidden"></div>
 			</c:when>
 		<c:otherwise>
 Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.

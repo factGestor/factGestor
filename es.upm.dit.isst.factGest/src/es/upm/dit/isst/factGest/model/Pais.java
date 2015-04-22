@@ -19,14 +19,15 @@ public class Pais implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "name", nullable = false)
-	private String name;
+	@Column(name = "nombre", nullable = false)
+	private String nombre;
+	
+	@Column(name = "codigo", nullable = false)
+	private String codigo;
 
-	// A�ADIMOS ACRONIMO?
-	// private String acronimo;
-
-	public Pais(String name) {
-		this.name = name;
+	public Pais(String name, String codigo) {
+		this.nombre = name;
+		this.codigo = codigo;
 	}
 
 	public Long getId() {
@@ -34,10 +35,18 @@ public class Pais implements Serializable {
 	}
 
 	public String getName() {
-		return name;
+		return nombre;
+	}
+	
+	public String getCodigo() {
+		return codigo;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.nombre = name;
+	}
+	
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 }
