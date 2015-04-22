@@ -49,7 +49,6 @@
 						class="design-name">Cambiar condiciones de contratación </li>
 					<li><a href="/listarDominios" class="design-name">Dominios asociados su cuenta</a></li>
 					<li><a href="/logout">LOGOUT</a></li>
-					<li><a href="/aux">PRUEBAS DE AÑADIR CONSULTAS</a></li>
 				</ul>
 			</nav>
 			<br />
