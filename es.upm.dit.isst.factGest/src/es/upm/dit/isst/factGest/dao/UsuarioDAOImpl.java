@@ -1,6 +1,7 @@
 package es.upm.dit.isst.factGest.dao;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -205,6 +206,50 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		} finally {
 			em.close();
 		}
+		
+	}
+	@Override
+	public void anadirConsultas(int consultas, Long userId) {
+
+		EntityManager em = EMFService.get().createEntityManager();
+		
+		Usuario usuario = em.find(Usuario.class, userId);
+		em.getTransaction().begin();
+		
+		usuario.setConsultasDisponibles(usuario.getConsultasDisponibles()+consultas);
+		System.out.println("Añadidas "+consultas+" al usuario "+usuario.getName());
+		
+		em.getTransaction().commit();
+		
+	}
+	
+	@Override
+	public void anadirSuscripcion(int meses, Long userId) {
+
+		EntityManager em = EMFService.get().createEntityManager();
+		
+		Usuario usuario = em.find(Usuario.class, userId);
+		em.getTransaction().begin();
+		
+		Calendar ahoraCal = Calendar.getInstance();
+		Date fecha = ahoraCal.getTime();
+		Date fechaSuscripcion = usuario.getFechaSuscripcion();
+		//Caso de que la Fecha de suscripcion ya ha pasado
+		//fecha>fechaSuscripcion
+		if (fecha.getTime()-fechaSuscripcion.getTime()>=0){
+			ahoraCal.add(Calendar.MONTH, meses);
+			fecha = ahoraCal.getTime();
+			usuario.setFechaSuscripcion(fecha);
+		}
+		//si no es asi
+		else{
+			ahoraCal.setTime(fechaSuscripcion);
+			ahoraCal.add(Calendar.MONTH, meses);
+			fecha = ahoraCal.getTime();
+			usuario.setFechaSuscripcion(fecha);
+		}
+		
+		em.getTransaction().commit();
 		
 	}
 

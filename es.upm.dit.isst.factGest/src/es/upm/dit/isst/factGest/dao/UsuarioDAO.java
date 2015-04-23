@@ -33,4 +33,8 @@ public interface UsuarioDAO {
 	
 	public void descontarConsulta(long id);
 
+	void anadirConsultas(int consultas, Long userId);
+
+	void anadirSuscripcion(int meses, Long userId);
+
 }

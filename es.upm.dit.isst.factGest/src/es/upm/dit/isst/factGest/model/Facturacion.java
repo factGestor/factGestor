@@ -1,6 +1,8 @@
 package es.upm.dit.isst.factGest.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,9 @@ import javax.persistence.Table;
 @Table(name = "facturacion")
 public class Facturacion implements Serializable {
 
-	public enum TipoIVA {iva, reducedIva, superReducedIva};
+	public static enum TipoIVA {iva, reducedIva, superReducedIva};
+	
+	public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +29,7 @@ public class Facturacion implements Serializable {
 	@Column(name = "userid", nullable = false)
 	private Long userId; // FOREIGN KEY
 	@Column(name = "domain", nullable = false)
-	private String domain; // FOREIGN KEY
+	private Long domainId; // FOREIGN KEY
 	@Column(name = "ivapagado", nullable = false)
 	private double ivaPagado;
 	@Column(name = "paisid", nullable = false)
@@ -34,15 +38,18 @@ public class Facturacion implements Serializable {
 	private String numeroFactura;
 	@Column(name = "tipoiva", nullable = false)
 	private TipoIVA tipoIVA;
+	@Column(name = "fecha", nullable = false)
+	private String fecha;
 
-	public Facturacion(Long userId, String domain, double IVApagado,
-			Long paisId, String numeroFactura, TipoIVA tipo) {
+	public Facturacion(Long userId, Long domainId, double IVApagado,
+			Long paisId, String numeroFactura, TipoIVA tipo, Date fecha) {
 		this.userId = userId;
-		this.domain = domain;
+		this.domainId = domainId;
 		this.ivaPagado = IVApagado;
 		this.paisId = paisId;
 		this.numeroFactura = numeroFactura;
 		this.tipoIVA = tipo;
+		this.fecha = sdf.format(fecha);
 	}
 
 	public Long getId() {
@@ -53,8 +60,8 @@ public class Facturacion implements Serializable {
 		return userId;
 	}
 
-	public String getDomain() {
-		return domain;
+	public Long getDomain() {
+		return domainId;
 	}
 
 	public double getIVApagado() {
@@ -72,13 +79,17 @@ public class Facturacion implements Serializable {
 	public TipoIVA getTipoIVA(){
 		return tipoIVA;
 	}
+	
+	public String getFecha(){
+		return fecha;
+	}
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
-	public void setDomain(String domain) {
-		this.domain = domain;
+	public void setDomain(Long domainId) {
+		this.domainId = domainId;
 	}
 
 	public void setIVApagado(double IVApagado) {
@@ -95,6 +106,10 @@ public class Facturacion implements Serializable {
 	
 	public void setTipoIVA(TipoIVA tipo){
 		this.tipoIVA = tipo;
+	}
+	
+	public void setFecha(Date fecha){
+		this.fecha = sdf.format(fecha);
 	}
 
 }

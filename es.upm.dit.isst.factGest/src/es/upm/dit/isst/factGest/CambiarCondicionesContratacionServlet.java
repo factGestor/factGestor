@@ -21,6 +21,7 @@ public class CambiarCondicionesContratacionServlet extends HttpServlet {
 			throws IOException, ServletException {
 		
 		System.out.println("ESTAMOS EN EL METODO DOPOST DE CambiarCondicionesContratacionServlet");
+		System.out.println("DE LA VERSION CAMBIADA");
 		HttpSession misession= (HttpSession) req.getSession();
 		Usuario usuario = (Usuario) misession.getAttribute("u");
 		

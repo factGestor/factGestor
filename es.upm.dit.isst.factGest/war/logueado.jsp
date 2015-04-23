@@ -35,6 +35,7 @@
 					<li>CIF: <c:out value="${u.CIF}" /></li>
 					<li>Tarifa: <c:out value="${u.tarifa}" /></li>
 				</ul>
+				
 				</div>
 		<aside class="sidebar">
 			<h3 class="select">Seleccione una opción</h3>
@@ -47,6 +48,8 @@
 					<li><a href="cambiarCondicionesContratacion.html"
 						class="design-name">Cambiar condiciones de contratación </li>
 					<li><a href="/listarDominios" class="design-name">Dominios asociados su cuenta</a></li>
+					<li><a href="/solicitarInforme" class="design-name">Solicitar Informes</a></li>
+					<li><a href="/logout">LOGOUT</a></li>
 				</ul>
 			</nav>
 			<br />
@@ -54,7 +57,7 @@
 		<div id="hidden"></div>
 			</c:when>
 		<c:otherwise>
-Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.
+<p>Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.</p>
 </c:otherwise>
 		</c:choose>
 		<hr />

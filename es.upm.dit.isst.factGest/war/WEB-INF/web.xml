@@ -113,7 +113,22 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>ListarDominios</servlet-name>
 		<url-pattern>/listarDominios</url-pattern>
 	</servlet-mapping>
-	
+	<servlet>
+		<servlet-name>SolicitarInformes</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.SolicitarInformesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SolicitarInformes</servlet-name>
+		<url-pattern>/solicitarInforme</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>EmitirInformes</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.EmitirInformesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmitirInformes</servlet-name>
+		<url-pattern>/emitirInforme</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>BorrarDominio</servlet-name>
 		<servlet-class>es.upm.dit.isst.factGest.BorrarDominioServlet</servlet-class>
@@ -167,6 +182,16 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Pago</servlet-name>
 		<url-pattern>/pagado</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>es.upm.dit.isst.factGest.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	
 	
 	<welcome-file-list>
         <welcome-file>foo</welcome-file>

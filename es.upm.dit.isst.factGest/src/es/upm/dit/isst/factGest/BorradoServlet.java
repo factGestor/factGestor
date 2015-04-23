@@ -1,7 +1,6 @@
 package es.upm.dit.isst.factGest;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServlet;
