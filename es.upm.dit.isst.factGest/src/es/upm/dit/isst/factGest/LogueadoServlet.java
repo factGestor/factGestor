@@ -1,6 +1,7 @@
 package es.upm.dit.isst.factGest;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.RequestDispatcher;
@@ -38,8 +39,14 @@ public class LogueadoServlet extends HttpServlet {
 			// sacamos los atributos del usuario (id, name, CIF y mail)
 			Long id = daoUser.getId(name);
 			u = daoUser.getUsuario(id);
+			long aux1 = u.getFechaRegistro().getTime();
+			long aux2 = u.getFechaSuscripcion().getTime();
+			Date fecha = new Date();
+			long aux3 = fecha.getTime();
+			int aux = (int) (200*(aux2-aux3)/(aux2-aux1));
 			daoSesion.remove(id);
 			misession.setAttribute("u", u);
+			misession.setAttribute("aux", aux);
 			RequestDispatcher view = req.getRequestDispatcher("logueado.jsp");
 			addCookie(resp,UUID.randomUUID().toString(),600);
 			System.out.println("cookie agregada");

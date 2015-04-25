@@ -186,7 +186,10 @@ header img{
 label[for="free"],
 label[for="pago"],
 label[for="suscripcion"],
-label[for="aceptoCondiciones"]{  
+label[for="aceptoCondiciones"],
+label[for="pais"],
+label[for="fechaCon"],
+label[for="dominio"]{  
     display: inline-block;  
     cursor: pointer;  
     position: relative;  
@@ -202,7 +205,10 @@ input[type=radio] {
 label[for="free"]:before,
 label[for="pago"]:before,
 label[for="suscripcion"]:before,
-label[for="aceptoCondiciones"]:before{  
+label[for="aceptoCondiciones"]:before,
+label[for="pais"]:before,
+label[for="fechaCon"]:before,
+label[for="dominio"]:before{  
     content: "";  
     display: inline-block;  
     width: 16px;  
@@ -268,6 +274,16 @@ table {
 	border-collapse: collapse;
 }
 
+table.tablaInforme {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	width: 1000px;
+	margin: 0 auto;
+	margin-bottom:30px;
+    text-align: center;
+	border-collapse: collapse;
+}
+
 th {
 	font-size: 13px;
 	font-weight: normal;
@@ -293,4 +309,19 @@ tr:hover td {
 
 .hidden{
     display:none;
+}
+
+.informe{
+	background-color: #87C489;
+	width: 1000px;
+	text-align:center;
+	padding: 20px;
+	margin: 50px auto;
+	border-radius: 15px;   
+   -moz-border-radius: 15px; 
+   -webkit-border-radius: 15px;
+}
+
+select{
+	width:150px;
 }

@@ -11,6 +11,17 @@
     <link rel="stylesheet" type="text/css" href="css/logueado.css" />
 <meta charset="utf-8">
 <link href="<c:url value='favicon.ico'/>" rel="shortcut icon" type="image/x-icon" />
+<script type="text/javascript">
+	
+	//funciones
+	function ocultar(){
+		document.getElementById("aux").style.display = 'none';
+		//no va
+		aux.style.visible = 'hidden';
+	}
+	
+	
+</script>
 </head>
 
 <body>
@@ -34,6 +45,46 @@
 					<li>Email: <c:out value="${u.email}" /></li>
 					<li>CIF: <c:out value="${u.CIF}" /></li>
 					<li>Tarifa: <c:out value="${u.tarifa}" /></li>
+					<div id="aux" class="hidden"><c:out value="${u.consultasActuales}" /></div>
+					<div id="aux2" class="hidden"><c:out value="${aux}" /></div>
+					<c:if test="${u.tarifa == 'Suscripcion'}">
+    					<li>Su suscripcion finalizara el <div id="demo2"><c:out value="${u.fechaSuscripcion}" /></div></li>
+    					<canvas id="myCanvas2" width="200" height="50" style="border:4px solid #c3c3c3;">
+    					</canvas>
+						<script>
+						//SUSCRIPCIONES
+							var c = document.getElementById("myCanvas2");
+							var aux2 = document.getElementById("aux2").innerHTML;
+							
+							console.log(aux2);
+							
+							var ctx = c.getContext("2d");	
+							ctx.fillStyle = "#FF0000";
+							ctx.fillRect(0,0,aux2,50);
+							//ctx.fillRect(inicioX,inicioY,finX,finY);
+						</script>
+					</c:if> 
+					<c:if test="${u.tarifa != 'Suscripcion'}">
+						<li>Le quedan <div id="demo"><c:out value="${u.consultasDisponibles}" /></div> consultas disponibles</li>
+						<canvas id="myCanvas" width="200" height="50" style="border:4px solid #c3c3c3;">
+    					</canvas>
+						<script>
+							var c = document.getElementById("myCanvas");
+							var cantidad = parseInt(document.getElementById("demo").innerHTML);
+							var aux = parseInt(document.getElementById("aux").innerHTML);
+							
+							console.log("prueba");
+							console.log(cantidad);
+							console.log(aux);
+							var fin = (parseInt(200*((cantidad+1)/aux)));
+							var ctx = c.getContext("2d");	
+							ctx.fillStyle = "#FF0000";
+							ctx.fillRect(0,0,fin,50);
+							
+						</script>
+    					
+					</c:if> 
+					
 				</ul>
 				
 				</div>
@@ -48,6 +99,7 @@
 					<li><a href="cambiarCondicionesContratacion.html"
 						class="design-name">Cambiar condiciones de contratación </li>
 					<li><a href="/listarDominios" class="design-name">Dominios asociados su cuenta</a></li>
+					<li><a href="/solicitarInforme" class="design-name">Solicitar Informes</a></li>
 					<li><a href="/logout">LOGOUT</a></li>
 				</ul>
 			</nav>
@@ -56,10 +108,11 @@
 		<div id="hidden"></div>
 			</c:when>
 		<c:otherwise>
-Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.
+<p>Verifique su cuenta mediante el correo de validacion enviado al correo que puso durante el registro.</p>
 </c:otherwise>
 		</c:choose>
 		<hr />
 	</div>
 </body>
 </html>
+

@@ -1,6 +1,7 @@
 package es.upm.dit.isst.factGest;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,7 +30,7 @@ public class PagoServlet extends HttpServlet {
 		String id = req.getParameter("tx");//es el id de la transacion
 		String moneda = req.getParameter("cc");
 		String estado = req.getParameter("st");
-		String importe=cantidadS+" "+moneda;
+		String importe = cantidadS+" "+moneda;
 		
 		HttpSession misession= (HttpSession) req.getSession();
 		Usuario usuario = (Usuario) misession.getAttribute("u");
@@ -49,6 +50,16 @@ public class PagoServlet extends HttpServlet {
 		
 		misession.setAttribute("u", daoUser.getUsuario(usuario.getId()));
 		//cambiamos el usuario que se muestra con la linea anterior.
+		
+		Usuario u = daoUser.getUsuario(usuario.getId());
+		//usuario ya actualizado
+		long aux1 = u.getFechaRegistro().getTime();
+		long aux2 = u.getFechaSuscripcion().getTime();
+		Date fecha = new Date();
+		long aux3 = fecha.getTime();
+		int aux = (int) (200*(aux2-aux3)/(aux2-aux1));
+		
+		misession.setAttribute("aux", aux);
 		req.setAttribute("id", id);
 		req.setAttribute("estado", estado);
 		req.setAttribute("importe", importe);

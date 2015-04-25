@@ -23,8 +23,7 @@ public class FacturacionDAOImpl implements FacturacionDAO {
 			instance = new FacturacionDAOImpl();
 		return instance;
 	}
-	
-	
+
 	@Override
 	public Long add(Long userId, Long domain, double ivaPagado, Long paisID,
 			String numeroFactura, TipoIVA tipo, Date fecha) {
@@ -40,7 +39,7 @@ public class FacturacionDAOImpl implements FacturacionDAO {
 
 	@Override
 	public List<Facturacion> getFacturasUser(Long userId) {
-		
+
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("SELECT f FROM Facturacion f "
 				+ "WHERE f.userId = :userid ", Facturacion.class);
@@ -53,7 +52,7 @@ public class FacturacionDAOImpl implements FacturacionDAO {
 	@Override
 	public List<Facturacion> getFacturasPais(Long userId, Long paisID) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em.createQuery("SELECT f FROM facturacion f "
+		Query q = em.createQuery("SELECT f FROM Facturacion f "
 				+ "WHERE f.userId = :id " + "AND f.paisId = :pid",
 				Usuario.class);
 		q.setParameter("id", userId);
@@ -61,25 +60,26 @@ public class FacturacionDAOImpl implements FacturacionDAO {
 		List<Facturacion> facturas = q.getResultList();
 		return facturas;
 	}
-	
+
 	@Override
 	public List<Facturacion> getFacturasDominio(Long userId, Long dominioID) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em.createQuery("SELECT f FROM facturacion f "
-				+ "WHERE f.userId = :id " + "AND f.dominioId = :pid",
+		Query q = em.createQuery("SELECT f FROM Facturacion f "
+				+ "WHERE f.userId = :id " + "AND f.domainId = :pid",
 				Usuario.class);
 		q.setParameter("id", userId);
 		q.setParameter("pid", dominioID);
 		List<Facturacion> facturas = q.getResultList();
 		return facturas;
 	}
-	
+
 	@Override
 	public List<Facturacion> getFacturasFecha(Long userId, Date fecha) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em.createQuery("SELECT f FROM facturacion f "
-				+ "WHERE f.userId = :id " + "AND f.fecha = :pid",
-				Usuario.class);
+		Query q = em
+				.createQuery("SELECT f FROM Facturacion f "
+						+ "WHERE f.userId = :id " + "AND f.fecha = :pid",
+						Usuario.class);
 		q.setParameter("id", userId);
 		q.setParameter("pid", Facturacion.sdf.format(fecha));
 		List<Facturacion> facturas = q.getResultList();

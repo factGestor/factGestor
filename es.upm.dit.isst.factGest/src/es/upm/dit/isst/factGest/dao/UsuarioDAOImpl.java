@@ -216,8 +216,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		Usuario usuario = em.find(Usuario.class, userId);
 		em.getTransaction().begin();
 		
+		//añadir a consultas disponibles
 		usuario.setConsultasDisponibles(usuario.getConsultasDisponibles()+consultas);
 		System.out.println("Añadidas "+consultas+" al usuario "+usuario.getName());
+		//ponemos consultasActuales al mismo punto
+		usuario.setConsultasActuales(usuario.getConsultasDisponibles()+consultas);
 		
 		em.getTransaction().commit();
 		
