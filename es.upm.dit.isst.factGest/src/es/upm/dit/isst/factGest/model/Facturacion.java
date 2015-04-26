@@ -40,6 +40,12 @@ public class Facturacion implements Serializable {
 	private TipoIVA tipoIVA;
 	@Column(name = "fecha", nullable = false)
 	private String fecha;
+	
+	//Campos para representacion en informes
+	
+	private String dominio;
+	private String pais;
+	
 
 	public Facturacion(Long userId, Long domainId, double IVApagado,
 			Long paisId, String numeroFactura, TipoIVA tipo, Date fecha) {
@@ -64,7 +70,7 @@ public class Facturacion implements Serializable {
 		return domainId;
 	}
 
-	public double getIVApagado() {
+	public double getivapagado() {
 		return ivaPagado;
 	}
 
@@ -83,6 +89,14 @@ public class Facturacion implements Serializable {
 	public String getFecha(){
 		return fecha;
 	}
+	
+	public String getPais(){
+		return pais;
+	}
+	
+	public String getDominio(){
+		return dominio;
+	}
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
@@ -92,7 +106,7 @@ public class Facturacion implements Serializable {
 		this.domainId = domainId;
 	}
 
-	public void setIVApagado(double IVApagado) {
+	public void setivapagado(double IVApagado) {
 		this.ivaPagado = IVApagado;
 	}
 
@@ -110,6 +124,14 @@ public class Facturacion implements Serializable {
 	
 	public void setFecha(Date fecha){
 		this.fecha = sdf.format(fecha);
+	}
+	
+	public void setPais(String pais){
+		this.pais = pais;
+	}
+	
+	public void setDominio(String dominio){
+		this.dominio = dominio;
 	}
 
 }

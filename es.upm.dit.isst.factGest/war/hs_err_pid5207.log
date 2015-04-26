@@ -1,0 +1,769 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f8bd6005060, pid=5207, tid=140240000521984
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_45-b14) (build 1.8.0_45-b14)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.45-b02 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  0x00007f8bd6005060
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f8c2400c800):  JavaThread "main" [_thread_in_Java, id=5212, stack(0x00007f8c2b5a1000,0x00007f8c2b6a2000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00007f8bd6005060
+
+Registers:
+RAX=0x00007f8bd7420b08, RBX=0x00000000f6e213f0, RCX=0x00000000f6e39e58, RDX=0x0000000000000000
+RSP=0x00007f8c2b69ee68, RBP=0x00007f8c2b69f090, RSI=0x00000000f6e213f0, RDI=0x00000000f6e213f0
+R8 =0x00000000f6f75a90, R9 =0x00000000f6e7b748, R10=0x00000001001fde10, R11=0x0000000000000250
+R12=0x0000000000000000, R13=0x00007f8c2b69f048, R14=0x0000000000000000, R15=0x00007f8c2400c800
+RIP=0x00007f8bd6005060, EFLAGS=0x0000000000010206, CSGSFS=0x0000000000000033, ERR=0x0000000000000014
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f8c2b69ee68)
+0x00007f8c2b69ee68:   00007f8c1551535c ffffffffffffffff
+0x00007f8c2b69ee78:   0000000000000000 0000000000000000
+0x00007f8c2b69ee88:   0000000000000000 00000000f6f77290
+0x00007f8c2b69ee98:   00000000f6f74d38 00000000f6f772a8
+0x00007f8c2b69eea8:   00000000f6f77278 00000000f6f74fc0
+0x00007f8c2b69eeb8:   0000000000000000 00000000f6f77468
+0x00007f8c2b69eec8:   00000000f6e9b070 00000000f6e213f0
+0x00007f8c2b69eed8:   00007f8c155044d4 00007f8c2b69f090
+0x00007f8c2b69eee8:   00007f8c154aa544 00007f8bd739ffdb
+0x00007f8c2b69eef8:   00000000f6e39e58 00007f8c2b69ef00
+0x00007f8c2b69ef08:   00007f8bd73a2140 00007f8c2b69ef58
+0x00007f8c2b69ef18:   00000000f6e39e58 0000000000000000
+0x00007f8c2b69ef28:   00000000f6e43a48 0000000a0000003c
+0x00007f8c2b69ef38:   00000000f6e48888 00007f8c2b69efa0
+0x00007f8c2b69ef48:   00007f8c15007415 00007f8c15007415
+0x00007f8c2b69ef58:   00000000f6e43a48 00007f8c2400c800
+0x00007f8c2b69ef68:   00000000f6f74d38 00000000f6f77278
+0x00007f8c2b69ef78:   00000000f6f73fc8 00000000f6e9b070
+0x00007f8c2b69ef88:   00000000f6e39e58 0000000000000078
+0x00007f8c2b69ef98:   00000000000008e0 0000000000000000
+0x00007f8c2b69efa8:   0000000000000001 00007f8c2b69f090
+0x00007f8c2b69efb8:   00007f8c1550e02c 00007f8c2b69f090
+0x00007f8c2b69efc8:   00007f8c15531664 00000000f6e39e58
+0x00007f8c2b69efd8:   00007f8bd73a0230 00007f8c2b69f090
+0x00007f8c2b69efe8:   00007f8c155207d4 ffffffffffffffff
+0x00007f8c2b69eff8:   00007f8bd73a0230 00000000f6e48768
+0x00007f8c2b69f008:   00007f8bd7382948 0000000000000000
+0x00007f8c2b69f018:   00000000f6e39e58 00007f8c2b69f090
+0x00007f8c2b69f028:   00007f8c150079d2 00007f8c2b69f090
+0x00007f8c2b69f038:   00007f8c150073d0 00007f8c150073d0
+0x00007f8c2b69f048:   00000000f6e39e58 00007f8c2b69f050
+0x00007f8c2b69f058:   00007f8bd739ee86 00007f8c2b69f0b0 
+
+Instructions: (pc=0x00007f8bd6005060)
+0x00007f8bd6005040:   
+[error occurred during error reporting (printing registers, top of stack, instructions near pc), id 0xb]
+
+Register to memory mapping:
+
+RAX=0x00007f8bd7420b08 is pointing into metadata
+RBX=0x00000000f6e213f0 is an oop
+com.sun.org.apache.xerces.internal.impl.XMLEntityScanner 
+ - klass: 'com/sun/org/apache/xerces/internal/impl/XMLEntityScanner'
+RCX=0x00000000f6e39e58 is an oop
+com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl 
+ - klass: 'com/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl'
+RDX=0x0000000000000000 is an unknown value
+RSP=0x00007f8c2b69ee68 is pointing into the stack for thread: 0x00007f8c2400c800
+RBP=0x00007f8c2b69f090 is pointing into the stack for thread: 0x00007f8c2400c800
+RSI=0x00000000f6e213f0 is an oop
+com.sun.org.apache.xerces.internal.impl.XMLEntityScanner 
+ - klass: 'com/sun/org/apache/xerces/internal/impl/XMLEntityScanner'
+RDI=0x00000000f6e213f0 is an oop
+com.sun.org.apache.xerces.internal.impl.XMLEntityScanner 
+ - klass: 'com/sun/org/apache/xerces/internal/impl/XMLEntityScanner'
+R8 =0x00000000f6f75a90 is an oop
+java.lang.String 
+ - klass: 'java/lang/String'
+R9 =0x00000000f6e7b748 is an oop
+com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy 
+ - klass: 'com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser$AttributesProxy'
+R10=0x00000001001fde10 is pointing into metadata
+R11=0x0000000000000250 is an unknown value
+R12=0x0000000000000000 is an unknown value
+R13=0x00007f8c2b69f048 is pointing into the stack for thread: 0x00007f8c2400c800
+R14=0x0000000000000000 is an unknown value
+R15=0x00007f8c2400c800 is a thread
+
+
+Stack: [0x00007f8c2b5a1000,0x00007f8c2b6a2000],  sp=0x00007f8c2b69ee68,  free space=1015k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x00007f8bd6005060
+j  com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Z)Z+123
+j  com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V+29
+j  com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V+76
+j  com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Lorg/xml/sax/InputSource;)V+43
+j  com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Lorg/xml/sax/InputSource;)V+53
+j  com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V+61
+j  org.mortbay.xml.XmlParser.parse(Ljava/io/InputStream;)Lorg/mortbay/xml/XmlParser$Node;+56
+j  org.mortbay.jetty.webapp.TagLibConfiguration.configureWebApp()V+885
+j  org.mortbay.jetty.webapp.WebAppContext.startContext()V+114
+j  org.mortbay.jetty.handler.ContextHandler.doStart()V+141
+j  org.mortbay.jetty.webapp.WebAppContext.doStart()V+220
+j  org.mortbay.component.AbstractLifeCycle.start()V+31
+j  org.mortbay.jetty.handler.HandlerWrapper.doStart()V+11
+j  org.mortbay.component.AbstractLifeCycle.start()V+31
+j  org.mortbay.jetty.handler.HandlerWrapper.doStart()V+11
+j  org.mortbay.jetty.Server.doStart()V+201
+j  org.mortbay.component.AbstractLifeCycle.start()V+31
+j  com.google.appengine.tools.development.JettyContainerService.startContainer()V+116
+j  com.google.appengine.tools.development.AbstractContainerService.startup()V+28
+j  com.google.appengine.tools.development.AutomaticInstanceHolder.startUp()V+4
+j  com.google.appengine.tools.development.AbstractModule.startup()V+30
+j  com.google.appengine.tools.development.Modules.startup()V+30
+j  com.google.appengine.tools.development.DevAppServerImpl.doStart()Ljava/util/concurrent/CountDownLatch;+232
+j  com.google.appengine.tools.development.DevAppServerImpl.access$000(Lcom/google/appengine/tools/development/DevAppServerImpl;)Ljava/util/concurrent/CountDownLatch;+1
+j  com.google.appengine.tools.development.DevAppServerImpl$1.run()Ljava/util/concurrent/CountDownLatch;+4
+j  com.google.appengine.tools.development.DevAppServerImpl$1.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x681a26]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x7197dc]  JVM_DoPrivileged+0x27c
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;)Ljava/lang/Object;+0
+j  com.google.appengine.tools.development.DevAppServerImpl.start()Ljava/util/concurrent/CountDownLatch;+8
+j  com.google.appengine.tools.development.DevAppServerMain$StartAction.apply()V+246
+j  com.google.appengine.tools.util.Parser$ParseResult.applyArgs()V+40
+j  com.google.appengine.tools.development.DevAppServerMain.run([Ljava/lang/String;)V+23
+j  com.google.appengine.tools.development.DevAppServerMain.main([Ljava/lang/String;)V+11
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x681a26]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x1056
+V  [libjvm.so+0x6c3692]  jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, Thread*)+0x362
+V  [libjvm.so+0x6e009a]  jni_CallStaticVoidMethod+0x17a
+C  [libjli.so+0x7bcc]  JavaMain+0x80c
+C  [libpthread.so.0+0x8182]  start_thread+0xc2
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f8c2493c000 JavaThread "390689829@qtp-1055096410-1" [_thread_blocked, id=5239, stack(0x00007f8bd70e9000,0x00007f8bd71ea000)]
+  0x00007f8c2493a800 JavaThread "424398527@qtp-1055096410-0" [_thread_blocked, id=5238, stack(0x00007f8bd71ea000,0x00007f8bd72eb000)]
+  0x00007f8c24542800 JavaThread "Keep-Alive-Timer" daemon [_thread_blocked, id=5236, stack(0x00007f8bd7cff000,0x00007f8bd7e00000)]
+  0x00007f8c243f1800 JavaThread "Timer-0" daemon [_thread_blocked, id=5232, stack(0x00007f8c0cd99000,0x00007f8c0ce9a000)]
+  0x00007f8c2439d000 JavaThread "Service Thread" daemon [_thread_blocked, id=5230, stack(0x00007f8c0cf9b000,0x00007f8c0d09c000)]
+  0x00007f8c24398000 JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=5229, stack(0x00007f8c0d09c000,0x00007f8c0d19d000)]
+  0x00007f8c24393000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=5228, stack(0x00007f8c0d19d000,0x00007f8c0d29e000)]
+  0x00007f8c24391800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=5227, stack(0x00007f8c0d29e000,0x00007f8c0d39f000)]
+  0x00007f8c24181000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5226, stack(0x00007f8c0d8ef000,0x00007f8c0d9f0000)]
+  0x00007f8c24148800 JavaThread "Finalizer" daemon [_thread_blocked, id=5225, stack(0x00007f8c0ddee000,0x00007f8c0deef000)]
+  0x00007f8c24146800 JavaThread "Reference Handler" daemon [_thread_blocked, id=5224, stack(0x00007f8c0deef000,0x00007f8c0dff0000)]
+=>0x00007f8c2400c800 JavaThread "main" [_thread_in_Java, id=5212, stack(0x00007f8c2b5a1000,0x00007f8c2b6a2000)]
+
+Other Threads:
+  0x00007f8c24141800 VMThread [stack: 0x00007f8c0dff0000,0x00007f8c0e0f1000] [id=5223]
+  0x00007f8c2439f800 WatcherThread [stack: 0x00007f8c0ce9a000,0x00007f8c0cf9b000] [id=5231]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 34304K, used 29476K [0x00000000f5580000, 0x00000000f9880000, 0x0000000100000000)
+  eden space 31744K, 84% used [0x00000000f5580000,0x00000000f6fd1048,0x00000000f7480000)
+  from space 2560K, 98% used [0x00000000f7480000,0x00000000f76f8270,0x00000000f7700000)
+  to   space 2560K, 0% used [0x00000000f9600000,0x00000000f9600000,0x00000000f9880000)
+ ParOldGen       total 42496K, used 7790K [0x00000000e0000000, 0x00000000e2980000, 0x00000000f5580000)
+  object space 42496K, 18% used [0x00000000e0000000,0x00000000e079b958,0x00000000e2980000)
+ Metaspace       used 17564K, capacity 17874K, committed 18048K, reserved 1064960K
+  class space    used 2030K, capacity 2135K, committed 2176K, reserved 1048576K
+
+Card table byte_map: [0x00007f8c28069000,0x00007f8c2816a000] byte_map_base: 0x00007f8c27969000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f8c2aa71760
+ Begin Bits: [0x00007f8c0f000000, 0x00007f8c0f800000)
+ End Bits:   [0x00007f8c0f800000, 0x00007f8c10000000)
+
+Polling page: 0x00007f8c2b6b8000
+
+CodeCache: size=245760Kb used=5481Kb max_used=5481Kb free=240279Kb
+ bounds [0x00007f8c15000000, 0x00007f8c15570000, 0x00007f8c24000000]
+ total_blobs=1886 nmethods=1512 adapters=289
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 1,870 Thread 0x00007f8c24398000 1508       3       com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator::handleStartElement (509 bytes)
+Event: 1,872 Thread 0x00007f8c24398000 nmethod 1508 0x00007f8c1554e090 code [0x00007f8c1554e3e0, 0x00007f8c15550098]
+Event: 1,872 Thread 0x00007f8c24398000 1513       3       com.sun.org.apache.xerces.internal.impl.XMLEntityScanner::scanName (382 bytes)
+Event: 1,872 Thread 0x00007f8c24391800 1523       4       com.sun.org.apache.xerces.internal.util.NamespaceSupport::popContext (21 bytes)
+Event: 1,873 Thread 0x00007f8c24398000 nmethod 1513 0x00007f8c15551010 code [0x00007f8c15551280, 0x00007f8c15552068]
+Event: 1,873 Thread 0x00007f8c24398000 1515       3       com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator::addDTDDefaultAttrsAndValidate (1026 bytes)
+Event: 1,873 Thread 0x00007f8c24391800 nmethod 1523 0x00007f8c15555510 code [0x00007f8c15555660, 0x00007f8c15555718]
+Event: 1,873 Thread 0x00007f8c24391800 1528       4       com.sun.org.apache.xerces.internal.impl.XMLEntityScanner::peekChar (63 bytes)
+Event: 1,874 Thread 0x00007f8c24393000 nmethod 1494 0x00007f8c15557510 code [0x00007f8c155576c0, 0x00007f8c15557cd8]
+Event: 1,875 Thread 0x00007f8c24391800 nmethod 1528 0x00007f8c15552a10 code [0x00007f8c15552b80, 0x00007f8c15552cc8]
+
+GC Heap History (6 events):
+Event: 0,590 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 18432K, used 15872K [0x00000000f5580000, 0x00000000f6a00000, 0x0000000100000000)
+  eden space 15872K, 100% used [0x00000000f5580000,0x00000000f6500000,0x00000000f6500000)
+  from space 2560K, 0% used [0x00000000f6780000,0x00000000f6780000,0x00000000f6a00000)
+  to   space 2560K, 0% used [0x00000000f6500000,0x00000000f6500000,0x00000000f6780000)
+ ParOldGen       total 42496K, used 0K [0x00000000e0000000, 0x00000000e2980000, 0x00000000f5580000)
+  object space 42496K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000e2980000)
+ Metaspace       used 7215K, capacity 7392K, committed 7552K, reserved 1056768K
+  class space    used 811K, capacity 838K, committed 896K, reserved 1048576K
+Event: 0,598 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 18432K, used 2547K [0x00000000f5580000, 0x00000000f7980000, 0x0000000100000000)
+  eden space 15872K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000f6500000)
+  from space 2560K, 99% used [0x00000000f6500000,0x00000000f677ce40,0x00000000f6780000)
+  to   space 2560K, 0% used [0x00000000f7700000,0x00000000f7700000,0x00000000f7980000)
+ ParOldGen       total 42496K, used 814K [0x00000000e0000000, 0x00000000e2980000, 0x00000000f5580000)
+  object space 42496K, 1% used [0x00000000e0000000,0x00000000e00cb910,0x00000000e2980000)
+ Metaspace       used 7215K, capacity 7392K, committed 7552K, reserved 1056768K
+  class space    used 811K, capacity 838K, committed 896K, reserved 1048576K
+}
+Event: 1,162 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 18432K, used 18419K [0x00000000f5580000, 0x00000000f7980000, 0x0000000100000000)
+  eden space 15872K, 100% used [0x00000000f5580000,0x00000000f6500000,0x00000000f6500000)
+  from space 2560K, 99% used [0x00000000f6500000,0x00000000f677ce40,0x00000000f6780000)
+  to   space 2560K, 0% used [0x00000000f7700000,0x00000000f7700000,0x00000000f7980000)
+ ParOldGen       total 42496K, used 814K [0x00000000e0000000, 0x00000000e2980000, 0x00000000f5580000)
+  object space 42496K, 1% used [0x00000000e0000000,0x00000000e00cb910,0x00000000e2980000)
+ Metaspace       used 10186K, capacity 10438K, committed 10496K, reserved 1058816K
+  class space    used 1143K, capacity 1231K, committed 1280K, reserved 1048576K
+Event: 1,173 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 34304K, used 2528K [0x00000000f5580000, 0x00000000f7980000, 0x0000000100000000)
+  eden space 31744K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000f7480000)
+  from space 2560K, 98% used [0x00000000f7700000,0x00000000f7978240,0x00000000f7980000)
+  to   space 2560K, 0% used [0x00000000f7480000,0x00000000f7480000,0x00000000f7700000)
+ ParOldGen       total 42496K, used 3474K [0x00000000e0000000, 0x00000000e2980000, 0x00000000f5580000)
+  object space 42496K, 8% used [0x00000000e0000000,0x00000000e0364ab0,0x00000000e2980000)
+ Metaspace       used 10186K, capacity 10438K, committed 10496K, reserved 1058816K
+  class space    used 1143K, capacity 1231K, committed 1280K, reserved 1048576K
+}
+Event: 1,575 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 34304K, used 34272K [0x00000000f5580000, 0x00000000f7980000, 0x0000000100000000)
+  eden space 31744K, 100% used [0x00000000f5580000,0x00000000f7480000,0x00000000f7480000)
+  from space 2560K, 98% used [0x00000000f7700000,0x00000000f7978240,0x00000000f7980000)
+  to   space 2560K, 0% used [0x00000000f7480000,0x00000000f7480000,0x00000000f7700000)
+ ParOldGen       total 42496K, used 3474K [0x00000000e0000000, 0x00000000e2980000, 0x00000000f5580000)
+  object space 42496K, 8% used [0x00000000e0000000,0x00000000e0364ab0,0x00000000e2980000)
+ Metaspace       used 15338K, capacity 15570K, committed 15744K, reserved 1062912K
+  class space    used 1802K, capacity 1879K, committed 1920K, reserved 1048576K
+Event: 1,589 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 34304K, used 2528K [0x00000000f5580000, 0x00000000f9880000, 0x0000000100000000)
+  eden space 31744K, 0% used [0x00000000f5580000,0x00000000f5580000,0x00000000f7480000)
+  from space 2560K, 98% used [0x00000000f7480000,0x00000000f76f8270,0x00000000f7700000)
+  to   space 2560K, 0% used [0x00000000f9600000,0x00000000f9600000,0x00000000f9880000)
+ ParOldGen       total 42496K, used 7790K [0x00000000e0000000, 0x00000000e2980000, 0x00000000f5580000)
+  object space 42496K, 18% used [0x00000000e0000000,0x00000000e079b958,0x00000000e2980000)
+ Metaspace       used 15338K, capacity 15570K, committed 15744K, reserved 1062912K
+  class space    used 1802K, capacity 1879K, committed 1920K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 0,798 Thread 0x00007f8c2400c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8c15270ed8 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 203
+Event: 1,077 Thread 0x00007f8c2400c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8c15165344 method=java.io.BufferedReader.readLine(Z)Ljava/lang/String; @ 160
+Event: 1,241 Thread 0x00007f8c2400c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8c152d5264 method=java.io.DataInputStream.readInt()I @ 4
+Event: 1,241 Thread 0x00007f8c2400c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8c152d5264 method=java.io.DataInputStream.readInt()I @ 4
+Event: 1,241 Thread 0x00007f8c2400c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8c152d5264 method=java.io.DataInputStream.readInt()I @ 4
+Event: 1,241 Thread 0x00007f8c2400c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8c152d5264 method=java.io.DataInputStream.readInt()I @ 4
+Event: 1,442 Thread 0x00007f8c2400c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8c152e9dcc method=java.lang.AbstractStringBuilder.append(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; @ 1
+Event: 1,531 Thread 0x00007f8c2400c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8c1543c5e0 method=java.lang.Character.isHighSurrogate(C)Z @ 3
+Event: 1,667 Thread 0x00007f8c2400c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8c1518c3a4 method=java.lang.String.replace(CC)Ljava/lang/String; @ 26
+Event: 1,678 Thread 0x00007f8c2400c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8c15486ab8 method=sun.misc.URLClassPath.getLoader(I)Lsun/misc/URLClassPath$Loader; @ 94
+
+Internal exceptions (10 events):
+Event: 0,799 Thread 0x00007f8c2400c800 Exception <a 'java/lang/NullPointerException'> (0x00000000f5eac4f0) thrown at [/RE-WORK/workspace/8-2-build-linux-amd64/jdk8u45/3457/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 0,801 Thread 0x00007f8c2400c800 Implicit null exception at 0x00007f8c1519d904 to 0x00007f8c1519ebf3
+Event: 0,801 Thread 0x00007f8c2400c800 Exception <a 'java/lang/NullPointerException'> (0x00000000f5ec3190) thrown at [/RE-WORK/workspace/8-2-build-linux-amd64/jdk8u45/3457/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 0,802 Thread 0x00007f8c2400c800 Implicit null exception at 0x00007f8c1519d904 to 0x00007f8c1519ebf3
+Event: 0,802 Thread 0x00007f8c2400c800 Exception <a 'java/lang/NullPointerException'> (0x00000000f5edc518) thrown at [/RE-WORK/workspace/8-2-build-linux-amd64/jdk8u45/3457/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 0,804 Thread 0x00007f8c2400c800 Implicit null exception at 0x00007f8c1519d904 to 0x00007f8c1519ebf3
+Event: 0,804 Thread 0x00007f8c2400c800 Exception <a 'java/lang/NullPointerException'> (0x00000000f5eec660) thrown at [/RE-WORK/workspace/8-2-build-linux-amd64/jdk8u45/3457/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 0,805 Thread 0x00007f8c2400c800 Implicit null exception at 0x00007f8c1519d904 to 0x00007f8c1519ebf3
+Event: 0,805 Thread 0x00007f8c2400c800 Exception <a 'java/lang/NullPointerException'> (0x00000000f5eeee40) thrown at [/RE-WORK/workspace/8-2-build-linux-amd64/jdk8u45/3457/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1,442 Thread 0x00007f8c2400c800 Implicit null exception at 0x00007f8c152e9a75 to 0x00007f8c152e9db9
+
+Events (10 events):
+Event: 1,827 loading class com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$DTDDriver
+Event: 1,827 loading class com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$DTDDriver done
+Event: 1,828 loading class com/sun/xml/internal/stream/StaxXMLInputSource
+Event: 1,828 loading class com/sun/xml/internal/stream/StaxXMLInputSource done
+Event: 1,829 loading class com/sun/org/apache/xerces/internal/impl/dtd/XMLNotationDecl
+Event: 1,829 loading class com/sun/org/apache/xerces/internal/impl/dtd/XMLNotationDecl done
+Event: 1,832 loading class com/sun/org/apache/xerces/internal/impl/Constants
+Event: 1,832 loading class com/sun/org/apache/xerces/internal/impl/Constants done
+Event: 1,833 loading class com/sun/org/apache/xerces/internal/impl/Constants$ArrayEnumeration
+Event: 1,833 loading class com/sun/org/apache/xerces/internal/impl/Constants$ArrayEnumeration done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:02 1190018                            /usr/lib/jvm/java-8-oracle/bin/java
+00600000-00601000 rw-p 00000000 08:02 1190018                            /usr/lib/jvm/java-8-oracle/bin/java
+01a15000-01a36000 rw-p 00000000 00:00 0                                  [heap]
+e0000000-e2980000 rw-p 00000000 00:00 0 
+e2980000-f5580000 ---p 00000000 00:00 0 
+f5580000-f9880000 rw-p 00000000 00:00 0 
+f9880000-100000000 ---p 00000000 00:00 0 
+100000000-100220000 rw-p 00000000 00:00 0 
+100220000-140000000 ---p 00000000 00:00 0 
+7f8bc8000000-7f8bc8021000 rw-p 00000000 00:00 0 
+7f8bc8021000-7f8bcc000000 ---p 00000000 00:00 0 
+7f8bcc000000-7f8bcc021000 rw-p 00000000 00:00 0 
+7f8bcc021000-7f8bd0000000 ---p 00000000 00:00 0 
+7f8bd0000000-7f8bd0021000 rw-p 00000000 00:00 0 
+7f8bd0021000-7f8bd4000000 ---p 00000000 00:00 0 
+7f8bd6e77000-7f8bd6e7a000 rw-p 00000000 00:00 0 
+7f8bd6e7a000-7f8bd6e7c000 r--s 00012000 08:02 2887217                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/tools/appengine-local-endpoints/v1/appengine-local-endpoints.jar
+7f8bd6e7c000-7f8bd6eac000 r--s 00cf7000 08:02 3020887                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/appengine-api-labs.jar
+7f8bd6eac000-7f8bd6eb1000 r--s 00049000 08:02 3020982                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/datanucleus-api-jdo-3.1.3.jar
+7f8bd6eb1000-7f8bd6eb2000 r--s 00001000 08:02 3020897                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/appengine-jsr107cache-1.9.19.jar
+7f8bd6eb2000-7f8bd6eb8000 r--s 0004e000 08:02 3020980                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/datanucleus-appengine-2.1.2.jar
+7f8bd6eb8000-7f8bd6ebc000 r--s 0003b000 08:02 3020979                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/datanucleus-api-jpa-3.1.3.jar
+7f8bd6ebc000-7f8bd6ed5000 r--s 0018e000 08:02 3020971                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/datanucleus-core-3.1.3.jar
+7f8bd6ed5000-7f8bd6ed6000 r--s 00001000 08:02 3020896                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/jsr107cache-1.1.jar
+7f8bd6ed6000-7f8bd6edc000 r--s 00017000 08:02 3020970                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/geronimo-jpa_2.0_spec-1.0.jar
+7f8bd6edc000-7f8bd6ede000 r--s 00004000 08:02 3020890                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/appengine-endpoints-deps.jar
+7f8bd6ede000-7f8bd6f93000 r--s 00819000 08:02 3020981                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/gwt-servlet.jar
+7f8bd6f93000-7f8bd6fc0000 r--s 001c5000 08:02 3020889                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/appengine-endpoints.jar
+7f8bd6fc0000-7f8bd6fc6000 r--s 0002c000 08:02 3020907                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/jdo-api-3.0.1.jar
+7f8bd6fc6000-7f8bd70e9000 r--s 00eb7000 08:02 3020888                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/appengine-api-1.0-sdk-1.9.19.jar
+7f8bd70e9000-7f8bd70ec000 ---p 00000000 00:00 0 
+7f8bd70ec000-7f8bd71ea000 rw-p 00000000 00:00 0                          [stack:5239]
+7f8bd71ea000-7f8bd71ed000 ---p 00000000 00:00 0 
+7f8bd71ed000-7f8bd746b000 rw-p 00000000 00:00 0                          [stack:5238]
+7f8bd746b000-7f8bd74eb000 ---p 00000000 00:00 0 
+7f8bd74eb000-7f8bd76eb000 rw-p 00000000 00:00 0 
+7f8bd76eb000-7f8bd76fc000 r-xp 00000000 08:02 788082                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f8bd76fc000-7f8bd78fb000 ---p 00011000 08:02 788082                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f8bd78fb000-7f8bd78fc000 rw-p 00010000 08:02 788082                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f8bd78fc000-7f8bd7afc000 rw-p 00000000 00:00 0 
+7f8bd7afc000-7f8bd7b83000 r--s 006fa000 08:02 2887168                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/impl/appengine-local-runtime.jar
+7f8bd7b83000-7f8bd7bdc000 r--s 0059b000 08:02 2887171                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/impl/appengine-api-stubs.jar
+7f8bd7bdc000-7f8bd7cff000 r--s 00eb7000 08:02 2887164                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/impl/appengine-api.jar
+7f8bd7cff000-7f8bd7d02000 ---p 00000000 00:00 0 
+7f8bd7d02000-7f8bd8000000 rw-p 00000000 00:00 0                          [stack:5236]
+7f8bd8000000-7f8bd8021000 rw-p 00000000 00:00 0 
+7f8bd8021000-7f8bdc000000 ---p 00000000 00:00 0 
+7f8bdc000000-7f8bdc021000 rw-p 00000000 00:00 0 
+7f8bdc021000-7f8be0000000 ---p 00000000 00:00 0 
+7f8be0000000-7f8be0272000 rw-p 00000000 00:00 0 
+7f8be0272000-7f8be4000000 ---p 00000000 00:00 0 
+7f8be4000000-7f8be4021000 rw-p 00000000 00:00 0 
+7f8be4021000-7f8be8000000 ---p 00000000 00:00 0 
+7f8be8000000-7f8be8306000 rw-p 00000000 00:00 0 
+7f8be8306000-7f8bec000000 ---p 00000000 00:00 0 
+7f8bec000000-7f8bec2f7000 rw-p 00000000 00:00 0 
+7f8bec2f7000-7f8bf0000000 ---p 00000000 00:00 0 
+7f8bf0000000-7f8bf0021000 rw-p 00000000 00:00 0 
+7f8bf0021000-7f8bf4000000 ---p 00000000 00:00 0 
+7f8bf4000000-7f8bf4021000 rw-p 00000000 00:00 0 
+7f8bf4021000-7f8bf8000000 ---p 00000000 00:00 0 
+7f8bf8000000-7f8bf8021000 rw-p 00000000 00:00 0 
+7f8bf8021000-7f8bfc000000 ---p 00000000 00:00 0 
+7f8bfc000000-7f8bfc021000 rw-p 00000000 00:00 0 
+7f8bfc021000-7f8c00000000 ---p 00000000 00:00 0 
+7f8c00000000-7f8c00021000 rw-p 00000000 00:00 0 
+7f8c00021000-7f8c04000000 ---p 00000000 00:00 0 
+7f8c04000000-7f8c04021000 rw-p 00000000 00:00 0 
+7f8c04021000-7f8c08000000 ---p 00000000 00:00 0 
+7f8c08000000-7f8c08021000 rw-p 00000000 00:00 0 
+7f8c08021000-7f8c0c000000 ---p 00000000 00:00 0 
+7f8c0c000000-7f8c0c001000 r--s 00003000 08:02 3020917                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/jta-1.1.jar
+7f8c0c001000-7f8c0c003000 r--s 0000a000 08:02 3020914                    /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/lib/asm-4.0.jar
+7f8c0c003000-7f8c0c005000 r--s 00006000 08:02 2887178                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/impl/agent/appengine-agentruntime.jar
+7f8c0c005000-7f8c0c00f000 r--s 0004b000 08:02 2887136                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/tools/jsp/repackaged-appengine-jakarta-standard-1.1.2.jar
+7f8c0c00f000-7f8c0c03f000 r--s 00cf7000 08:02 2887163                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/impl/appengine-api-labs.jar
+7f8c0c03f000-7f8c0c0a9000 r--s 0061c000 08:02 2887167                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/impl/google_sql.jar
+7f8c0c0a9000-7f8c0c0c0000 r-xp 00000000 08:02 2363542                    /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f8c0c0c0000-7f8c0c2c0000 ---p 00017000 08:02 2363542                    /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f8c0c2c0000-7f8c0c2c1000 r--p 00017000 08:02 2363542                    /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f8c0c2c1000-7f8c0c2c2000 rw-p 00018000 08:02 2363542                    /lib/x86_64-linux-gnu/libresolv-2.19.so
+7f8c0c2c2000-7f8c0c2c4000 rw-p 00000000 00:00 0 
+7f8c0c2c4000-7f8c0c2c9000 r-xp 00000000 08:02 2363489                    /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f8c0c2c9000-7f8c0c4c8000 ---p 00005000 08:02 2363489                    /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f8c0c4c8000-7f8c0c4c9000 r--p 00004000 08:02 2363489                    /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f8c0c4c9000-7f8c0c4ca000 rw-p 00005000 08:02 2363489                    /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7f8c0c4ca000-7f8c0c4cc000 r-xp 00000000 08:02 2363497                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f8c0c4cc000-7f8c0c6cb000 ---p 00002000 08:02 2363497                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f8c0c6cb000-7f8c0c6cc000 r--p 00001000 08:02 2363497                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f8c0c6cc000-7f8c0c6cd000 rw-p 00002000 08:02 2363497                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f8c0c6cd000-7f8c0c6e0000 r--s 00344000 08:02 788159                     /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+7f8c0c6e0000-7f8c0c6f6000 r-xp 00000000 08:02 788009                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f8c0c6f6000-7f8c0c8f6000 ---p 00016000 08:02 788009                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f8c0c8f6000-7f8c0c8f7000 rw-p 00016000 08:02 788009                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f8c0c8f7000-7f8c0c90d000 r-xp 00000000 08:02 2363443                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8c0c90d000-7f8c0cb0c000 ---p 00016000 08:02 2363443                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8c0cb0c000-7f8c0cb0d000 rw-p 00015000 08:02 2363443                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8c0cb0d000-7f8c0cb19000 r--s 00152000 08:02 2887135                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/tools/jsp/repackaged-appengine-jasper-jdt-6.0.29.jar
+7f8c0cb19000-7f8c0cb1b000 r--s 00003000 08:02 2887137                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/tools/jsp/repackaged-appengine-jakarta-jstl-1.1.2.jar
+7f8c0cb1b000-7f8c0cb20000 r--s 0003f000 08:02 924695                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar
+7f8c0cb20000-7f8c0cb52000 r-xp 00000000 08:02 788075                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f8c0cb52000-7f8c0cd51000 ---p 00032000 08:02 788075                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f8c0cd51000-7f8c0cd57000 rw-p 00031000 08:02 788075                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f8c0cd57000-7f8c0cd67000 rw-p 00000000 00:00 0 
+7f8c0cd67000-7f8c0cd6a000 r--s 0003a000 08:02 924691                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunpkcs11.jar
+7f8c0cd6a000-7f8c0cd6d000 r--s 0001a000 08:02 788183                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7f8c0cd6d000-7f8c0cd72000 r--s 00094000 08:02 787998                     /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+7f8c0cd72000-7f8c0cd7d000 r--s 00116000 08:02 924698                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar
+7f8c0cd7d000-7f8c0cd99000 r--s 00393000 08:02 924694                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar
+7f8c0cd99000-7f8c0cd9c000 ---p 00000000 00:00 0 
+7f8c0cd9c000-7f8c0ce9a000 rw-p 00000000 00:00 0                          [stack:5232]
+7f8c0ce9a000-7f8c0ce9b000 ---p 00000000 00:00 0 
+7f8c0ce9b000-7f8c0cf9b000 rw-p 00000000 00:00 0                          [stack:5231]
+7f8c0cf9b000-7f8c0cf9e000 ---p 00000000 00:00 0 
+7f8c0cf9e000-7f8c0d09c000 rw-p 00000000 00:00 0                          [stack:5230]
+7f8c0d09c000-7f8c0d09f000 ---p 00000000 00:00 0 
+7f8c0d09f000-7f8c0d19d000 rw-p 00000000 00:00 0                          [stack:5229]
+7f8c0d19d000-7f8c0d1a0000 ---p 00000000 00:00 0 
+7f8c0d1a0000-7f8c0d29e000 rw-p 00000000 00:00 0                          [stack:5228]
+7f8c0d29e000-7f8c0d2a1000 ---p 00000000 00:00 0 
+7f8c0d2a1000-7f8c0d39f000 rw-p 00000000 00:00 0                          [stack:5227]
+7f8c0d39f000-7f8c0d3a4000 r--s 00054000 08:02 2887130                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/agent/appengine-agentimpl.jar
+7f8c0d3a4000-7f8c0d3a6000 r--s 0000e000 08:02 2889010                    /opt/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.6.0/gwt-2.6.0/validation-api-1.0.0.GA-sources.jar
+7f8c0d3a6000-7f8c0d3f8000 rw-p 00000000 00:00 0 
+7f8c0d3f8000-7f8c0d5fe000 r--s 0242a000 08:02 2889023                    /opt/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.6.0/gwt-2.6.0/gwt-dev.jar
+7f8c0d5fe000-7f8c0d703000 r--s 01aaf000 08:02 2889025                    /opt/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.6.0/gwt-2.6.0/gwt-user.jar
+7f8c0d703000-7f8c0d708000 r--s 00049000 08:02 2887231                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/datanucleus-api-jdo-3.1.3.jar
+7f8c0d708000-7f8c0d70e000 r--s 0004e000 08:02 2887237                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/datanucleus-appengine-2.1.2.jar
+7f8c0d70e000-7f8c0d727000 r--s 0018e000 08:02 2887235                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/datanucleus-core-3.1.3.jar
+7f8c0d727000-7f8c0d84a000 r--s 00eb7000 08:02 2887149                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/user/appengine-api-1.0-sdk-1.9.19.jar
+7f8c0d84a000-7f8c0d8ef000 r--s 00768000 08:02 2887128                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/appengine-tools-api.jar
+7f8c0d8ef000-7f8c0d8f2000 ---p 00000000 00:00 0 
+7f8c0d8f2000-7f8c0d9f0000 rw-p 00000000 00:00 0                          [stack:5226]
+7f8c0d9f0000-7f8c0ddee000 r--p 00000000 08:02 790760                     /usr/lib/locale/locale-archive
+7f8c0ddee000-7f8c0ddf1000 ---p 00000000 00:00 0 
+7f8c0ddf1000-7f8c0deef000 rw-p 00000000 00:00 0                          [stack:5225]
+7f8c0deef000-7f8c0def2000 ---p 00000000 00:00 0 
+7f8c0def2000-7f8c0dff0000 rw-p 00000000 00:00 0                          [stack:5224]
+7f8c0dff0000-7f8c0dff1000 ---p 00000000 00:00 0 
+7f8c0dff1000-7f8c10000000 rw-p 00000000 00:00 0                          [stack:5223]
+7f8c10000000-7f8c10021000 rw-p 00000000 00:00 0 
+7f8c10021000-7f8c14000000 ---p 00000000 00:00 0 
+7f8c14000000-7f8c14001000 r--s 00009000 08:02 924693                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunec.jar
+7f8c14001000-7f8c1402e000 r--s 001c5000 08:02 2887241                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/appengine-endpoints/v1/appengine-endpoints.jar
+7f8c1402e000-7f8c1405e000 r--s 00cf7000 08:02 2887245                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/appengine-api-labs/v1/appengine-api-labs.jar
+7f8c1405e000-7f8c140ad000 rw-p 00000000 00:00 0 
+7f8c140ad000-7f8c14286000 r--s 03d09000 08:02 788187                     /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+7f8c14286000-7f8c14bfc000 rw-p 00000000 00:00 0 
+7f8c14bfc000-7f8c14bfd000 ---p 00000000 00:00 0 
+7f8c14bfd000-7f8c14cfd000 rw-p 00000000 00:00 0                          [stack:5216]
+7f8c14cfd000-7f8c14cfe000 ---p 00000000 00:00 0 
+7f8c14cfe000-7f8c14dfe000 rw-p 00000000 00:00 0                          [stack:5215]
+7f8c14dfe000-7f8c14dff000 ---p 00000000 00:00 0 
+7f8c14dff000-7f8c14eff000 rw-p 00000000 00:00 0                          [stack:5214]
+7f8c14eff000-7f8c14f00000 ---p 00000000 00:00 0 
+7f8c14f00000-7f8c15000000 rw-p 00000000 00:00 0                          [stack:5213]
+7f8c15000000-7f8c15570000 rwxp 00000000 00:00 0 
+7f8c15570000-7f8c24000000 ---p 00000000 00:00 0 
+7f8c24000000-7f8c24d85000 rw-p 00000000 00:00 0 
+7f8c24d85000-7f8c28000000 ---p 00000000 00:00 0 
+7f8c28000000-7f8c28001000 r--s 00000000 08:02 2887131                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/agent/appengine-agent.jar
+7f8c28001000-7f8c28004000 r--s 00009000 08:02 2889004                    /opt/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.6.0/gwt-2.6.0/validation-api-1.0.0.GA.jar
+7f8c28004000-7f8c28008000 r--s 0003b000 08:02 2887234                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/datanucleus-api-jpa-3.1.3.jar
+7f8c28008000-7f8c2800e000 r--s 00017000 08:02 2887230                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/geronimo-jpa_2.0_spec-1.0.jar
+7f8c2800e000-7f8c2807e000 rw-p 00000000 00:00 0 
+7f8c2807e000-7f8c28113000 ---p 00000000 00:00 0 
+7f8c28113000-7f8c28136000 rw-p 00000000 00:00 0 
+7f8c28136000-7f8c28169000 ---p 00000000 00:00 0 
+7f8c28169000-7f8c28180000 rw-p 00000000 00:00 0 
+7f8c28180000-7f8c2852a000 ---p 00000000 00:00 0 
+7f8c2852a000-7f8c28544000 r-xp 00000000 08:02 788080                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f8c28544000-7f8c28744000 ---p 0001a000 08:02 788080                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f8c28744000-7f8c28745000 rw-p 0001a000 08:02 788080                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f8c28745000-7f8c28750000 r-xp 00000000 08:02 2363491                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f8c28750000-7f8c2894f000 ---p 0000b000 08:02 2363491                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f8c2894f000-7f8c28950000 r--p 0000a000 08:02 2363491                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f8c28950000-7f8c28951000 rw-p 0000b000 08:02 2363491                    /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7f8c28951000-7f8c2895c000 r-xp 00000000 08:02 2363501                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f8c2895c000-7f8c28b5b000 ---p 0000b000 08:02 2363501                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f8c28b5b000-7f8c28b5c000 r--p 0000a000 08:02 2363501                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f8c28b5c000-7f8c28b5d000 rw-p 0000b000 08:02 2363501                    /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7f8c28b5d000-7f8c28b74000 r-xp 00000000 08:02 2363485                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f8c28b74000-7f8c28d73000 ---p 00017000 08:02 2363485                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f8c28d73000-7f8c28d74000 r--p 00016000 08:02 2363485                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f8c28d74000-7f8c28d75000 rw-p 00017000 08:02 2363485                    /lib/x86_64-linux-gnu/libnsl-2.19.so
+7f8c28d75000-7f8c28d77000 rw-p 00000000 00:00 0 
+7f8c28d77000-7f8c28d80000 r-xp 00000000 08:02 2363487                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f8c28d80000-7f8c28f7f000 ---p 00009000 08:02 2363487                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f8c28f7f000-7f8c28f80000 r--p 00008000 08:02 2363487                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f8c28f80000-7f8c28f81000 rw-p 00009000 08:02 2363487                    /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7f8c28f81000-7f8c28f8b000 r-xp 00000000 08:02 788052                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7f8c28f8b000-7f8c2918a000 ---p 0000a000 08:02 788052                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7f8c2918a000-7f8c2918b000 rw-p 00009000 08:02 788052                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7f8c2918b000-7f8c291b5000 r-xp 00000000 08:02 788066                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f8c291b5000-7f8c293b5000 ---p 0002a000 08:02 788066                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f8c293b5000-7f8c293b7000 rw-p 0002a000 08:02 788066                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f8c293b7000-7f8c293c4000 r-xp 00000000 08:02 788074                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f8c293c4000-7f8c295c4000 ---p 0000d000 08:02 788074                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f8c295c4000-7f8c295c6000 rw-p 0000d000 08:02 788074                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f8c295c6000-7f8c295cd000 r-xp 00000000 08:02 2363544                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f8c295cd000-7f8c297cc000 ---p 00007000 08:02 2363544                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f8c297cc000-7f8c297cd000 r--p 00006000 08:02 2363544                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f8c297cd000-7f8c297ce000 rw-p 00007000 08:02 2363544                    /lib/x86_64-linux-gnu/librt-2.19.so
+7f8c297ce000-7f8c298d3000 r-xp 00000000 08:02 2363466                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f8c298d3000-7f8c29ad2000 ---p 00105000 08:02 2363466                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f8c29ad2000-7f8c29ad3000 r--p 00104000 08:02 2363466                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f8c29ad3000-7f8c29ad4000 rw-p 00105000 08:02 2363466                    /lib/x86_64-linux-gnu/libm-2.19.so
+7f8c29ad4000-7f8c2a782000 r-xp 00000000 08:02 788064                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f8c2a782000-7f8c2a981000 ---p 00cae000 08:02 788064                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f8c2a981000-7f8c2aa58000 rw-p 00cad000 08:02 788064                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f8c2aa58000-7f8c2aa9c000 rw-p 00000000 00:00 0 
+7f8c2aa9c000-7f8c2ac57000 r-xp 00000000 08:02 2363416                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c2ac57000-7f8c2ae56000 ---p 001bb000 08:02 2363416                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c2ae56000-7f8c2ae5a000 r--p 001ba000 08:02 2363416                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c2ae5a000-7f8c2ae5c000 rw-p 001be000 08:02 2363416                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c2ae5c000-7f8c2ae61000 rw-p 00000000 00:00 0 
+7f8c2ae61000-7f8c2ae64000 r-xp 00000000 08:02 2363433                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c2ae64000-7f8c2b063000 ---p 00003000 08:02 2363433                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c2b063000-7f8c2b064000 r--p 00002000 08:02 2363433                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c2b064000-7f8c2b065000 rw-p 00003000 08:02 2363433                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c2b065000-7f8c2b07a000 r-xp 00000000 08:02 924739                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f8c2b07a000-7f8c2b27a000 ---p 00015000 08:02 924739                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f8c2b27a000-7f8c2b27b000 rw-p 00015000 08:02 924739                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f8c2b27b000-7f8c2b294000 r-xp 00000000 08:02 2363536                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f8c2b294000-7f8c2b493000 ---p 00019000 08:02 2363536                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f8c2b493000-7f8c2b494000 r--p 00018000 08:02 2363536                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f8c2b494000-7f8c2b495000 rw-p 00019000 08:02 2363536                    /lib/x86_64-linux-gnu/libpthread-2.19.so
+7f8c2b495000-7f8c2b499000 rw-p 00000000 00:00 0 
+7f8c2b499000-7f8c2b4bc000 r-xp 00000000 08:02 2363392                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f8c2b4bc000-7f8c2b4be000 r--s 00017000 08:02 2889011                    /opt/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.6.0/gwt-2.6.0/gwt-codeserver.jar
+7f8c2b4be000-7f8c2b4bf000 r--s 00003000 08:02 2887236                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/jta-1.1.jar
+7f8c2b4bf000-7f8c2b4c1000 r--s 0000a000 08:02 2887229                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/asm-4.0.jar
+7f8c2b4c1000-7f8c2b4c7000 r--s 0002c000 08:02 2887233                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/datanucleus/v2/jdo-api-3.0.1.jar
+7f8c2b4c7000-7f8c2b4c8000 r--s 00001000 08:02 2887251                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/jsr107/v1/appengine-jsr107cache-1.9.19.jar
+7f8c2b4c8000-7f8c2b4c9000 r--s 00001000 08:02 2887252                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/jsr107/v1/jsr107cache-1.1.jar
+7f8c2b4c9000-7f8c2b4cb000 r--s 00004000 08:02 2887240                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/appengine-endpoints/v1/appengine-endpoints-deps.jar
+7f8c2b4cb000-7f8c2b4cc000 r--s 00006000 08:02 2887191                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-tomcat-juli-6.0.29.jar
+7f8c2b4cc000-7f8c2b4e0000 r--s 0012b000 08:02 2887190                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-ant-1.7.1.jar
+7f8c2b4e0000-7f8c2b4e3000 r--s 00018000 08:02 2887186                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-jasper-el-6.0.29.jar
+7f8c2b4e3000-7f8c2b4ea000 r--s 0007a000 08:02 2887188                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-jasper-6.0.29.jar
+7f8c2b4ea000-7f8c2b4ec000 r--s 00011000 08:02 2887183                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp-api.jar
+7f8c2b4ec000-7f8c2b50b000 rw-p 00000000 00:00 0 
+7f8c2b50b000-7f8c2b5a1000 ---p 00000000 00:00 0 
+7f8c2b5a1000-7f8c2b5a4000 ---p 00000000 00:00 0 
+7f8c2b5a4000-7f8c2b6a6000 rw-p 00000000 00:00 0                          [stack:5212]
+7f8c2b6a6000-7f8c2b6a7000 r--s 00002000 08:02 2887189                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-ant-launcher-1.7.1.jar
+7f8c2b6a7000-7f8c2b6aa000 r--s 00014000 08:02 2887184                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/servlet-api.jar
+7f8c2b6aa000-7f8c2b6ac000 r--s 00006000 08:02 2887182                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/el-api.jar
+7f8c2b6ac000-7f8c2b6af000 r--s 00039000 08:02 2887181                    /opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/appengine-local-runtime-shared.jar
+7f8c2b6af000-7f8c2b6b7000 rw-s 00000000 08:02 3021698                    /tmp/hsperfdata_sergio/5207
+7f8c2b6b7000-7f8c2b6b8000 rw-p 00000000 00:00 0 
+7f8c2b6b8000-7f8c2b6b9000 r--p 00000000 00:00 0 
+7f8c2b6b9000-7f8c2b6bb000 rw-p 00000000 00:00 0 
+7f8c2b6bb000-7f8c2b6bc000 r--p 00022000 08:02 2363392                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f8c2b6bc000-7f8c2b6bd000 rw-p 00023000 08:02 2363392                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f8c2b6bd000-7f8c2b6be000 rw-p 00000000 00:00 0 
+7fff6d90d000-7fff6d92f000 rw-p 00000000 00:00 0                          [stack]
+7fff6d97d000-7fff6d97f000 r-xp 00000000 00:00 0                          [vdso]
+7fff6d97f000-7fff6d981000 r--p 00000000 00:00 0                          [vvar]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Ddatastore.default_high_rep_job_policy_unapplied_job_pct=50 -Xmx512m -javaagent:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/agent/appengine-agent.jar -Dfile.encoding=UTF-8 
+java_command: com.google.appengine.tools.development.DevAppServerMain --port=8888 /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war
+java_class_path (initial): /home/sergio/Programacion/Workspace/factGestor/es.upm.dit.isst.factGest/war/WEB-INF/classes:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/appengine-local-runtime-shared.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/el-api.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/servlet-api.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp-api.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-jasper-6.0.29.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-jasper-el-6.0.29.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-ant-1.7.1.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-ant-launcher-1.7.1.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/shared/jsp/repackaged-appengine-tomcat-juli-6.0.29.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/appengine-tools-api.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/appengine-api-labs/v1/appengine-api-labs.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/appengine-endpoints/v1/appengine-endpoints.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.9.19/appengine-java-sdk-1.9.19/lib/opt/user/appengine-endpoints/v1/appengine-endpoints-deps.jar:/opt/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xaad1e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xaad1e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x90b450], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x90b450], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x90b450], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x90b450], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x90ca90], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x90dde0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x90dde0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x90dde0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x90dde0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID="elementary OS"
+DISTRIB_RELEASE=0.3
+DISTRIB_CODENAME=freya
+DISTRIB_DESCRIPTION="elementary OS Freya"
+
+uname:Linux 3.16.0-34-generic #47~14.04.1-Ubuntu SMP Fri Apr 10 17:49:16 UTC 2015 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 15691, NOFILE 4096, AS infinity
+load average:0,05 0,23 0,31
+
+/proc/meminfo:
+MemTotal:        4046736 kB
+MemFree:          538300 kB
+MemAvailable:    1883164 kB
+Buffers:           67796 kB
+Cached:          1428852 kB
+SwapCached:            0 kB
+Active:          2579900 kB
+Inactive:         711544 kB
+Active(anon):    1795684 kB
+Inactive(anon):     8556 kB
+Active(file):     784216 kB
+Inactive(file):   702988 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        2097148 kB
+Dirty:               556 kB
+Writeback:             0 kB
+AnonPages:       1794956 kB
+Mapped:           286828 kB
+Shmem:              9448 kB
+Slab:              81544 kB
+SReclaimable:      53172 kB
+SUnreclaim:        28372 kB
+KernelStack:        8256 kB
+PageTables:        28224 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     4120516 kB
+Committed_AS:    4663220 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      307580 kB
+VmallocChunk:   34359425532 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    835584 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      156608 kB
+DirectMap2M:     4036608 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 23 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Quad  CPU   Q9550  @ 2.83GHz
+stepping	: 7
+microcode	: 0x705
+cpu MHz		: 2834.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 5666.28
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Quad  CPU   Q9550  @ 2.83GHz
+stepping	: 7
+microcode	: 0x705
+cpu MHz		: 2834.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 5666.28
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Quad  CPU   Q9550  @ 2.83GHz
+stepping	: 7
+microcode	: 0x705
+cpu MHz		: 2834.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 5666.28
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Quad  CPU   Q9550  @ 2.83GHz
+stepping	: 7
+microcode	: 0x705
+cpu MHz		: 2834.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm sse4_1 lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 5666.28
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 4046736k(538052k free), swap 2097148k(2097148k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.45-b02) for linux-amd64 JRE (1.8.0_45-b14), built on Apr 10 2015 10:07:45 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Sun Apr 26 18:19:25 2015
+elapsed time: 1 seconds (0d 0h 0m 1s)
+

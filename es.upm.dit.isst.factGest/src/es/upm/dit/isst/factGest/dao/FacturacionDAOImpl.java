@@ -54,7 +54,7 @@ public class FacturacionDAOImpl implements FacturacionDAO {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("SELECT f FROM Facturacion f "
 				+ "WHERE f.userId = :id " + "AND f.paisId = :pid",
-				Usuario.class);
+				Facturacion.class);
 		q.setParameter("id", userId);
 		q.setParameter("pid", paisID);
 		List<Facturacion> facturas = q.getResultList();
@@ -66,7 +66,7 @@ public class FacturacionDAOImpl implements FacturacionDAO {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em.createQuery("SELECT f FROM Facturacion f "
 				+ "WHERE f.userId = :id " + "AND f.domainId = :pid",
-				Usuario.class);
+				Facturacion.class);
 		q.setParameter("id", userId);
 		q.setParameter("pid", dominioID);
 		List<Facturacion> facturas = q.getResultList();
@@ -76,10 +76,9 @@ public class FacturacionDAOImpl implements FacturacionDAO {
 	@Override
 	public List<Facturacion> getFacturasFecha(Long userId, Date fecha) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em
-				.createQuery("SELECT f FROM Facturacion f "
-						+ "WHERE f.userId = :id " + "AND f.fecha = :pid",
-						Usuario.class);
+		Query q = em.createQuery("SELECT f FROM Facturacion f "
+				+ "WHERE f.userId = :id " + "AND f.fecha = :pid",
+				Facturacion.class);
 		q.setParameter("id", userId);
 		q.setParameter("pid", Facturacion.sdf.format(fecha));
 		List<Facturacion> facturas = q.getResultList();

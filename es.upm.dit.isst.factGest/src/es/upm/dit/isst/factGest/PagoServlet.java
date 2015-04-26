@@ -54,7 +54,7 @@ public class PagoServlet extends HttpServlet {
 		Usuario u = daoUser.getUsuario(usuario.getId());
 		//usuario ya actualizado
 		long aux1 = u.getFechaRegistro().getTime();
-		long aux2 = u.getFechaSuscripcion().getTime();
+		long aux2 = u.getFechaSuscripcion().getTime()+1;
 		Date fecha = new Date();
 		long aux3 = fecha.getTime();
 		int aux = (int) (200*(aux2-aux3)/(aux2-aux1));
@@ -74,15 +74,15 @@ public class PagoServlet extends HttpServlet {
 		
 		if(cantidad==9.99){
 			daoUser.anadirSuscripcion(1, usuario.getId());
-			return "Suscripción mensual";			
+			return "Suscripciï¿½n mensual";			
 		}
 		else if(cantidad==49.99){
 			daoUser.anadirSuscripcion(6, usuario.getId());
-			return "Suscripción de medio año";
+			return "Suscripciï¿½n de medio aï¿½o";
 		}
 		else if(cantidad==79.99){
 			daoUser.anadirSuscripcion(12, usuario.getId());
-			return "Suscripción anual";
+			return "Suscripciï¿½n anual";
 		}
 		else{
 			Integer numCons = cantidad.intValue();

@@ -25,23 +25,19 @@
 		
 		<table class="tablaInforme">
 			<tr>
-				<th>Factura</th>
-				<th>ID Usuario</th>
+				<th>Número Factura</th>
 				<th>Dominio</th>
 				<th>IVA Pagado</th>
-				<th>ID de País</th>
-				<th>Número Factura</th>
+				<th>País</th>
 				<th>Tipo de IVA</th>
 				<th>Fecha</th>
 			</tr>
 			<c:forEach items="${facturas}" var="factura">
 				<tr>
-					<td><c:out value="${factura.id}" /></td>
-					<td><c:out value="${factura.userid}" /></td>
-					<td><c:out value="${factura.domain}" /></td>
-					<td><c:out value="${factura.ivapagado}" /></td>
-					<td><c:out value="${factura.paisId}" /></td>
 					<td><c:out value="${factura.numeroFactura}" /></td>
+					<td><c:out value="${factura.dominio}" /></td>
+					<td><c:out value="${factura.ivapagado}" /></td>
+					<td><c:out value="${factura.pais}" /></td>
 					<td><c:out value="${factura.tipoIVA}" /></td>
 					<td><c:out value="${factura.fecha}" /></td>
 					</td>
@@ -52,7 +48,7 @@
 
 		<br> <br> <br>
 		<button class="boton" onclick="window.print();">Imprimir factura</button>
-		<br> <br> <a href="https://www.fact-gest.appspot.com/">
+		<br> <br> <a href="https://www.taxy-gest.appspot.com/">
 			<button class="boton">Volver</button>
 		</a>
 	</div>

@@ -40,7 +40,7 @@ public class LogueadoServlet extends HttpServlet {
 			Long id = daoUser.getId(name);
 			u = daoUser.getUsuario(id);
 			long aux1 = u.getFechaRegistro().getTime();
-			long aux2 = u.getFechaSuscripcion().getTime();
+			long aux2 = u.getFechaSuscripcion().getTime()+1;
 			Date fecha = new Date();
 			long aux3 = fecha.getTime();
 			int aux = (int) (200*(aux2-aux3)/(aux2-aux1));

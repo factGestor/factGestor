@@ -61,7 +61,7 @@ function fechaSeleccionada(formulario){
 					<% 	String[] paises ={"España","Alemania","Austria","Bélgica","Croacia","Dinamarca","Eslovaquia","Eslovenia","Estonia","Finlandia","Francia","Grecia","Hungría","Irlanda","Italia","Letonia","Lituania","Luxemburgo","Malta","Países Bajos","Polonia","Portugal","Reino Unido","República Checa","Rumania","Suecia"};
 					String[] paisesValue ={"spain","germany","austria","belgium","croatia","denmark","slovakia","slovenia","estonia","finland","france","greece","hungary","ireland","italy","latvia","lithuania","luxembourg","malta","netherlands","poland","portugal","unitedkingdom","czechrepublic","romania","sweeden"};
 for (int i=0;i<paises.length;i++) { 
-					out.println("<option value=&quot"+paisesValue[i]+"&quot style=&quot width: 100px&quot>"+paises[i]+"</option>");
+					out.println("<option value="+paisesValue[i]+" style=&quot width: 100px&quot>"+paises[i]+"</option>");
 					} %>
 				</select>
 			</div>
@@ -69,17 +69,17 @@ for (int i=0;i<paises.length;i++) {
 				<p>Elija Fecha de la factura:</p>
 				<select name="dia">
 					<% 	for (int i=1;i<32;i++) { 
-					out.println("<option value=&quot"+i+"&quot >"+i+"</option>");
+					out.println("<option value="+i+" >"+i+"</option>");
 					} %>
 				</select> <select name="mes" id="mes">
 					<% 	String[] meses ={"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
-for (int i=0;i<12;i++) { 
-					out.println("<option value=&quot"+i+1+"&quot >"+meses[i]+"</option>");
+for (int i=1;i<13;i++) { 
+					out.println("<option value="+i+" >"+meses[i-1]+"</option>");
 					} %>
 				</select> <select name="ano">
 					<% 
 for (int i=1990;i<2016;i++) { 
-					out.println("<option value=&quot"+i+"&quot style=&quotwidth: 100px&quot>"+i+"</option>");
+					out.println("<option value="+i+" style=&quotwidth: 100px&quot>"+i+"</option>");
 					} %>
 				</select>
 			</div>
@@ -102,7 +102,7 @@ for (int i=1990;i<2016;i++) {
 			</p>
 		</form>
 
-		<a href="https://www.fact-gest.appspot.com/">
+		<a href="https://www.taxy-gest.appspot.com/">
 			<button class="boton">Volver</button>
 		</a>
 	</div>

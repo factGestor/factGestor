@@ -29,52 +29,80 @@ public class EmitirInformesServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
-		
-		HttpSession misession= (HttpSession) req.getSession();
+
+		HttpSession misession = (HttpSession) req.getSession();
 		Usuario u = (Usuario) misession.getAttribute("u");
 		Long idUsuario = u.getId();
 		FacturacionDAO daoFactura = FacturacionDAOImpl.getInstance();
+		DominioDAO daoDominio = DominioDAOImpl.getInstance();
+		PaisDAO daoPais = PaisDAOImpl.getInstance();
 		String opcion = req.getParameter("tarifa");
-		
-		if(opcion=="fechaCon"){
-			
-			Date fecha = new Date();
-			
+
+		System.out.println(opcion);
+
+		if (opcion.equals("FechaCon")) {
 			String dia = req.getParameter("dia");
 			String mes = req.getParameter("mes");
 			String ano = req.getParameter("ano");
-			String fechaCompleta = ano+"/"+mes+"/"+dia;
-			
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+			String fechaCompleta = ano + "-" + mes + "-" + dia;
+
 			try {
-				fecha = formatter.parse(fechaCompleta);
-				List<Facturacion> facturas=daoFactura.getFacturasFecha(idUsuario,fecha);
+				System.out.println(fechaCompleta);
+				Date fecha = Facturacion.sdf.parse(fechaCompleta);
+				System.out.println(Facturacion.sdf.format(fecha));
+				List<Facturacion> facturas = daoFactura.getFacturasFecha(
+						idUsuario, fecha);
+				for (Facturacion factura : facturas) {
+					factura.setDominio(daoDominio.getDominio(
+							factura.getDomain()).getDomain());
+					factura.setPais(daoPais.getPais(factura.getPaisId())
+							.getName());
+				}
+				req.getSession().removeAttribute("facturas");
 				req.getSession().setAttribute("facturas", facturas);
-				RequestDispatcher view = req.getRequestDispatcher("emitirInforme.jsp");
+				RequestDispatcher view = req
+						.getRequestDispatcher("emitirInforme.jsp");
 				view.forward(req, resp);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		else if(opcion=="Pais"){
-			PaisDAO daoPais = PaisDAOImpl.getInstance();
+		
+		if (opcion.equals("Pais")) {
 			String paisS = req.getParameter("pais");
-			Pais pais = daoPais.getPaisByName(paisS);
-			Long paisId=pais.getId();
-			List<Facturacion> facturas = daoFactura.getFacturasPais(idUsuario,paisId);
+			Pais pais = daoPais.getPaisByCode(paisS.toString());
+			Long paisId = pais.getId();
+			List<Facturacion> facturas = daoFactura.getFacturasPais(idUsuario,
+					paisId);
+			for (Facturacion factura : facturas) {
+				factura.setDominio(daoDominio.getDominio(factura.getDomain())
+						.getDomain());
+				factura.setPais(daoPais.getPais(factura.getPaisId()).getName());
+			}
+			req.getSession().removeAttribute("facturas");
 			req.getSession().setAttribute("facturas", facturas);
-			RequestDispatcher view = req.getRequestDispatcher("emitirInforme.jsp");
+			RequestDispatcher view = req
+					.getRequestDispatcher("emitirInforme.jsp");
 			view.forward(req, resp);
 		}
-		else{
-			DominioDAO daoDominio = DominioDAOImpl.getInstance();
+		
+		if(opcion.equals("Dominio")) {
+			System.out.println("entrodominio");
 			String dominioS = req.getParameter("dominio");
 			Dominio dominio = daoDominio.getDominioByName(dominioS);
-			Long dominioId=dominio.getId();
-			List<Facturacion> facturas=daoFactura.getFacturasDominio(idUsuario,dominioId);
+			Long dominioId = dominio.getId();
+			List<Facturacion> facturas = daoFactura.getFacturasDominio(
+					idUsuario, dominioId);
+			for (Facturacion factura : facturas) {
+				factura.setDominio(daoDominio.getDominio(factura.getDomain())
+						.getDomain());
+				factura.setPais(daoPais.getPais(factura.getPaisId()).getName());
+			}
+			req.getSession().removeAttribute("facturas");
 			req.getSession().setAttribute("facturas", facturas);
-			RequestDispatcher view = req.getRequestDispatcher("emitirInforme.jsp");
+			RequestDispatcher view = req
+					.getRequestDispatcher("emitirInforme.jsp");
 			view.forward(req, resp);
 		}
 	}
